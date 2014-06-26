@@ -17,7 +17,15 @@
             
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    /*Set the color of the tabs based on the color for the Group
+    //self.tabBarController.tabBar.tintColor = [UIColor greenColor]; // <-- hard coded
+     
+    something like the following
+     [PFUser currentUser]valueAtKey:@"currentGroup"
+     currentGroup valueAtKey:@"color";
+     put that into a UIColor, figure this out later.
+     */
 }
 
 - (void)didReceiveMemoryWarning {
