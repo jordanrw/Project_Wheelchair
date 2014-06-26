@@ -24,6 +24,7 @@
 		AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB82195C726F009F1A90 /* DocsViewController.m */; };
 		AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD69BB87195C73EB009F1A90 /* google_drive.jpg */; };
 		AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB8A195C7664009F1A90 /* ChatViewController.m */; };
+		AD69BB8E195CC435009F1A90 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD69BB8D195CC435009F1A90 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		AD69BB87195C73EB009F1A90 /* google_drive.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = google_drive.jpg; sourceTree = "<group>"; };
 		AD69BB89195C7664009F1A90 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		AD69BB8A195C7664009F1A90 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		AD69BB8D195CC435009F1A90 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../*Frameworks/Parse.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD69BB8E195CC435009F1A90 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +93,7 @@
 				AD69BB3D195B9F3F009F1A90 /* Group_Project */,
 				AD69BB57195B9F3F009F1A90 /* Group_ProjectTests */,
 				AD69BB3C195B9F3F009F1A90 /* Products */,
+				AD69BB8F195CC43A009F1A90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,13 +154,13 @@
 			isa = PBXGroup;
 			children = (
 				AD69BB87195C73EB009F1A90 /* google_drive.jpg */,
-				AD69BB69195C6FA5009F1A90 /* png */,
+				AD69BB69195C6FA5009F1A90 /* tabbar */,
 			);
 			name = Images;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		AD69BB69195C6FA5009F1A90 /* png */ = {
+		AD69BB69195C6FA5009F1A90 /* tabbar */ = {
 			isa = PBXGroup;
 			children = (
 				AD69BB74195C704B009F1A90 /* tab_todo.png */,
@@ -166,6 +170,7 @@
 				AD69BB6E195C6FA5009F1A90 /* tab_settings.png */,
 				AD69BB67195C6F02009F1A90 /* tab_doc.png */,
 			);
+			name = tabbar;
 			path = png;
 			sourceTree = "<group>";
 		};
@@ -213,6 +218,14 @@
 				AD69BB8A195C7664009F1A90 /* ChatViewController.m */,
 			);
 			name = Chat;
+			sourceTree = "<group>";
+		};
+		AD69BB8F195CC43A009F1A90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD69BB8D195CC435009F1A90 /* Parse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +455,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jwhite3/Developer/*Frameworks",
+				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,6 +470,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jwhite3/Developer/*Frameworks",
+				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -40,23 +40,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
+#pragma mark - Table view data source
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 2;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 3;
-}
+    return 5;
+}*/
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settings_cell" forIndexPath:indexPath];
@@ -64,7 +65,7 @@
     // Configure the cell...
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
