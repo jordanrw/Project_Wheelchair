@@ -25,4 +25,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)currentUser:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Current User" message:@"place the user info here" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 @end

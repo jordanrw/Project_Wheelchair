@@ -36,7 +36,7 @@
 }
 
 - (IBAction)login:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Feature coming soon..." message:@"\n Ability to view group documents. \n Download future updates." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Feature coming soon..." message:@"\n The ability to view group documents is coming in a future update." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
     [alert show];
 }
 
