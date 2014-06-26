@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h> 
 
 @interface AppDelegate ()
             
@@ -19,10 +20,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //Assign the keys and id's for Parse
+    [Parse setApplicationId:@"cTWMa4yjafZA6U54SDMPmsH0uyNWy2VtkBtUIKKI"
+                  clientKey:@"G6BqkwayQJvyHIORng64Vd3Vqgb3uzB0Z3XZyBUq"];
+    //[PFFacebookUtils initializeFacebook];
+    //[PFTwitterUtils initializeWithConsumerKey:@"" consumerSecret:@""];
     
+    //Set defaults ACL
+    PFACL *defaultACL = [PFACL ACL];
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
+
     
-    // Override point for customization after application launch.
     return YES;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "LoginViewController.h"
+#import <Parse/Parse.h> 
 
 @interface SettingsTableViewController ()
 
@@ -32,8 +34,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+/*
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    LoginViewController *loginVC = [[LoginViewController alloc]init];
+    [self presentViewController:loginVC animated:YES completion:nil];
     
 }
+ */
 
 - (void)didReceiveMemoryWarning
 {
