@@ -7,6 +7,7 @@
 //
 
 #import "ChatViewController.h"
+#import <Parse/Parse.h> 
 
 @interface ChatViewController ()
 

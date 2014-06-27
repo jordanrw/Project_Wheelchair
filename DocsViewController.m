@@ -7,6 +7,7 @@
 //
 
 #import "DocsViewController.h"
+#import <Parse/Parse.h>
 
 @interface DocsViewController ()
 

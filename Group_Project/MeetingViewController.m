@@ -7,6 +7,7 @@
 //
 
 #import "MeetingViewController.h"
+#import <Parse/Parse.h>
 
 @interface MeetingViewController ()
             
