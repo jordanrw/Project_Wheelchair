@@ -12,6 +12,8 @@
 
 @interface SettingsTableViewController ()
 
+@property BOOL hasShown;
+
 @end
 
 @implementation SettingsTableViewController
@@ -36,21 +38,52 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-/*
+- (void)viewWillAppear:(BOOL)animated {
+    
+    if (![PFUser currentUser]) {
+        UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Signup" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
+        self.navigationItem.leftBarButtonItem = signup;
+    }
+    else {
+        UIBarButtonItem *logout = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logggout:)];
+        self.navigationItem.leftBarButtonItem = logout;
+    }
+    
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    LoginViewController *loginVC = [[LoginViewController alloc]init];
-    [self presentViewController:loginVC animated:YES completion:nil];
-    
+    if (![PFUser currentUser] && !_hasShown) {
+        _hasShown = YES;
+        LoginViewController *loginVC = [[LoginViewController alloc]init];
+        [self presentViewController:loginVC animated:YES completion:nil];
+    }
 }
- */
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)signnnup:(id)sender {
+    LoginViewController *loginVC = [[LoginViewController alloc]init];
+    [self presentViewController:loginVC animated:YES completion:nil];
+}
+
+- (IBAction)logggout:(id)sender {
+    [PFUser logOut];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"You are now logged out" message:@"" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    [alert show];
+    
+    //makes it switch back
+    UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Signup" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
+    self.navigationItem.leftBarButtonItem = signup;
+    
+}
+
 
 
 #pragma mark - Table view data source

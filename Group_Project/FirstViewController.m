@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import <Parse/Parse.h>
 
 @interface FirstViewController ()
             
@@ -34,7 +35,8 @@
 }
 
 - (IBAction)currentUser:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Current User" message:@"place the user info here" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    NSLog(@"%@", [PFUser currentUser]);
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Current User" message:@"look in the log" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
     [alert show];
 }
 

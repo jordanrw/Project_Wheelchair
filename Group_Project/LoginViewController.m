@@ -26,9 +26,8 @@
 }
 
 
-- (void)viewDidLoad {
-
-    [super viewDidLoad];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     if (![PFUser currentUser]) {
         //Appearance
@@ -47,8 +46,13 @@
         
         NSLog(@"This is the current user: %@", [PFUser currentUser]);
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        //[self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (void)viewDidLoad {
+
+    [super viewDidLoad];
 }
 
 
@@ -67,6 +71,7 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"Logged in --- now dismiss the view");
     //[self dismissModalViewControllerAnimated:YES];
 }
 
