@@ -13,6 +13,7 @@
 @interface SettingsTableViewController ()
 
 @property BOOL hasShown;
+@property (nonatomic, strong) UIAlertView *confirm;
 
 @end
 
@@ -41,14 +42,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     if (![PFUser currentUser]) {
-        UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Signup" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
+        UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
         self.navigationItem.leftBarButtonItem = signup;
     }
     else {
         UIBarButtonItem *logout = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logggout:)];
         self.navigationItem.leftBarButtonItem = logout;
     }
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -74,16 +74,18 @@
 }
 
 - (IBAction)logggout:(id)sender {
-    [PFUser logOut];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"You are now logged out" message:@"" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-    [alert show];
-    
-    //makes it switch back
-    UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Signup" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
-    self.navigationItem.leftBarButtonItem = signup;
-    
+    _confirm = [[UIAlertView alloc]initWithTitle:@"Are you sure?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Log out", nil];
+    [_confirm show];
 }
 
+#pragma mark - UIAlertviewDelegates
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [_confirm firstOtherButtonIndex]) {
+        [PFUser logOut];
+        UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Signup" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
+        self.navigationItem.leftBarButtonItem = signup;
+    }
+}
 
 
 #pragma mark - Table view data source
