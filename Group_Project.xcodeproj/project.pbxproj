@@ -45,7 +45,6 @@
 		AD79706B195CD9BD00004237 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706A195CD9BD00004237 /* libsqlite3.0.dylib */; };
 		AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706C195CD9DB00004237 /* FacebookSDK.framework */; };
 		AD797070195CDA4900004237 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79706F195CDA4900004237 /* LoginViewController.m */; };
-		ADF6E0831961D80800D13D95 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0821961D80800D13D95 /* AddGroupViewController.m */; };
 		ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0851961E80100D13D95 /* CreateViewController.m */; };
 		ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0881961E81500D13D95 /* JoinViewController.m */; };
 /* End PBXBuildFile section */
@@ -110,8 +109,6 @@
 		AD79706C195CD9DB00004237 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../*Frameworks/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		AD79706E195CDA4900004237 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AD79706F195CDA4900004237 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		ADF6E0811961D80800D13D95 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
-		ADF6E0821961D80800D13D95 /* AddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupViewController.m; sourceTree = "<group>"; };
 		ADF6E0841961E80100D13D95 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		ADF6E0851961E80100D13D95 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		ADF6E0871961E81500D13D95 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
@@ -322,12 +319,10 @@
 		ADF6E08A1961E81A00D13D95 /* Adding Groups */ = {
 			isa = PBXGroup;
 			children = (
-				ADF6E0811961D80800D13D95 /* AddGroupViewController.h */,
-				ADF6E0821961D80800D13D95 /* AddGroupViewController.m */,
-				ADF6E0841961E80100D13D95 /* CreateViewController.h */,
-				ADF6E0851961E80100D13D95 /* CreateViewController.m */,
 				ADF6E0871961E81500D13D95 /* JoinViewController.h */,
 				ADF6E0881961E81500D13D95 /* JoinViewController.m */,
+				ADF6E0841961E80100D13D95 /* CreateViewController.h */,
+				ADF6E0851961E80100D13D95 /* CreateViewController.m */,
 			);
 			name = "Adding Groups";
 			sourceTree = "<group>";
@@ -442,7 +437,6 @@
 				AD69BB4A195B9F3F009F1A90 /* MeetingViewController.m in Sources */,
 				ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */,
 				AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */,
-				ADF6E0831961D80800D13D95 /* AddGroupViewController.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
 				AD69BB47195B9F3F009F1A90 /* FirstViewController.m in Sources */,
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,

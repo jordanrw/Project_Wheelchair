@@ -8,7 +8,8 @@
 
 #import "SettingsTableViewController.h"
 #import "LoginViewController.h"
-#import "AddGroupViewController.h"
+#import "JoinViewController.h"
+#import "CreateViewController.h"
 #import <Parse/Parse.h> 
 
 @interface SettingsTableViewController ()
@@ -40,7 +41,13 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
     self.navigationItem.rightBarButtonItem = add;
-
+    /*Broken implementation of a customized group title
+    if ([PFUser currentUser]) {
+        
+        NSMutableString *name = [[PFUser currentUser] objectForKey:@"username"];
+        [name appendString:@"Groups"];
+        self.navigationController.title = name;
+    }*/
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -100,26 +107,38 @@
     }
 }
 
-#pragma mark - Adding tableView
-/*
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing animated:animated];
-    
-    if (editing && [PFUser currentUser]) {
-        UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
-        self.navigationItem.leftBarButtonItem = add;
+
+#pragma mark - Action Sheet for creating group
+- (void)addGroup:(id)sender {
+    if ([PFUser currentUser]) {
+    UIActionSheet *action = [[UIActionSheet alloc]initWithTitle:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"Join a Group", @"Create a Group", nil];
+    [action showInView:self.view];
     }
     else {
-        //changes back to a login or logout
-        [self loginOrLogout];
+        UIAlertView *loginTo = [[UIAlertView alloc]initWithTitle:@"Joining or Creating a Group" message:@"You need to login first." delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil, nil];
+        [loginTo show];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        NSLog(@"Join a Group");
+        JoinViewController *joinVC = (JoinViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"join"];
+        [self presentViewController:joinVC animated:YES completion:nil];
+    
+    }
+    else if (buttonIndex == 1) {
+        NSLog(@"Create a Group");
+        CreateViewController *createVC = (CreateViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"create"];
+        [self presentViewController:createVC animated:YES completion:nil];
     }
     
-}*/
-
-- (void)addGroup:(id)sender {
-    AddGroupViewController *addVC = (AddGroupViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"add_group_vc"];
-    addVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentViewController:addVC animated:YES completion:nil];
+    
 }
 
 
