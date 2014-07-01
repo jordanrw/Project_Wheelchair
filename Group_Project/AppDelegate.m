@@ -26,9 +26,9 @@
     //[PFTwitterUtils initializeWithConsumerKey:@"" consumerSecret:@""];
     
     //Set defaults ACL
-    PFACL *defaultACL = [PFACL ACL];
-    [defaultACL setPublicReadAccess:YES];
-    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+//    PFACL *defaultACL = [PFACL ACL];
+//    [defaultACL setPublicReadAccess:YES];
+//    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
 
     

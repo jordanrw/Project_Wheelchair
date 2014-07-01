@@ -33,6 +33,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQN-at-cwH">
+                                <rect key="frame" x="81" y="343" width="159" height="30"/>
+                                <state key="normal" title="Create a Group">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newGroup:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WLy-a6-jaz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -193,6 +202,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta6-Nn-WyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="703" y="-3995"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Dyu-uA-1Bv">
+            <objects>
+                <viewController storyboardIdentifier="join" modalTransitionStyle="partialCurl" id="83e-Vw-6Cs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZGu-oR-6rX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rfw-8n-LXL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OWI-Cu-jaR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Join" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRO-55-607">
+                                <rect key="frame" x="109" y="76" width="102" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n6z-di-X80" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="353" y="-3119"/>
+        </scene>
+        <!--Add Group View Controller-->
+        <scene sceneID="nVv-HT-zVp">
+            <objects>
+                <pageViewController storyboardIdentifier="add_group_vc" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="sdm-KM-KC1" customClass="AddGroupViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NES-sA-Din" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="-3466"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6yh-Oy-BKv">
+            <objects>
+                <viewController storyboardIdentifier="create" id="RGb-HV-vMt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xkx-L0-gf8"/>
+                        <viewControllerLayoutGuide type="bottom" id="GzP-Yt-HpN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="seQ-S6-hqG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK1-kC-2mC">
+                                <rect key="frame" x="135" y="75" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8e-yB-QTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="-3119"/>
         </scene>
         <!--Navigation Controller - Settings-->
         <scene sceneID="Xjf-tf-dla">

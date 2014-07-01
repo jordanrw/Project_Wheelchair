@@ -8,6 +8,7 @@
 
 #import "SettingsTableViewController.h"
 #import "LoginViewController.h"
+#import "AddGroupViewController.h"
 #import <Parse/Parse.h> 
 
 @interface SettingsTableViewController ()
@@ -37,10 +38,18 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
+    self.navigationItem.rightBarButtonItem = add;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    [self loginOrLogout];
+}
+
+- (void)loginOrLogout {
     if (![PFUser currentUser]) {
         UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
         self.navigationItem.leftBarButtonItem = signup;
@@ -50,6 +59,8 @@
         self.navigationItem.leftBarButtonItem = logout;
     }
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -82,9 +93,33 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == [_confirm firstOtherButtonIndex]) {
         [PFUser logOut];
-        UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Signup" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
+        
+        //changes it back after [logging out]
+        UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
         self.navigationItem.leftBarButtonItem = signup;
     }
+}
+
+#pragma mark - Adding tableView
+/*
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    
+    if (editing && [PFUser currentUser]) {
+        UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
+        self.navigationItem.leftBarButtonItem = add;
+    }
+    else {
+        //changes back to a login or logout
+        [self loginOrLogout];
+    }
+    
+}*/
+
+- (void)addGroup:(id)sender {
+    AddGroupViewController *addVC = (AddGroupViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"add_group_vc"];
+    addVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:addVC animated:YES completion:nil];
 }
 
 
@@ -101,7 +136,10 @@
     return 5;
 }
 
-/*
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settings_cell" forIndexPath:indexPath];
@@ -109,7 +147,7 @@
     // Configure the cell...
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
