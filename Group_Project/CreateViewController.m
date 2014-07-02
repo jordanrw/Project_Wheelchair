@@ -15,8 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *groupNameField;
 @property (weak, nonatomic) IBOutlet UITextField *groupPasswordField;
-
-@property (weak, nonatomic) NSString *contactsEmail;
+@property (strong, nonatomic) IBOutlet UITextField *invitee1;
 
 @end
 
@@ -85,8 +84,7 @@
     } else {
         email = @"[None]";
     }
-    self.contactsEmail = email;
-    NSLog(@"Email is: %@", email);
+    self.invitee1.text = email;
 }
 
 #pragma mark ABPersonViewControllerDelegate methods
