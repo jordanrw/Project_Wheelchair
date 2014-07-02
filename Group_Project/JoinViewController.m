@@ -9,6 +9,8 @@
 #import "JoinViewController.h"
 
 @interface JoinViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *groupNameField;
+@property (weak, nonatomic) IBOutlet UITextField *groupPasswordField;
 
 @end
 
@@ -38,6 +40,20 @@
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UIView *txt in self.view.subviews) {
+        if ([txt isKindOfClass:[UITextField class]] && [txt isFirstResponder]) {
+            [txt resignFirstResponder];
+        }
+    }
+}
+
+#pragma mark - Join a Group
+- (IBAction)joinGroup:(id)sender {
+    
+}
+
 
 /*
 #pragma mark - Navigation

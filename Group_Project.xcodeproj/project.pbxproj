@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD02A87A19635119006A38BB /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86A19635119006A38BB /* Icon-60.png */; };
+		AD02A87B19635119006A38BB /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86B19635119006A38BB /* Icon-60@2x.png */; };
+		AD02A87C19635119006A38BB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86C19635119006A38BB /* Icon-72.png */; };
+		AD02A87D19635119006A38BB /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86D19635119006A38BB /* Icon-72@2x.png */; };
+		AD02A87E19635119006A38BB /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86E19635119006A38BB /* Icon-76.png */; };
+		AD02A87F19635119006A38BB /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86F19635119006A38BB /* Icon-76@2x.png */; };
+		AD02A88019635119006A38BB /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87019635119006A38BB /* Icon-Small-50.png */; };
+		AD02A88119635119006A38BB /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87119635119006A38BB /* Icon-Small-50@2x.png */; };
+		AD02A88219635119006A38BB /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87219635119006A38BB /* Icon-Small.png */; };
+		AD02A88319635119006A38BB /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87319635119006A38BB /* Icon-Small@2x.png */; };
+		AD02A88419635119006A38BB /* Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87419635119006A38BB /* Icon-Spotlight-40.png */; };
+		AD02A88519635119006A38BB /* Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87519635119006A38BB /* Icon-Spotlight-40@2x.png */; };
+		AD02A88619635119006A38BB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87619635119006A38BB /* Icon.png */; };
+		AD02A88719635119006A38BB /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87719635119006A38BB /* Icon@2x.png */; };
+		AD02A88819635119006A38BB /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87819635119006A38BB /* iTunesArtwork */; };
+		AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87919635119006A38BB /* iTunesArtwork@2x */; };
+		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
+		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD69BB41195B9F3F009F1A90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB40195B9F3F009F1A90 /* main.m */; };
 		AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB43195B9F3F009F1A90 /* AppDelegate.m */; };
 		AD69BB47195B9F3F009F1A90 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB46195B9F3F009F1A90 /* FirstViewController.m */; };
@@ -60,6 +78,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD02A86A19635119006A38BB /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		AD02A86B19635119006A38BB /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		AD02A86C19635119006A38BB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		AD02A86D19635119006A38BB /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		AD02A86E19635119006A38BB /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		AD02A86F19635119006A38BB /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		AD02A87019635119006A38BB /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		AD02A87119635119006A38BB /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		AD02A87219635119006A38BB /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		AD02A87319635119006A38BB /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		AD02A87419635119006A38BB /* Icon-Spotlight-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40.png"; sourceTree = "<group>"; };
+		AD02A87519635119006A38BB /* Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
+		AD02A87619635119006A38BB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		AD02A87719635119006A38BB /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		AD02A87819635119006A38BB /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		AD02A87919635119006A38BB /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		AD02A88A19644AED006A38BB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AD69BB3B195B9F3F009F1A90 /* Group_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD69BB3F195B9F3F009F1A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD69BB40195B9F3F009F1A90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,6 +156,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */,
+				AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */,
 				AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */,
 				AD79706B195CD9BD00004237 /* libsqlite3.0.dylib in Frameworks */,
 				AD79705A195CD9A400004237 /* Accounts.framework in Frameworks */,
@@ -153,6 +191,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD02A86919635119006A38BB /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				AD02A86A19635119006A38BB /* Icon-60.png */,
+				AD02A86B19635119006A38BB /* Icon-60@2x.png */,
+				AD02A86C19635119006A38BB /* Icon-72.png */,
+				AD02A86D19635119006A38BB /* Icon-72@2x.png */,
+				AD02A86E19635119006A38BB /* Icon-76.png */,
+				AD02A86F19635119006A38BB /* Icon-76@2x.png */,
+				AD02A87019635119006A38BB /* Icon-Small-50.png */,
+				AD02A87119635119006A38BB /* Icon-Small-50@2x.png */,
+				AD02A87219635119006A38BB /* Icon-Small.png */,
+				AD02A87319635119006A38BB /* Icon-Small@2x.png */,
+				AD02A87419635119006A38BB /* Icon-Spotlight-40.png */,
+				AD02A87519635119006A38BB /* Icon-Spotlight-40@2x.png */,
+				AD02A87619635119006A38BB /* Icon.png */,
+				AD02A87719635119006A38BB /* Icon@2x.png */,
+				AD02A87819635119006A38BB /* iTunesArtwork */,
+				AD02A87919635119006A38BB /* iTunesArtwork@2x */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		AD69BB32195B9F3F009F1A90 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +280,7 @@
 		AD69BB66195C6E59009F1A90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AD02A86919635119006A38BB /* icons */,
 				AD69BB87195C73EB009F1A90 /* google_drive.jpg */,
 				AD69BB69195C6FA5009F1A90 /* tabbar */,
 			);
@@ -293,6 +355,8 @@
 			isa = PBXGroup;
 			children = (
 				AD79704A195CD9A400004237 /* Accounts.framework */,
+				AD02A88A19644AED006A38BB /* AddressBook.framework */,
+				AD02A88B19644AED006A38BB /* AddressBookUI.framework */,
 				AD79704B195CD9A400004237 /* AdSupport.framework */,
 				AD79704C195CD9A400004237 /* AudioToolbox.framework */,
 				AD79704D195CD9A400004237 /* CFNetwork.framework */,
@@ -376,6 +440,7 @@
 				TargetAttributes = {
 					AD69BB3A195B9F3F009F1A90 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = NLDBE97VBG;
 					};
 					AD69BB53195B9F3F009F1A90 = {
 						CreatedOnToolsVersion = 6.0;
@@ -407,15 +472,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD02A87A19635119006A38BB /* Icon-60.png in Resources */,
 				AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */,
+				AD02A88319635119006A38BB /* Icon-Small@2x.png in Resources */,
+				AD02A88119635119006A38BB /* Icon-Small-50@2x.png in Resources */,
 				AD69BB4D195B9F3F009F1A90 /* Main.storyboard in Resources */,
+				AD02A88719635119006A38BB /* Icon@2x.png in Resources */,
+				AD02A88419635119006A38BB /* Icon-Spotlight-40.png in Resources */,
+				AD02A88819635119006A38BB /* iTunesArtwork in Resources */,
+				AD02A87E19635119006A38BB /* Icon-76.png in Resources */,
+				AD02A88519635119006A38BB /* Icon-Spotlight-40@2x.png in Resources */,
+				AD02A88619635119006A38BB /* Icon.png in Resources */,
 				AD69BB70195C6FA5009F1A90 /* tab_meet1.png in Resources */,
+				AD02A88019635119006A38BB /* Icon-Small-50.png in Resources */,
+				AD02A87B19635119006A38BB /* Icon-60@2x.png in Resources */,
+				AD02A88219635119006A38BB /* Icon-Small.png in Resources */,
+				AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */,
+				AD02A87C19635119006A38BB /* Icon-72.png in Resources */,
 				AD69BB73195C6FA5009F1A90 /* tab_settings.png in Resources */,
 				AD69BB75195C704B009F1A90 /* tab_todo.png in Resources */,
 				AD69BB68195C6F02009F1A90 /* tab_doc.png in Resources */,
 				AD69BB6F195C6FA5009F1A90 /* tab_chat.png in Resources */,
 				AD69BB72195C6FA5009F1A90 /* tab_meet2.png in Resources */,
 				AD69BB4F195B9F3F009F1A90 /* Images.xcassets in Resources */,
+				AD02A87F19635119006A38BB /* Icon-76@2x.png in Resources */,
+				AD02A87D19635119006A38BB /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +645,11 @@
 				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jwhite3/Developer/*Frameworks/Tapku",
+					"Library/src/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -580,6 +666,11 @@
 				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jwhite3/Developer/*Frameworks/Tapku",
+					"Library/src/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -41,29 +41,7 @@
 }
 
 - (IBAction)newGroup:(id)sender {
-    //creates new group
-    PFObject *group1 = [PFObject objectWithClassName:@"Groups"];
-    group1[@"Name"] = @"Computer Science";
-    group1[@"owner"] = [PFUser currentUser];
-    [group1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            //creates relation
-            NSLog(@"now its adding the relationship");
-            PFUser *currentUser = [PFUser currentUser];
-            
-            PFRelation *relationUG = [currentUser relationForKey:@"myGroups"];
-            [relationUG addObject:group1];
-            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                NSLog(@"group is under user");
-            }];
-            
-            PFRelation *relationGU = [group1 relationForKey:@"users"];
-            [relationGU addObject:currentUser];
-            [group1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                NSLog(@"user is under group");
-            }];
-        }
-    }];
+    
 }
 
 @end
