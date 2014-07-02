@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *groupPasswordField;
 @property (strong, nonatomic) IBOutlet UITextField *invitee1;
 
+@property (weak, nonatomic) PFUser *user;
+
 @end
 
 @implementation CreateViewController
@@ -88,32 +90,6 @@
     }
 }
 
-#pragma mark ABPersonViewControllerDelegate methods
-// Does not allow users to perform default actions such as dialing a phone number, when they select a contact property.
-/*
-- (BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person
-                    property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifierForValue {
-    
-    return NO;
-}
-
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
-    
-     if (kABPersonEmailProperty == property) {
-         ABMultiValueRef multi = ABRecordCopyValue(person, kABPersonEmailProperty);
-         NSString *email = (__bridge NSString *)ABMultiValueCopyValueAtIndex(multi, 0);
-         NSLog(@"email: %@", email);
-         [self dismissViewControllerAnimated:YES completion:nil];
-         return NO;
-     }
-     //return YES;
- 
-    return NO;
-}
- */
-
-
 
 #pragma mark - Creation of the Group in Parse
 - (IBAction)createUMGroup:(id)sender {
@@ -125,9 +101,7 @@
     PFObject *group = [PFObject objectWithClassName:@"Groups"];
     group[@"groupName"] = self.groupNameField.text;
     group[@"password"] = self.groupPasswordField.text;
-    group[@"owner"] = [PFUser currentUser];
-    
-    //[PFUser currentUser][@"currentGroup"] = group;
+    [group setObject:[PFUser currentUser] forKey:@"owner"];
     
     //save it...
     [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -151,6 +125,19 @@
             [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 NSLog(@"user is under group");
             }];
+            
+            
+            //this works for saving a pointer, but the group isn't working only random PFObjects
+            PFObject *obj = [PFObject objectWithClassName:@"String"];
+            [obj save];
+            [[PFUser currentUser] setObject:obj forKey:@"test"];
+            [[PFUser currentUser]save];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Something unforeseen happened. \n Please try creating that group again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
         }
     }];
 }
