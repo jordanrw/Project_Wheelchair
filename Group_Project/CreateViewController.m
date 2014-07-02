@@ -77,14 +77,15 @@
     NSLog(@"%@", message);
      */
     
-    NSString *email = nil;
-    ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
-    if (ABMultiValueGetCount(emails) > 0) {
-        email = (__bridge_transfer NSString*) ABMultiValueCopyValueAtIndex(emails, 0);
+    if (property == kABPersonEmailProperty) {
+        ABMultiValueRef email = ABRecordCopyValue(person, property);
+        NSString *saveEmail = (__bridge NSString *)ABMultiValueCopyValueAtIndex(email, ABMultiValueGetIndexForIdentifier(email, identifier));
+        
+        self.invitee1.text = saveEmail;
+        [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        email = @"[None]";
+        
     }
-    self.invitee1.text = email;
 }
 
 #pragma mark ABPersonViewControllerDelegate methods
