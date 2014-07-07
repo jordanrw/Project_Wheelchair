@@ -63,6 +63,8 @@
 		AD79706B195CD9BD00004237 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706A195CD9BD00004237 /* libsqlite3.0.dylib */; };
 		AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706C195CD9DB00004237 /* FacebookSDK.framework */; };
 		AD797070195CDA4900004237 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79706F195CDA4900004237 /* LoginViewController.m */; };
+		ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC45F19649A1900054445 /* GroupTableViewController.m */; };
+		ADBAC4981965A89F00054445 /* triangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADBAC4971965A89F00054445 /* triangle.jpg */; };
 		ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0851961E80100D13D95 /* CreateViewController.m */; };
 		ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0881961E81500D13D95 /* JoinViewController.m */; };
 /* End PBXBuildFile section */
@@ -145,6 +147,9 @@
 		AD79706C195CD9DB00004237 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../*Frameworks/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		AD79706E195CDA4900004237 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AD79706F195CDA4900004237 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		ADBAC45E19649A1900054445 /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
+		ADBAC45F19649A1900054445 /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
+		ADBAC4971965A89F00054445 /* triangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = triangle.jpg; sourceTree = "<group>"; };
 		ADF6E0841961E80100D13D95 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		ADF6E0851961E80100D13D95 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		ADF6E0871961E81500D13D95 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
@@ -242,7 +247,8 @@
 				AD69BB7F195C7197009F1A90 /* Meeting Time */,
 				AD69BB8C195C766A009F1A90 /* Chat */,
 				AD69BB84195C7275009F1A90 /* Docs */,
-				AD69BB80195C71A1009F1A90 /* Settings */,
+				AD69BB80195C71A1009F1A90 /* Settings/Groups */,
+				ADBAC46119649DB200054445 /* not using */,
 				AD69BB4B195B9F3F009F1A90 /* Main.storyboard */,
 				AD69BB4E195B9F3F009F1A90 /* Images.xcassets */,
 				AD69BB66195C6E59009F1A90 /* Images */,
@@ -280,6 +286,7 @@
 		AD69BB66195C6E59009F1A90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ADBAC4971965A89F00054445 /* triangle.jpg */,
 				AD02A86919635119006A38BB /* icons */,
 				AD69BB87195C73EB009F1A90 /* google_drive.jpg */,
 				AD69BB69195C6FA5009F1A90 /* tabbar */,
@@ -320,7 +327,7 @@
 			name = "Meeting Time";
 			sourceTree = "<group>";
 		};
-		AD69BB80195C71A1009F1A90 /* Settings */ = {
+		AD69BB80195C71A1009F1A90 /* Settings/Groups */ = {
 			isa = PBXGroup;
 			children = (
 				AD69BB7B195C716E009F1A90 /* SettingsTableViewController.h */,
@@ -329,7 +336,7 @@
 				AD79706F195CDA4900004237 /* LoginViewController.m */,
 				ADF6E08A1961E81A00D13D95 /* Adding Groups */,
 			);
-			name = Settings;
+			name = Settings/Groups;
 			sourceTree = "<group>";
 		};
 		AD69BB84195C7275009F1A90 /* Docs */ = {
@@ -378,6 +385,15 @@
 				AD797059195CD9A400004237 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADBAC46119649DB200054445 /* not using */ = {
+			isa = PBXGroup;
+			children = (
+				ADBAC45E19649A1900054445 /* GroupTableViewController.h */,
+				ADBAC45F19649A1900054445 /* GroupTableViewController.m */,
+			);
+			name = "not using";
 			sourceTree = "<group>";
 		};
 		ADF6E08A1961E81A00D13D95 /* Adding Groups */ = {
@@ -477,6 +493,7 @@
 				AD02A88319635119006A38BB /* Icon-Small@2x.png in Resources */,
 				AD02A88119635119006A38BB /* Icon-Small-50@2x.png in Resources */,
 				AD69BB4D195B9F3F009F1A90 /* Main.storyboard in Resources */,
+				ADBAC4981965A89F00054445 /* triangle.jpg in Resources */,
 				AD02A88719635119006A38BB /* Icon@2x.png in Resources */,
 				AD02A88419635119006A38BB /* Icon-Spotlight-40.png in Resources */,
 				AD02A88819635119006A38BB /* iTunesArtwork in Resources */,
@@ -523,6 +540,7 @@
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
 				AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */,
+				ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */,
 				ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

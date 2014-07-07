@@ -17,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meT-ZB-FRn">
-                                <rect key="frame" x="101" y="251" width="118" height="30"/>
-                                <state key="normal" title="See Current User">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="currentUser:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Ky6-FV-Uyz"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="To-do's" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="103" y="60" width="115" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -33,13 +24,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQN-at-cwH">
-                                <rect key="frame" x="81" y="343" width="159" height="30"/>
-                                <state key="normal" title="Create a Group">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meT-ZB-FRn">
+                                <rect key="frame" x="71" y="253" width="179" height="30"/>
+                                <state key="normal" title="See Current User">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="newGroup:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WLy-a6-jaz"/>
+                                    <action selector="currentUser:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Ky6-FV-Uyz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,8 +59,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Meeting Time" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="52" y="59" width="217" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Meeting Time" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                <rect key="frame" x="52" y="50" width="217" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -79,15 +70,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailing" id="C9p-N0-R4o"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="39" id="DfG-z3-MU7"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Dx6-aB-Ple"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="330" id="Ng2-k0-vVP"/>
                             <constraint firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="ZQW-8Y-bT4"/>
                             <constraint firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="dYc-7R-70W"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="52" id="gmS-fc-isJ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meeting Time" image="tab_meet1.png" id="cPa-gy-q4n"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="835" y="-5615"/>
+            <point key="canvasLocation" x="835" y="-5664"/>
         </scene>
         <!--Chat View Controller - Chat-->
         <scene sceneID="jHa-CO-npF">
@@ -174,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="835" y="-4522"/>
         </scene>
-        <!--Settings Table View Controller - Groups-->
+        <!--Settings Table View Controller - My Groups-->
         <scene sceneID="Kmk-KF-tuQ">
             <objects>
                 <tableViewController id="cZI-04-uyt" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -183,28 +180,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="group_cell" editingAccessoryType="checkmark" rowHeight="90" id="yAp-Bb-fYD">
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" editingAccessoryType="checkmark" rowHeight="90" id="yAp-Bb-fYD">
+                                <rect key="frame" x="0.0" y="86" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yAp-Bb-fYD" id="UyC-CE-fIG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="separatorInset" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="cZI-04-uyt" id="IzU-bT-IoX"/>
+                            <outlet property="dataSource" destination="cZI-04-uyt" id="qeF-9s-uKh"/>
                             <outlet property="delegate" destination="cZI-04-uyt" id="trd-Kl-Bxl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Groups" prompt="" id="eI0-zZ-1pl">
+                    <navigationItem key="navigationItem" title="My Groups" prompt="" id="eI0-zZ-1pl">
                         <barButtonItem key="leftBarButtonItem" title="LogOut" id="VqY-uF-iVX"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta6-Nn-WyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="703" y="-3995"/>
+            <point key="canvasLocation" x="744" y="-3966"/>
         </scene>
         <!--Join View Controller-->
         <scene sceneID="Dyu-uA-1Bv">
@@ -357,7 +355,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="createUMGroup:" destination="RGb-HV-vMt" eventType="touchUpInside" id="VJr-Po-7pE"/>
+                                    <action selector="createGroup:" destination="RGb-HV-vMt" eventType="touchUpInside" id="zLD-Jl-r7p"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="user@email.com" clearsOnBeginEditing="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Tzw-6u-XJz">
@@ -449,9 +447,6 @@
                                     <color key="titleColor" red="0.97983099490000003" green="0.97983099490000003" blue="0.97983099490000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="createUMGroup:" destination="RGb-HV-vMt" eventType="touchUpInside" id="8V2-Zc-0Y0"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIM-MB-Ui5">
                                 <rect key="frame" x="149" y="229" width="22" height="22"/>
@@ -485,13 +480,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEg-e0-66W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="-2603"/>
+            <point key="canvasLocation" x="688" y="-2784"/>
         </scene>
-        <!--Navigation Controller - Groups-->
+        <!--Navigation Controller - My Groups-->
         <scene sceneID="Xjf-tf-dla">
             <objects>
                 <navigationController id="LzZ-VR-RF8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" image="tab_meet2.png" id="Uxg-Ut-R0N"/>
+                    <tabBarItem key="tabBarItem" title="My Groups" image="tab_meet2.png" id="Uxg-Ut-R0N"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1JZ-bh-u5D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

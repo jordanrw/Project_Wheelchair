@@ -26,4 +26,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)questionMark:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Onboarding" message:@"A transulcent explanation of what this feature is, comes up" delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+    [alert show];
+    
+    //UIViewController *vc = [[UIViewController alloc]init];
+    //[self presentViewController:vc animated:YES completion:nil];
+    
+}
+
 @end

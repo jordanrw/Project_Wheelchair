@@ -12,15 +12,19 @@
 #import "CreateViewController.h"
 #import <Parse/Parse.h> 
 
-@interface SettingsTableViewController ()
+@interface SettingsTableViewController () <CreateGroupDelegate>
 
 @property BOOL hasShown;
 @property (nonatomic, strong) UIAlertView *confirm;
+
+@property (nonatomic, weak) NSArray *groupsOfUser;
+@property (nonatomic, strong) NSMutableArray *titles;
 
 @end
 
 @implementation SettingsTableViewController
 
+#pragma mark - Initial View Setup
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -30,17 +34,16 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self refreshArray];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
     self.navigationItem.rightBarButtonItem = add;
+    
     /*Broken implementation of a customized group title
     if ([PFUser currentUser]) {
         
@@ -51,6 +54,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
     
     [self loginOrLogout];
@@ -68,7 +72,6 @@
 }
 
 
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -79,13 +82,7 @@
     }
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+#pragma mark - Signup || Loggout
 - (IBAction)signnnup:(id)sender {
     LoginViewController *loginVC = [[LoginViewController alloc]init];
     [self presentViewController:loginVC animated:YES completion:nil];
@@ -96,7 +93,7 @@
     [_confirm show];
 }
 
-#pragma mark - UIAlertviewDelegates
+#pragma mark UIAlertviewDelegates
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == [_confirm firstOtherButtonIndex]) {
         [PFUser logOut];
@@ -135,18 +132,38 @@
     else if (buttonIndex == 1) {
         NSLog(@"Create a Group");
         CreateViewController *createVC = (CreateViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"create"];
+        createVC.creationDelegate = self;
         [self presentViewController:createVC animated:YES completion:nil];
+        
     }
-    
-    
 }
 
+#pragma mark - Refresh array
+- (void)refreshArray {
+    
+    PFRelation *relation = [[PFUser currentUser]relationForKey:@"myGroups"];
+    PFQuery *queryOfRelation = [relation query];
+    self.groupsOfUser = [queryOfRelation findObjects];
+    
+    
+    NSMutableArray *titles = [[NSMutableArray alloc]init];
+    for (PFObject *object in self.groupsOfUser) {
+        NSString *name = [object objectForKey:@"groupName"];
+        [titles addObject:name];
+    }
+    NSLog(@"all the titles%@", titles);
+    self.titles = titles;
+    NSLog(@"the property %@", self.titles);
+    
+    //[NSNotificationCenter defaultCenter] postNotificationName:<#(NSString *)#> object:<#(id)#>];
+    //[NSNotificationCenter defaultCenter] addObserver:<#(id)#> selector:<#(SEL)#> name:<#(NSString *)#> object:<#(id)#>
+}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -154,42 +171,55 @@
     
     //PFQuery *groupQuery = [PFQuery queryWithClassName:@"Todo"];
     //groupQuery
+    //this query pulls in the number of groups associated
     
-    return 2;
+    return [self.groupsOfUser count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"group_cell" forIndexPath:indexPath];
-    
-    // Configure the cell...
+    NSLog(@"UITableViewCell");
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = [self.titles objectAtIndex:indexPath.row];
+    //cell.backgroundColor = [UIColor redColor];
+   
     return cell;
 }
 
-#pragma mark - Other
-
-
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"leave group";
+}
+
+#pragma mark - Create Group (Custom Delegate methods)
+
+- (void)createGroupCancelled {
+    
+}
+
+- (void)createGroupFinished {
+    [self refreshArray];
+}
+
 
 /*
 // Override to support rearranging the table view.
@@ -217,5 +247,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark- Others
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

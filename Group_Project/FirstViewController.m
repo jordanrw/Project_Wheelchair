@@ -40,8 +40,4 @@
     [alert show];
 }
 
-- (IBAction)newGroup:(id)sender {
-    
-}
-
 @end

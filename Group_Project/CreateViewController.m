@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "SettingsTableViewController.h"
 
 @interface CreateViewController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
 
@@ -35,7 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,24 +90,44 @@
     }
 }
 
+//this doesn't do anything
+- (BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
+    //return YES;
+    return NO;
+}
+
+#pragma mark - Activity Indicator View
+- (void)customActivityIndicatorWith:(UIActivityIndicatorView *)activity {
+    //creates the activity monitor
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    CGAffineTransform transform = CGAffineTransformMakeScale(1.2f, 1.2f);
+    activity.transform = transform;
+    
+    [activity setCenter:CGPointMake(screenWidth/2.0, screenHeight/2.0 - 20)];
+    [self.view addSubview:activity];
+}
 
 #pragma mark - Creation of the Group in Parse
-- (IBAction)createUMGroup:(id)sender {
-    
-    NSLog(@"button was preseed");
-    
-    
+- (IBAction)createGroup:(id)sender {
     //creates new group
     PFObject *group = [PFObject objectWithClassName:@"Groups"];
     group[@"groupName"] = self.groupNameField.text;
     group[@"password"] = self.groupPasswordField.text;
     [group setObject:[PFUser currentUser] forKey:@"owner"];
     
+    //creates and add activity indicator
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self customActivityIndicatorWith:spinner];
+    [spinner startAnimating];
+    
     //save it...
     [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             //alert the user
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Group successfully created!" message:nil delegate:nil cancelButtonTitle:@"Awesome!" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Group successfully created!" message:nil delegate:nil cancelButtonTitle:@"awesome!" otherButtonTitles:nil, nil];
             [alert show];
             
             //if saved...set the relations
@@ -133,14 +153,19 @@
             [[PFUser currentUser] setObject:obj forKey:@"test"];
             [[PFUser currentUser]save];
             
+            [spinner stopAnimating];
+            [self.creationDelegate createGroupFinished];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         if (error) {
+            [spinner stopAnimating];
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Something unforeseen happened. \n Please try creating that group again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];
         }
     }];
 }
+
+
 
 
 /*

@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsTableViewController.h"
 
+@protocol CreateGroupDelegate <NSObject>
+
+- (void)createGroupCancelled;
+- (void)createGroupFinished;
+
+@end
 
 @interface CreateViewController : UIViewController
+
+//@property SettingsTableViewController *previousSVC;
+@property (nonatomic, weak) id<CreateGroupDelegate> creationDelegate;
 
 @end
