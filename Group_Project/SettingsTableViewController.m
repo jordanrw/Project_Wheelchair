@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) NSArray *groupsOfUser;      //PFObjects
 @property (nonatomic, strong) NSMutableArray *titles;   //Strings
-@property (nonatomic) NSInteger selected;
+@property (nonatomic) NSIndexPath *selected;
 
 @end
 
@@ -170,11 +170,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    
-    //PFQuery *groupQuery = [PFQuery queryWithClassName:@"Todo"];
-    //groupQuery
-    //this query pulls in the number of groups associated
     
     return [self.groupsOfUser count];
 }
@@ -188,40 +183,28 @@
     return cell;
 }
 
-#pragma mark Selecting data
+#pragma mark - Selecting data
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     GroupTableViewCell *tissue = (GroupTableViewCell *)cell;
     
-    //tissue.checkmarkImage.hidden = NO;
-    //_selected = indexPath.row;
+    tissue.checkmarkImage.hidden = NO;
+    tissue.selected = YES;
+    _selected = indexPath;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    NSIndexPath *oldPath = [tableView indexPathForSelectedRow];
-    if (![oldPath isEqual:indexPath]) {
-        [tableView cellForRowAtIndexPath:oldPath].selected = NO;
+    if (![_selected isEqual:indexPath]) {
+        [tableView cellForRowAtIndexPath:_selected].selected = NO;
         
-        
-//        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//        GroupTableViewCell *tissue = (GroupTableViewCell *)cell;
-//        tissue.checkmarkImage.hidden = NO;
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:_selected];
+        GroupTableViewCell *tissue = (GroupTableViewCell *)cell;
+        tissue.checkmarkImage.hidden = YES;
     }
     return indexPath;
 }
-
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    GroupTableViewCell *tissue = (GroupTableViewCell *)cell;
-//    tissue.checkmarkImage.hidden = YES;
-}
-
 
 #pragma mark Editing tableview
 // Override to support conditional editing of the table view.
@@ -289,7 +272,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     NSLog(@"Goodbye");
     
-    [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected] forKey:@"current"];
+    [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected.row] forKey:@"current"];
+    [[PFUser currentUser] saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning
