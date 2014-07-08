@@ -25,6 +25,7 @@
 		AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87919635119006A38BB /* iTunesArtwork@2x */; };
 		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
+		AD39982E196C6465001D8163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD39982D196C6465001D8163 /* DetailViewController.m */; };
 		AD69BB41195B9F3F009F1A90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB40195B9F3F009F1A90 /* main.m */; };
 		AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB43195B9F3F009F1A90 /* AppDelegate.m */; };
 		AD69BB47195B9F3F009F1A90 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB46195B9F3F009F1A90 /* FirstViewController.m */; };
@@ -63,8 +64,10 @@
 		AD79706B195CD9BD00004237 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706A195CD9BD00004237 /* libsqlite3.0.dylib */; };
 		AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706C195CD9DB00004237 /* FacebookSDK.framework */; };
 		AD797070195CDA4900004237 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79706F195CDA4900004237 /* LoginViewController.m */; };
+		AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */; };
+		AD975EB9196B537000EB4C09 /* check.PNG in Resources */ = {isa = PBXBuildFile; fileRef = AD975EB8196B537000EB4C09 /* check.PNG */; };
 		ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC45F19649A1900054445 /* GroupTableViewController.m */; };
-		ADBAC4981965A89F00054445 /* triangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADBAC4971965A89F00054445 /* triangle.jpg */; };
+		ADBF9CE3196C6C3500C0683C /* profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = ADBF9CE2196C6C3500C0683C /* profile_pic.png */; };
 		ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0851961E80100D13D95 /* CreateViewController.m */; };
 		ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0881961E81500D13D95 /* JoinViewController.m */; };
 /* End PBXBuildFile section */
@@ -98,6 +101,8 @@
 		AD02A87919635119006A38BB /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		AD02A88A19644AED006A38BB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		AD39982C196C6465001D8163 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		AD39982D196C6465001D8163 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		AD69BB3B195B9F3F009F1A90 /* Group_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD69BB3F195B9F3F009F1A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD69BB40195B9F3F009F1A90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,9 +152,12 @@
 		AD79706C195CD9DB00004237 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../*Frameworks/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		AD79706E195CDA4900004237 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AD79706F195CDA4900004237 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
+		AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
+		AD975EB8196B537000EB4C09 /* check.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.PNG; path = Group_Project/check.PNG; sourceTree = "<group>"; };
 		ADBAC45E19649A1900054445 /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
 		ADBAC45F19649A1900054445 /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
-		ADBAC4971965A89F00054445 /* triangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = triangle.jpg; sourceTree = "<group>"; };
+		ADBF9CE2196C6C3500C0683C /* profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_pic.png; sourceTree = "<group>"; };
 		ADF6E0841961E80100D13D95 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		ADF6E0851961E80100D13D95 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		ADF6E0871961E81500D13D95 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
@@ -219,6 +227,15 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
+		AD39982F196C646B001D8163 /* Detail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AD39982C196C6465001D8163 /* DetailViewController.h */,
+				AD39982D196C6465001D8163 /* DetailViewController.m */,
+			);
+			name = "Detail View Controller";
+			sourceTree = "<group>";
+		};
 		AD69BB32195B9F3F009F1A90 = {
 			isa = PBXGroup;
 			children = (
@@ -248,9 +265,9 @@
 				AD69BB8C195C766A009F1A90 /* Chat */,
 				AD69BB84195C7275009F1A90 /* Docs */,
 				AD69BB80195C71A1009F1A90 /* Settings/Groups */,
-				ADBAC46119649DB200054445 /* not using */,
 				AD69BB4B195B9F3F009F1A90 /* Main.storyboard */,
 				AD69BB4E195B9F3F009F1A90 /* Images.xcassets */,
+				ADBAC46119649DB200054445 /* not using */,
 				AD69BB66195C6E59009F1A90 /* Images */,
 				AD69BB3E195B9F3F009F1A90 /* Supporting Files */,
 			);
@@ -286,7 +303,8 @@
 		AD69BB66195C6E59009F1A90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				ADBAC4971965A89F00054445 /* triangle.jpg */,
+				ADBF9CE2196C6C3500C0683C /* profile_pic.png */,
+				AD975EB8196B537000EB4C09 /* check.PNG */,
 				AD02A86919635119006A38BB /* icons */,
 				AD69BB87195C73EB009F1A90 /* google_drive.jpg */,
 				AD69BB69195C6FA5009F1A90 /* tabbar */,
@@ -332,6 +350,9 @@
 			children = (
 				AD69BB7B195C716E009F1A90 /* SettingsTableViewController.h */,
 				AD69BB7C195C716E009F1A90 /* SettingsTableViewController.m */,
+				AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */,
+				AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */,
+				AD39982F196C646B001D8163 /* Detail View Controller */,
 				AD79706E195CDA4900004237 /* LoginViewController.h */,
 				AD79706F195CDA4900004237 /* LoginViewController.m */,
 				ADF6E08A1961E81A00D13D95 /* Adding Groups */,
@@ -488,13 +509,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD975EB9196B537000EB4C09 /* check.PNG in Resources */,
 				AD02A87A19635119006A38BB /* Icon-60.png in Resources */,
 				AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */,
 				AD02A88319635119006A38BB /* Icon-Small@2x.png in Resources */,
 				AD02A88119635119006A38BB /* Icon-Small-50@2x.png in Resources */,
 				AD69BB4D195B9F3F009F1A90 /* Main.storyboard in Resources */,
-				ADBAC4981965A89F00054445 /* triangle.jpg in Resources */,
 				AD02A88719635119006A38BB /* Icon@2x.png in Resources */,
+				ADBF9CE3196C6C3500C0683C /* profile_pic.png in Resources */,
 				AD02A88419635119006A38BB /* Icon-Spotlight-40.png in Resources */,
 				AD02A88819635119006A38BB /* iTunesArtwork in Resources */,
 				AD02A87E19635119006A38BB /* Icon-76.png in Resources */,
@@ -534,11 +556,13 @@
 				AD797070195CDA4900004237 /* LoginViewController.m in Sources */,
 				AD69BB4A195B9F3F009F1A90 /* MeetingViewController.m in Sources */,
 				ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */,
+				AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */,
 				AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
 				AD69BB47195B9F3F009F1A90 /* FirstViewController.m in Sources */,
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
+				AD39982E196C6465001D8163 /* DetailViewController.m in Sources */,
 				AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */,
 				ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */,
 				ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */,

@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "JoinViewController.h"
 #import "CreateViewController.h"
+#import "GroupTableViewCell.h"
 #import <Parse/Parse.h> 
 
 @interface SettingsTableViewController () <CreateGroupDelegate>
@@ -17,8 +18,9 @@
 @property BOOL hasShown;
 @property (nonatomic, strong) UIAlertView *confirm;
 
-@property (nonatomic, weak) NSArray *groupsOfUser;
-@property (nonatomic, strong) NSMutableArray *titles;
+@property (nonatomic, strong) NSArray *groupsOfUser;      //PFObjects
+@property (nonatomic, strong) NSMutableArray *titles;   //Strings
+@property (nonatomic) NSInteger selected;
 
 @end
 
@@ -37,20 +39,14 @@
 - (void)viewDidLoad {
     NSLog(@"viewDidLoad");
     [super viewDidLoad];
+    self.navigationItem.title = @"My Groups";
     
     [self refreshArray];
     
+    //sets bar buttons
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
     self.navigationItem.rightBarButtonItem = add;
-    
-    /*Broken implementation of a customized group title
-    if ([PFUser currentUser]) {
-        
-        NSMutableString *name = [[PFUser currentUser] objectForKey:@"username"];
-        [name appendString:@"Groups"];
-        self.navigationController.title = name;
-    }*/
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,6 +54,7 @@
     [super viewWillAppear:animated];
     
     [self loginOrLogout];
+    [self.tableView reloadData];
 }
 
 - (void)loginOrLogout {
@@ -82,6 +79,7 @@
     }
 }
 
+
 #pragma mark - Signup || Loggout
 - (IBAction)signnnup:(id)sender {
     LoginViewController *loginVC = [[LoginViewController alloc]init];
@@ -92,6 +90,7 @@
     _confirm = [[UIAlertView alloc]initWithTitle:@"Are you sure?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Log out", nil];
     [_confirm show];
 }
+
 
 #pragma mark UIAlertviewDelegates
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -138,12 +137,20 @@
     }
 }
 
-#pragma mark - Refresh array
+
+#pragma mark - Refresh array (get data)
 - (void)refreshArray {
     
     PFRelation *relation = [[PFUser currentUser]relationForKey:@"myGroups"];
     PFQuery *queryOfRelation = [relation query];
     self.groupsOfUser = [queryOfRelation findObjects];
+    /*
+    [queryOfRelation findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (objects) {
+            NSLog(@"good, data was downloaded.");
+            self.groupsOfUser = objects;
+        }
+    }];*/
     
     
     NSMutableArray *titles = [[NSMutableArray alloc]init];
@@ -151,12 +158,8 @@
         NSString *name = [object objectForKey:@"groupName"];
         [titles addObject:name];
     }
-    NSLog(@"all the titles%@", titles);
     self.titles = titles;
-    NSLog(@"the property %@", self.titles);
-    
-    //[NSNotificationCenter defaultCenter] postNotificationName:<#(NSString *)#> object:<#(id)#>];
-    //[NSNotificationCenter defaultCenter] addObserver:<#(id)#> selector:<#(SEL)#> name:<#(NSString *)#> object:<#(id)#>
+    NSLog(@"title array set%@", self.titles);
 }
 
 #pragma mark - Table view data source
@@ -176,24 +179,57 @@
     return [self.groupsOfUser count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"UITableViewCell");
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = [self.titles objectAtIndex:indexPath.row];
-    //cell.backgroundColor = [UIColor redColor];
-   
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"new UITableViewCell created");
+    
+    GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        
+    cell.groupNameLabel.text = [self.titles objectAtIndex:indexPath.row];
     return cell;
 }
 
+#pragma mark Selecting data
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    GroupTableViewCell *tissue = (GroupTableViewCell *)cell;
+    
+    //tissue.checkmarkImage.hidden = NO;
+    //_selected = indexPath.row;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    NSIndexPath *oldPath = [tableView indexPathForSelectedRow];
+    if (![oldPath isEqual:indexPath]) {
+        [tableView cellForRowAtIndexPath:oldPath].selected = NO;
+        
+        
+//        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//        GroupTableViewCell *tissue = (GroupTableViewCell *)cell;
+//        tissue.checkmarkImage.hidden = NO;
+    }
+    return indexPath;
+}
+
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    GroupTableViewCell *tissue = (GroupTableViewCell *)cell;
+//    tissue.checkmarkImage.hidden = YES;
+}
+
+
+#pragma mark Editing tableview
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -248,7 +284,13 @@
 }
 */
 
-#pragma mark- Others
+#pragma mark - Leaving the view
+
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"Goodbye");
+    
+    [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected] forKey:@"current"];
+}
 
 - (void)didReceiveMemoryWarning
 {

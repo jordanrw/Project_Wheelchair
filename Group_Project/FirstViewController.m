@@ -36,8 +36,10 @@
 
 - (IBAction)currentUser:(id)sender {
     NSLog(@"%@", [PFUser currentUser]);
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Current User" message:@"look in the log" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-    [alert show];
+}
+
+- (IBAction)currentGroup:(id)sender {
+    NSLog(@"%@", [[PFUser currentUser]objectForKey:@"current"]);
 }
 
 @end
