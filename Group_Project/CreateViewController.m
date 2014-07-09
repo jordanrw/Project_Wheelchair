@@ -11,21 +11,23 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import "SettingsTableViewController.h"
+#import "InviteTableViewCell.h"
 
-@interface CreateViewController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
+@interface CreateViewController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextField *groupNameField;
 @property (weak, nonatomic) IBOutlet UITextField *groupPasswordField;
-@property (strong, nonatomic) IBOutlet UITextField *invitee1;
 
+@property (strong, nonatomic) NSIndexPath *myIndex;
 @property (weak, nonatomic) PFUser *user;
 
 @end
 
+
+
 @implementation CreateViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -33,13 +35,11 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -57,8 +57,100 @@
 }
 
 #pragma mark - Inviting users
-- (IBAction)contacts:(id)sender {
+#pragma mark TableView (developing)
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //number of rows
+    return 6;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"new invitee");
+    
+    InviteTableViewCell *invitee = [tableView dequeueReusableCellWithIdentifier:@"invitee" forIndexPath:indexPath];
+    
+    [invitee setDidTapButtonBlock:^(id sender) {
+        _myIndex = indexPath;
+        NSLog(@"%i", _myIndex.row);
+    }];
+    
+    return invitee;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 50;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"Invite";
+            break;
+    }
+    return sectionName;
+}
+
+//for custom header
+/*
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+        [headerView setBackgroundColor:[UIColor redColor]];
+         
+    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 30)];
+
+    title.text = @"Hi ther";
+    [headerView addSubview:title];
+    
+    return headerView;
+}*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    _myIndex = indexPath;
+    NSLog(@"%i", _myIndex.row);
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    InviteTableViewCell *invitee = (InviteTableViewCell *)cell;
+    
+    //[invitee.addButton setUserInteractionEnabled:YES];
+    //[invitee.addButton becomeFirstResponder];
+    
+    [invitee.emailField setUserInteractionEnabled:YES];
+    [invitee.emailField becomeFirstResponder];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    InviteTableViewCell *invitee = (InviteTableViewCell *)cell;
+    
+    //[invitee.addButton setUserInteractionEnabled:NO];
+    //[invitee.addButton resignFirstResponder];
+    
+    [invitee.emailField setUserInteractionEnabled:NO];
+    [invitee.emailField resignFirstResponder];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleInsert) {
+        //your code here
+        NSLog(@"user tapped insertion control");
+    }
+}
+
+ 
+//The address book feature
+- (IBAction)addContact:(id)sender {
+    
     ABPeoplePickerNavigationController *contacts = [[ABPeoplePickerNavigationController alloc]init];
     contacts.peoplePickerDelegate = self;
     
@@ -68,6 +160,7 @@
     //show
     [self presentViewController:contacts animated:YES completion:nil];
 }
+
 
 #pragma mark ABPeoplePickerNavigationControllerDelegate methods
 // The selected person and property from the people picker.
@@ -83,7 +176,10 @@
         ABMultiValueRef email = ABRecordCopyValue(person, property);
         NSString *saveEmail = (__bridge NSString *)ABMultiValueCopyValueAtIndex(email, ABMultiValueGetIndexForIdentifier(email, identifier));
         
-        self.invitee1.text = saveEmail;
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_myIndex];
+        InviteTableViewCell *invitee = (InviteTableViewCell *)cell;
+        invitee.emailField.text = saveEmail;
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         
@@ -146,12 +242,6 @@
                 NSLog(@"user is under group");
             }];
             
-            
-            //this works for saving a pointer, but the group isn't working only random PFObjects
-            PFObject *obj = [PFObject objectWithClassName:@"String"];
-            [obj save];
-            [[PFUser currentUser] setObject:obj forKey:@"test"];
-            [[PFUser currentUser]save];
             
             [spinner stopAnimating];
             [self.creationDelegate createGroupFinished];

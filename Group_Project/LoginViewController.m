@@ -72,7 +72,7 @@
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:nil];
     NSLog(@"Logged in --- now dismiss the view");
-    //[self dismissModalViewControllerAnimated:YES];
+    [self.refreshDelegate refresh];
 }
 
 // Sent to the delegate when the log in screen is dismissed.

@@ -18,7 +18,7 @@
 
 @interface CreateViewController : UIViewController
 
-//@property SettingsTableViewController *previousSVC;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) id<CreateGroupDelegate> creationDelegate;
 
 @end

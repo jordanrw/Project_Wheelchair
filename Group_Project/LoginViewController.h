@@ -8,10 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "SettingsTableViewController.h"
+
+@protocol RefreshArrayDelegate <NSObject>
+
+- (void)refresh;
+
+@end
 
 @interface LoginViewController : PFLogInViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+@property (nonatomic, weak) id<RefreshArrayDelegate> refreshDelegate;
+
 - (instancetype)init;
+
 
 @end
 

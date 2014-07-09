@@ -13,13 +13,13 @@
 #import "GroupTableViewCell.h"
 #import <Parse/Parse.h> 
 
-@interface SettingsTableViewController () <CreateGroupDelegate>
+@interface SettingsTableViewController () <CreateGroupDelegate, RefreshArrayDelegate>
 
 @property BOOL hasShown;
 @property (nonatomic, strong) UIAlertView *confirm;
 
-@property (nonatomic, strong) NSArray *groupsOfUser;      //PFObjects
-@property (nonatomic, strong) NSMutableArray *titles;   //Strings
+@property (nonatomic, strong) NSMutableArray *groupsOfUser;      //PFObjects
+@property (nonatomic, strong) NSMutableArray *titles;           //Strings
 @property (nonatomic) NSIndexPath *selected;
 
 @end
@@ -27,8 +27,7 @@
 @implementation SettingsTableViewController
 
 #pragma mark - Initial View Setup
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
+- (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -54,6 +53,7 @@
     [super viewWillAppear:animated];
     
     [self loginOrLogout];
+    
     [self.tableView reloadData];
 }
 
@@ -76,6 +76,7 @@
         _hasShown = YES;
         LoginViewController *loginVC = [[LoginViewController alloc]init];
         [self presentViewController:loginVC animated:YES completion:nil];
+        loginVC.refreshDelegate = self;
     }
 }
 
@@ -84,6 +85,7 @@
 - (IBAction)signnnup:(id)sender {
     LoginViewController *loginVC = [[LoginViewController alloc]init];
     [self presentViewController:loginVC animated:YES completion:nil];
+    loginVC.refreshDelegate = self;
 }
 
 - (IBAction)logggout:(id)sender {
@@ -96,6 +98,8 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == [_confirm firstOtherButtonIndex]) {
         [PFUser logOut];
+        [self refreshArray];
+        [self.tableView reloadData];
         
         //changes it back after [logging out]
         UIBarButtonItem *signup = [[UIBarButtonItem alloc]initWithTitle:@"Login" style:UIBarButtonItemStylePlain target:self action:@selector(signnnup:)];
@@ -115,7 +119,7 @@
     [action showInView:self.view];
     }
     else {
-        UIAlertView *loginTo = [[UIAlertView alloc]initWithTitle:@"Joining or Creating a Group" message:@"You need to login first." delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil, nil];
+        UIAlertView *loginTo = [[UIAlertView alloc]initWithTitle:@"Login" message:@"to join or create groups" delegate:nil cancelButtonTitle:@"Got it" otherButtonTitles:nil, nil];
         [loginTo show];
     }
 }
@@ -178,7 +182,7 @@
     NSLog(@"new UITableViewCell created");
     
     GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-        
+    
     cell.groupNameLabel.text = [self.titles objectAtIndex:indexPath.row];
     return cell;
 }
@@ -218,8 +222,51 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        PFObject *group = [_groupsOfUser objectAtIndex:indexPath.row];
+//#upgrade if current user of group is the owner and is trying to leave, don't allow him, but tell him that since he is the owner he cannot leave the group,
+        //he has to delete it
+        
+        
+        //removes relation from the user's groups
+        PFRelation *relationUG = [[PFUser currentUser] relationForKey:@"myGroups"];
+        [relationUG removeObject:group];
+        [[PFUser currentUser]saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"user no longer has group");
+            }
+        }];
+        
+        //removes relation from group's users
+        PFRelation *relationGU = [group relationForKey:@"users"];
+        [relationGU removeObject:[PFUser currentUser]];
+        [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"group no longer has user");
+                
+//#mbbugs
+                [_groupsOfUser removeObject:group];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }];
+        
+        
+        
+        /*
+        [_groupsOfUser removeObject:object];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//                //then refresh array
+//                [self refreshArray];
+//                
+//                //then reload data
+//                [self.tableView reloadData];
+//                
+//                //visuals
+//            }
+//        }];
+ */
+        
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -236,6 +283,11 @@
 }
 
 - (void)createGroupFinished {
+    [self refreshArray];
+}
+
+#pragma mark - Refresh Delegate
+- (void)refresh {
     [self refreshArray];
 }
 
