@@ -26,6 +26,7 @@
 		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD39982E196C6465001D8163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD39982D196C6465001D8163 /* DetailViewController.m */; };
+		AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4CFA29196EC89D000B768D /* MessageUI.framework */; };
 		AD69BB41195B9F3F009F1A90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB40195B9F3F009F1A90 /* main.m */; };
 		AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB43195B9F3F009F1A90 /* AppDelegate.m */; };
 		AD69BB47195B9F3F009F1A90 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB46195B9F3F009F1A90 /* FirstViewController.m */; };
@@ -106,6 +107,7 @@
 		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AD39982C196C6465001D8163 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		AD39982D196C6465001D8163 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		AD4CFA29196EC89D000B768D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AD69BB3B195B9F3F009F1A90 /* Group_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD69BB3F195B9F3F009F1A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD69BB40195B9F3F009F1A90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */,
 				AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */,
 				AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */,
 				AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */,
@@ -391,6 +394,7 @@
 		AD69BB8F195CC43A009F1A90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD4CFA29196EC89D000B768D /* MessageUI.framework */,
 				AD79704A195CD9A400004237 /* Accounts.framework */,
 				AD02A88A19644AED006A38BB /* AddressBook.framework */,
 				AD02A88B19644AED006A38BB /* AddressBookUI.framework */,

@@ -10,15 +10,18 @@
 #import <Parse/Parse.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import <MessageUI/MessageUI.h>
 #import "SettingsTableViewController.h"
 #import "InviteTableViewCell.h"
 
-@interface CreateViewController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface CreateViewController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *groupNameField;
 @property (weak, nonatomic) IBOutlet UITextField *groupPasswordField;
 
 @property (strong, nonatomic) NSIndexPath *myIndex;
+@property int counter;
+@property (strong, nonatomic) NSMutableArray *indexPaths;
 @property (weak, nonatomic) PFUser *user;
 
 @end
@@ -37,6 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _counter = 5;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //number of rows
-    return 6;
+    return _counter;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,7 +88,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 50;
+    return 44;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -127,6 +131,7 @@
     
     [invitee.emailField setUserInteractionEnabled:YES];
     [invitee.emailField becomeFirstResponder];
+    [invitee.emailField setDelegate:self];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,12 +145,39 @@
     [invitee.emailField resignFirstResponder];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleInsert) {
-        //your code here
-        NSLog(@"user tapped insertion control");
-    }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
+
+
+#pragma mark - Adding new cell
+/*
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    NSLog(@"endEditing");
+    _counter += 1;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    NSLog(@"began");
+}
+ */
+#pragma mark - Deleting cell
+/*
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete && _counter > 1) {
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        _counter -= 1;
+    }
+    
+    if (editingStyle == UITableViewCellEditingStyleInsert) {
+        NSLog(@"editingStyle is UITableViewCellEditingStyleInsert");
+        
+    }
+}*/
 
  
 //The address book feature
@@ -255,6 +287,67 @@
     }];
 }
 
+
+#pragma mark - Email
+- (IBAction)email:(id)sender {
+    NSLog(@"email");
+    
+    MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc]init];
+    mailVC.mailComposeDelegate = self;
+    
+    //subject
+    NSString *subject = @"join my";
+    NSString *fullSubject = [subject stringByAppendingFormat:@"%@ group", self.groupNameField.text];
+    
+    //body
+    NSString *body = @"";
+    NSString *fullBody = [body stringByAppendingFormat:@"Hi there, <br><br>I'd like you to join my group on the app Group Project. <br><br>Group Name: %@ <br>Group Password: %@ <br><br>If you don't already have Group Project you can download it here: <a href>https://itunes.apple.com/us/app/google-search/id284815942?mt=8</a>", self.groupNameField.text, self.groupPasswordField.text];
+    
+    //recipients
+    NSMutableArray *recipients = [[NSMutableArray alloc]init];
+    for (int i = 0; i < 5; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        InviteTableViewCell *invitee = (InviteTableViewCell *)cell;
+        
+        NSString *email = invitee.emailField.text;
+        [recipients addObject:email];
+        NSLog(@"Time #%i", i);
+    }
+    
+    //set up and assign
+    [mailVC setSubject:fullSubject];
+    [mailVC setMessageBody:fullBody isHTML:YES];
+    [mailVC setToRecipients:recipients];
+    
+    [self presentViewController:mailVC animated:YES completion:^{
+        
+    }];
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 
