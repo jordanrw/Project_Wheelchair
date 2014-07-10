@@ -41,6 +41,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _counter = 5;
+    
+    //[self registerForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,6 +147,69 @@
     [invitee.emailField resignFirstResponder];
 }
 
+#pragma mark Re-adjusting the keyboard
+/*
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_myIndex];
+    InviteTableViewCell *invitee = (InviteTableViewCell *)cell;
+    
+    if (!CGRectContainsPoint(aRect, invitee.emailField.frame.origin) ) {
+        [self.tableView scrollRectToVisible:invitee.emailField.frame animated:YES];
+    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_myIndex];
+    InviteTableViewCell *invitee = (InviteTableViewCell *)cell;
+    
+    invitee.emailField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_myIndex];
+    InviteTableViewCell *invitee = (InviteTableViewCell *)cell;
+    invitee.emailField = nil;
+}
+*/
+
+#pragma mark Done button works
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
@@ -234,7 +299,7 @@
     CGAffineTransform transform = CGAffineTransformMakeScale(1.2f, 1.2f);
     activity.transform = transform;
     
-    [activity setCenter:CGPointMake(screenWidth/2.0, screenHeight/2.0 - 20)];
+    [activity setCenter:CGPointMake(screenWidth/2.0, screenHeight/2.0 + 128)];
     [self.view addSubview:activity];
 }
 
@@ -274,7 +339,7 @@
                 NSLog(@"user is under group");
             }];
             
-            
+            [self email];
             [spinner stopAnimating];
             [self.creationDelegate createGroupFinished];
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -289,14 +354,15 @@
 
 
 #pragma mark - Email
-- (IBAction)email:(id)sender {
+//- (IBAction)email:(id)sender {
+- (void)email {
     NSLog(@"email");
     
     MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc]init];
     mailVC.mailComposeDelegate = self;
     
     //subject
-    NSString *subject = @"join my";
+    NSString *subject = @"please join my";
     NSString *fullSubject = [subject stringByAppendingFormat:@"%@ group", self.groupNameField.text];
     
     //body
@@ -320,13 +386,10 @@
     [mailVC setMessageBody:fullBody isHTML:YES];
     [mailVC setToRecipients:recipients];
     
-    [self presentViewController:mailVC animated:YES completion:^{
-        
-    }];
+    [self presentViewController:mailVC animated:YES completion:nil];
 }
 
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     switch (result)
     {
         case MFMailComposeResultCancelled:
@@ -349,6 +412,9 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)pinkButton:(id)sender {
+    [self email];
+}
 
 
 /*

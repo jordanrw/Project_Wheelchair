@@ -7,6 +7,7 @@
 //
 
 #import "JoinViewController.h"
+#import <Parse/Parse.h> 
 
 @interface JoinViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *groupNameField;
@@ -52,6 +53,8 @@
 
 #pragma mark - Join a Group
 - (IBAction)joinGroup:(id)sender {
+    
+    
     
 }
 

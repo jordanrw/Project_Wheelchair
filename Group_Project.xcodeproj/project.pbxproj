@@ -362,7 +362,6 @@
 			children = (
 				AD69BB7B195C716E009F1A90 /* SettingsTableViewController.h */,
 				AD69BB7C195C716E009F1A90 /* SettingsTableViewController.m */,
-				AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */,
 				AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */,
 				AD39982F196C646B001D8163 /* Detail View Controller */,
 				AD79706E195CDA4900004237 /* LoginViewController.h */,
@@ -446,6 +445,7 @@
 			children = (
 				ADF6E0871961E81500D13D95 /* JoinViewController.h */,
 				ADF6E0881961E81500D13D95 /* JoinViewController.m */,
+				AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */,
 				ADBF9CEF196DC75800C0683C /* Create */,
 			);
 			name = "Adding Groups";
