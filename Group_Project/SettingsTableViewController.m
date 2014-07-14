@@ -13,7 +13,7 @@
 #import "GroupTableViewCell.h"
 #import <Parse/Parse.h> 
 
-@interface SettingsTableViewController () <CreateGroupDelegate, RefreshArrayDelegate>
+@interface SettingsTableViewController () <CreateGroupDelegate, RefreshArrayDelegate, JoinGroupDelegate>
 
 @property BOOL hasShown;
 @property (nonatomic, strong) UIAlertView *confirm;
@@ -278,17 +278,21 @@
 
 #pragma mark - Create Group (Custom Delegate methods)
 
-- (void)createGroupCancelled {
-    
-}
 
 - (void)createGroupFinished {
     [self refreshArray];
 }
 
+#pragma mark - Join Group (custom delegate methods)
+- (void)joinedGroup {
+    [self refreshArray];
+    NSLog(@"asked to refresh table");
+}
+
 #pragma mark - Refresh Delegate
 - (void)refresh {
     [self refreshArray];
+    NSLog(@"asked to refresh table");
 }
 
 
@@ -324,8 +328,10 @@
 - (void)viewWillDisappear:(BOOL)animated {
     NSLog(@"Goodbye");
     
-    [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected.row] forKey:@"current"];
-    [[PFUser currentUser] saveInBackground];
+    if (_selected != nil){
+        [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected.row] forKey:@"current"];
+        [[PFUser currentUser] saveInBackground];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -32,7 +32,16 @@
     
     //UIViewController *vc = [[UIViewController alloc]init];
     //[self presentViewController:vc animated:YES completion:nil];
-    
 }
+
+
+- (IBAction)currentUser:(id)sender {
+    NSLog(@"%@", [PFUser currentUser]);
+}
+
+- (IBAction)currentGroup:(id)sender {
+    NSLog(@"%@", [[PFUser currentUser]objectForKey:@"current"]);
+}
+
 
 @end

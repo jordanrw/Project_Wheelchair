@@ -27,9 +27,12 @@
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD39982E196C6465001D8163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD39982D196C6465001D8163 /* DetailViewController.m */; };
 		AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4CFA29196EC89D000B768D /* MessageUI.framework */; };
+		AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */; };
+		AD4CFA3019741BBC000B768D /* EditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4CFA2E19741BBC000B768D /* EditTableViewCell.m */; };
+		AD4CFA3519741C9D000B768D /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4CFA3219741C9D000B768D /* ToDoList.m */; };
+		AD4CFA3619741C9D000B768D /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4CFA3419741C9D000B768D /* ToDoItem.m */; };
 		AD69BB41195B9F3F009F1A90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB40195B9F3F009F1A90 /* main.m */; };
 		AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB43195B9F3F009F1A90 /* AppDelegate.m */; };
-		AD69BB47195B9F3F009F1A90 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB46195B9F3F009F1A90 /* FirstViewController.m */; };
 		AD69BB4A195B9F3F009F1A90 /* MeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB49195B9F3F009F1A90 /* MeetingViewController.m */; };
 		AD69BB4D195B9F3F009F1A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD69BB4B195B9F3F009F1A90 /* Main.storyboard */; };
 		AD69BB4F195B9F3F009F1A90 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD69BB4E195B9F3F009F1A90 /* Images.xcassets */; };
@@ -108,13 +111,19 @@
 		AD39982C196C6465001D8163 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		AD39982D196C6465001D8163 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		AD4CFA29196EC89D000B768D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AD4CFA2B19741BBC000B768D /* ToDoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListTableViewController.h; sourceTree = "<group>"; };
+		AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListTableViewController.m; sourceTree = "<group>"; };
+		AD4CFA2D19741BBC000B768D /* EditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTableViewCell.h; sourceTree = "<group>"; };
+		AD4CFA2E19741BBC000B768D /* EditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTableViewCell.m; sourceTree = "<group>"; };
+		AD4CFA3119741C9D000B768D /* ToDoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoList.h; sourceTree = "<group>"; };
+		AD4CFA3219741C9D000B768D /* ToDoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoList.m; sourceTree = "<group>"; };
+		AD4CFA3319741C9D000B768D /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
+		AD4CFA3419741C9D000B768D /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
 		AD69BB3B195B9F3F009F1A90 /* Group_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD69BB3F195B9F3F009F1A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD69BB40195B9F3F009F1A90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AD69BB42195B9F3F009F1A90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD69BB43195B9F3F009F1A90 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AD69BB45195B9F3F009F1A90 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		AD69BB46195B9F3F009F1A90 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		AD69BB48195B9F3F009F1A90 /* MeetingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingViewController.h; sourceTree = "<group>"; };
 		AD69BB49195B9F3F009F1A90 /* MeetingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingViewController.m; sourceTree = "<group>"; };
 		AD69BB4C195B9F3F009F1A90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -246,6 +255,17 @@
 			name = "Detail View Controller";
 			sourceTree = "<group>";
 		};
+		AD4CFA3719741CA0000B768D /* To Do List */ = {
+			isa = PBXGroup;
+			children = (
+				AD4CFA3119741C9D000B768D /* ToDoList.h */,
+				AD4CFA3219741C9D000B768D /* ToDoList.m */,
+				AD4CFA3319741C9D000B768D /* ToDoItem.h */,
+				AD4CFA3419741C9D000B768D /* ToDoItem.m */,
+			);
+			name = "To Do List";
+			sourceTree = "<group>";
+		};
 		AD69BB32195B9F3F009F1A90 = {
 			isa = PBXGroup;
 			children = (
@@ -342,8 +362,11 @@
 		AD69BB7E195C718E009F1A90 /* Todos */ = {
 			isa = PBXGroup;
 			children = (
-				AD69BB45195B9F3F009F1A90 /* FirstViewController.h */,
-				AD69BB46195B9F3F009F1A90 /* FirstViewController.m */,
+				AD4CFA2B19741BBC000B768D /* ToDoListTableViewController.h */,
+				AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */,
+				AD4CFA2D19741BBC000B768D /* EditTableViewCell.h */,
+				AD4CFA2E19741BBC000B768D /* EditTableViewCell.m */,
+				AD4CFA3719741CA0000B768D /* To Do List */,
 			);
 			name = Todos;
 			sourceTree = "<group>";
@@ -583,13 +606,16 @@
 				ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */,
 				AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */,
 				AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */,
+				AD4CFA3019741BBC000B768D /* EditTableViewCell.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
+				AD4CFA3519741C9D000B768D /* ToDoList.m in Sources */,
 				ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */,
-				AD69BB47195B9F3F009F1A90 /* FirstViewController.m in Sources */,
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
 				AD39982E196C6465001D8163 /* DetailViewController.m in Sources */,
 				AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */,
+				AD4CFA3619741C9D000B768D /* ToDoItem.m in Sources */,
+				AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */,
 				ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */,
 				ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */,
 			);

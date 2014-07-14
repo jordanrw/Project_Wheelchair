@@ -362,7 +362,7 @@
     mailVC.mailComposeDelegate = self;
     
     //subject
-    NSString *subject = @"please join my";
+    NSString *subject = @"please join my ";
     NSString *fullSubject = [subject stringByAppendingFormat:@"%@ group", self.groupNameField.text];
     
     //body

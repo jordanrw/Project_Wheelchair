@@ -11,7 +11,6 @@
 
 @protocol CreateGroupDelegate <NSObject>
 
-- (void)createGroupCancelled;
 - (void)createGroupFinished;
 
 @end

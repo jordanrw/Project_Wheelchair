@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol JoinGroupDelegate <NSObject>
+
+- (void)joinedGroup;
+
+@end
+
+
 @interface JoinViewController : UIViewController
+
+@property (nonatomic, weak) id<JoinGroupDelegate> joinDelegate;
 
 @end

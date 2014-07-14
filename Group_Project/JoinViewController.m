@@ -7,7 +7,7 @@
 //
 
 #import "JoinViewController.h"
-#import <Parse/Parse.h> 
+#import <Parse/Parse.h>
 
 @interface JoinViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *groupNameField;
@@ -54,8 +54,56 @@
 #pragma mark - Join a Group
 - (IBAction)joinGroup:(id)sender {
     
-    
-    
+    PFQuery *groupQuery = [PFQuery queryWithClassName:@"Groups"];
+    [groupQuery whereKey:@"groupName" equalTo:self.groupNameField.text];
+    [groupQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//////Group Doesn't Exist//////
+        if (!object) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No Group" message:@"there aren't any groups by that name" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+/////Group Exists////////
+        if (object) {
+            PFObject *theGroup = object;
+        ////Password is Wrong//////
+            if (![[theGroup valueForKey:@"password"] isEqualToString:self.groupPasswordField.text]) {
+                NSLog(@"wrong password");
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Wrong Password" message:@"please try again" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        //////Password is Right/////
+            if ([[theGroup valueForKey:@"password"] isEqualToString:self.groupPasswordField.text]) {
+                NSLog(@"EUREEECKAAA! it works");
+                
+                //adds the relationship
+                PFUser *currentUser = [PFUser currentUser];
+
+                PFRelation *relationUG = [currentUser relationForKey:@"myGroups"];
+                [relationUG addObject:theGroup];
+                [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    NSLog(@"group is under user");
+                }];
+                
+                PFRelation *relationGU = [theGroup relationForKey:@"users"];
+                [relationGU addObject:currentUser];
+                [theGroup saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    NSLog(@"user is under group");
+                }];
+
+                
+                
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Add to Group" message:@"you've been added to the group" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:nil, nil];
+                [alert show];
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [self.joinDelegate joinedGroup];
+                
+            }
+        }
+        if (error) {
+            NSLog(@"error");
+        }
+    }];
 }
 
 
