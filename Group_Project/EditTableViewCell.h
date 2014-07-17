@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ToDoItem.h"
+#import <Parse/Parse.h>
 
 @protocol EditTableViewCellDelegate <NSObject>
 
 //#Receiving error
-- (void)editTableViewCellDidFinishEditing:(EditTableViewCell *)cell;
+//- (void)editTableViewCellDidFinishEditing:(EditTableViewCell *)cell;
 
 @end
 
@@ -21,15 +21,15 @@
 @interface EditTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSString *cellTextHolder;
-@property (nonatomic, strong) UITextField *editField;
+@property (strong, nonatomic) IBOutlet UITextField *editField;
 @property (nonatomic, assign) BOOL isATapToAdd;
 
-//so you can update and add this to the array eventually
-@property (nonatomic, strong) ToDoItem *toDoItem;
+@property (strong, nonatomic) IBOutlet UILabel *customLabel;
 
 
-- (void)setUpCell:(EditTableViewCell *)cell withToDo:(ToDoItem *)todo;
+
+- (void)setUpCell:(EditTableViewCell *)cell withToDo:(PFObject *)todo;
 - (void)startEditingWithDelegate:(id<EditTableViewCellDelegate>)delegate;
-- (void)endEditingForCellAt:(NSIndexPath *)index;
+- (void)endEditingForTodo:(PFObject *)todo At:(NSIndexPath *)index;
 
 @end

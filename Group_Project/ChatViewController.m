@@ -36,6 +36,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)longTap:(id)sender {
+    NSLog(@"LongTap");
+}
+
+- (IBAction)pan:(id)sender {
+    NSLog(@"Long hold");
+}
+
+
 /*
 #pragma mark - Navigation
 

@@ -25,6 +25,7 @@
 		AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = AD02A87919635119006A38BB /* iTunesArtwork@2x */; };
 		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
+		AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD03840A197825DC00B2616F /* DisplayTableViewCell.m */; };
 		AD39982E196C6465001D8163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD39982D196C6465001D8163 /* DetailViewController.m */; };
 		AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4CFA29196EC89D000B768D /* MessageUI.framework */; };
 		AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */; };
@@ -70,11 +71,14 @@
 		AD797070195CDA4900004237 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79706F195CDA4900004237 /* LoginViewController.m */; };
 		AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */; };
 		AD975EB9196B537000EB4C09 /* check.PNG in Resources */ = {isa = PBXBuildFile; fileRef = AD975EB8196B537000EB4C09 /* check.PNG */; };
+		ADB92EB9197490500018C50B /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB92EB8197490500018C50B /* add.png */; };
+		ADB92EC719757D980018C50B /* MyTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB92EC619757D980018C50B /* MyTableController.m */; };
 		ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC45F19649A1900054445 /* GroupTableViewController.m */; };
 		ADBF9CE3196C6C3500C0683C /* profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = ADBF9CE2196C6C3500C0683C /* profile_pic.png */; };
 		ADBF9CE6196C973600C0683C /* profile_pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADBF9CE4196C973600C0683C /* profile_pic2.png */; };
 		ADBF9CEB196C979F00C0683C /* profile_pic3.png in Resources */ = {isa = PBXBuildFile; fileRef = ADBF9CEA196C979F00C0683C /* profile_pic3.png */; };
 		ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBF9CED196D9D8400C0683C /* InviteTableViewCell.m */; };
+		ADDA9CB719748E9600DC42C9 /* AddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDA9CB619748E9600DC42C9 /* AddCell.m */; };
 		ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0851961E80100D13D95 /* CreateViewController.m */; };
 		ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0881961E81500D13D95 /* JoinViewController.m */; };
 /* End PBXBuildFile section */
@@ -108,6 +112,8 @@
 		AD02A87919635119006A38BB /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		AD02A88A19644AED006A38BB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		AD038409197825DC00B2616F /* DisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewCell.h; sourceTree = "<group>"; };
+		AD03840A197825DC00B2616F /* DisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewCell.m; sourceTree = "<group>"; };
 		AD39982C196C6465001D8163 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		AD39982D196C6465001D8163 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		AD4CFA29196EC89D000B768D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -169,6 +175,9 @@
 		AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
 		AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
 		AD975EB8196B537000EB4C09 /* check.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.PNG; path = Group_Project/check.PNG; sourceTree = "<group>"; };
+		ADB92EB8197490500018C50B /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		ADB92EC519757D980018C50B /* MyTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableController.h; sourceTree = "<group>"; };
+		ADB92EC619757D980018C50B /* MyTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableController.m; sourceTree = "<group>"; };
 		ADBAC45E19649A1900054445 /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
 		ADBAC45F19649A1900054445 /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
 		ADBF9CE2196C6C3500C0683C /* profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_pic.png; sourceTree = "<group>"; };
@@ -176,6 +185,8 @@
 		ADBF9CEA196C979F00C0683C /* profile_pic3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_pic3.png; sourceTree = "<group>"; };
 		ADBF9CEC196D9D8400C0683C /* InviteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteTableViewCell.h; sourceTree = "<group>"; };
 		ADBF9CED196D9D8400C0683C /* InviteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteTableViewCell.m; sourceTree = "<group>"; };
+		ADDA9CB519748E9600DC42C9 /* AddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCell.h; sourceTree = "<group>"; };
+		ADDA9CB619748E9600DC42C9 /* AddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCell.m; sourceTree = "<group>"; };
 		ADF6E0841961E80100D13D95 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		ADF6E0851961E80100D13D95 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		ADF6E0871961E81500D13D95 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
@@ -246,6 +257,17 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
+		AD038408197824D200B2616F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA9CB519748E9600DC42C9 /* AddCell.h */,
+				ADDA9CB619748E9600DC42C9 /* AddCell.m */,
+				AD4CFA2D19741BBC000B768D /* EditTableViewCell.h */,
+				AD4CFA2E19741BBC000B768D /* EditTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		AD39982F196C646B001D8163 /* Detail View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +277,7 @@
 			name = "Detail View Controller";
 			sourceTree = "<group>";
 		};
-		AD4CFA3719741CA0000B768D /* To Do List */ = {
+		AD4CFA3719741CA0000B768D /* (don't use)To Do List */ = {
 			isa = PBXGroup;
 			children = (
 				AD4CFA3119741C9D000B768D /* ToDoList.h */,
@@ -263,7 +285,7 @@
 				AD4CFA3319741C9D000B768D /* ToDoItem.h */,
 				AD4CFA3419741C9D000B768D /* ToDoItem.m */,
 			);
-			name = "To Do List";
+			name = "(don't use)To Do List";
 			sourceTree = "<group>";
 		};
 		AD69BB32195B9F3F009F1A90 = {
@@ -333,6 +355,7 @@
 		AD69BB66195C6E59009F1A90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ADB92EB8197490500018C50B /* add.png */,
 				ADBF9CE2196C6C3500C0683C /* profile_pic.png */,
 				ADBF9CE4196C973600C0683C /* profile_pic2.png */,
 				ADBF9CEA196C979F00C0683C /* profile_pic3.png */,
@@ -362,11 +385,11 @@
 		AD69BB7E195C718E009F1A90 /* Todos */ = {
 			isa = PBXGroup;
 			children = (
+				ADB92EC119757D310018C50B /* PFQueryTable */,
+				AD038408197824D200B2616F /* Cells */,
 				AD4CFA2B19741BBC000B768D /* ToDoListTableViewController.h */,
 				AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */,
-				AD4CFA2D19741BBC000B768D /* EditTableViewCell.h */,
-				AD4CFA2E19741BBC000B768D /* EditTableViewCell.m */,
-				AD4CFA3719741CA0000B768D /* To Do List */,
+				AD4CFA3719741CA0000B768D /* (don't use)To Do List */,
 			);
 			name = Todos;
 			sourceTree = "<group>";
@@ -386,6 +409,7 @@
 				AD69BB7B195C716E009F1A90 /* SettingsTableViewController.h */,
 				AD69BB7C195C716E009F1A90 /* SettingsTableViewController.m */,
 				AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */,
+				AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */,
 				AD39982F196C646B001D8163 /* Detail View Controller */,
 				AD79706E195CDA4900004237 /* LoginViewController.h */,
 				AD79706F195CDA4900004237 /* LoginViewController.m */,
@@ -443,6 +467,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ADB92EC119757D310018C50B /* PFQueryTable */ = {
+			isa = PBXGroup;
+			children = (
+				ADB92EC519757D980018C50B /* MyTableController.h */,
+				ADB92EC619757D980018C50B /* MyTableController.m */,
+				AD038409197825DC00B2616F /* DisplayTableViewCell.h */,
+				AD03840A197825DC00B2616F /* DisplayTableViewCell.m */,
+			);
+			name = PFQueryTable;
+			sourceTree = "<group>";
+		};
 		ADBAC46119649DB200054445 /* not using */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,7 +503,6 @@
 			children = (
 				ADF6E0871961E81500D13D95 /* JoinViewController.h */,
 				ADF6E0881961E81500D13D95 /* JoinViewController.m */,
-				AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */,
 				ADBF9CEF196DC75800C0683C /* Create */,
 			);
 			name = "Adding Groups";
@@ -558,6 +592,7 @@
 				AD975EB9196B537000EB4C09 /* check.PNG in Resources */,
 				AD02A87A19635119006A38BB /* Icon-60.png in Resources */,
 				AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */,
+				ADB92EB9197490500018C50B /* add.png in Resources */,
 				AD02A88319635119006A38BB /* Icon-Small@2x.png in Resources */,
 				AD02A88119635119006A38BB /* Icon-Small-50@2x.png in Resources */,
 				AD69BB4D195B9F3F009F1A90 /* Main.storyboard in Resources */,
@@ -606,10 +641,13 @@
 				ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */,
 				AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */,
 				AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */,
+				ADB92EC719757D980018C50B /* MyTableController.m in Sources */,
 				AD4CFA3019741BBC000B768D /* EditTableViewCell.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
 				AD4CFA3519741C9D000B768D /* ToDoList.m in Sources */,
 				ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */,
+				AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */,
+				ADDA9CB719748E9600DC42C9 /* AddCell.m in Sources */,
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
 				AD39982E196C6465001D8163 /* DetailViewController.m in Sources */,
@@ -740,6 +778,7 @@
 					"/Users/jwhite3/Developer/*Frameworks/FacebookSDK",
 				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -764,6 +803,7 @@
 					"/Users/jwhite3/Developer/*Frameworks/FacebookSDK",
 				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

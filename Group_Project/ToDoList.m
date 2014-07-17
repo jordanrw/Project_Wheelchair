@@ -48,10 +48,11 @@
     return item;
 }
 
+/*
 - (void)updateToDoAt:(NSIndexPath *)index withName:(NSString *)name {
     NSLog(@"updateToDoAt");
     //updates the itemName & sets a date
-    [[_privateToDos objectAtIndex:index.row] changeName:name andDate:[NSDate date]];
+    //[[_privateToDos objectAtIndex:index.row] changeName:name andDate:[NSDate date]];
     
     //if name is @"" then
     if ([name isEqualToString:@""]) {
@@ -66,7 +67,7 @@
     if (([_privateToDos count] - 1) == index.row && (![name isEqualToString:@""])) {
         [self createBlank];
     }
-}
+}*/
 
 - (void)removeToDo:(ToDoItem *)item {
     [self.privateToDos removeObjectIdenticalTo:item];

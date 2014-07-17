@@ -7,10 +7,6 @@
 //
 
 #import "ToDoListTableViewController.h"
-#import "AddToDoViewController.h"
-#import "ToDoList.h"
-#import "ToDoItem.h"
-
 
 @interface ToDoListTableViewController ()
 
@@ -21,19 +17,6 @@
 
 @implementation ToDoListTableViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-    
-    //pulls in the sourceViewController
-    AddToDoViewController *source = [segue sourceViewController];
-    //pulls in the toDoItem of the vc
-    ToDoItem *item = source.toDoItem;
-    
-    if (item != nil) {
-        [[ToDoList defaultToDoList]createBlank];
-        [self.tableView reloadData];
-    }
-}
-
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
@@ -42,58 +25,81 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    NSLog(@"viewDidLoad");
+- (void)viewDidLoad {
+    
+    NSLog(@"list view loaded");
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     [self.tableView setDelegate:self];
-    
-    [[ToDoList defaultToDoList] createBlank];
     
     // Uncomment the following line to preserve selection between presentations.
     //self.clearsSelectionOnViewWillAppear = NO;
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear");
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
+    [query whereKey:@"groupName" equalTo:@"VT Hacks"];
+    [query includeKey:@"todos"];  //this is the golden line
+    NSLog(@"This prints out the query%@", query);
+    self.todoArray = [query findObjects];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.todoArray = [[objects objectAtIndex:0]objectForKey:@"todos"];
+        NSLog(@"The array of todos:%@", self.todoArray);
+        NSLog(@"The real number :%lu", (unsigned long)[self.todoArray count]);
+        
+        [self.tableView reloadData];
+    }];
 }
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //NSLog(@"numberOfSectionsInTableView:");
-    // Return the number of sections.
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //NSLog(@"tableView: numberOfRowsInSection:");
-    // Return the number of rows in the section.
-    
-    return [[[ToDoList defaultToDoList]publicToDos]count];
+
+    NSLog(@"The number of rows is this :%lu", (unsigned long)[self.todoArray count]);
+    return [self.todoArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"tableView:cellForRowAtIndexPath:");
+    EditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditTableViewCell" forIndexPath:indexPath];
+    PFObject *todo = self.todoArray[indexPath.row];
+    NSLog(@"todo item %@", todo);
     
-    static NSString *cellIdentifier = @"EditTableViewCell";
-    EditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.customLabel.text = [todo objectForKey:@"text"];
     
-    NSArray *todoList = [[ToDoList defaultToDoList]publicToDos];
-    ToDoItem *todo = todoList[indexPath.row];
-    [cell setUpCell:cell withToDo:todo];
-    
+    /*
+    if (indexPath.row <= [self.todoArray count]-1) {
+        static NSString *cellIdentifier = @"EditTableViewCell";
+        EditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        cell.customLabel.backgroundColor = [UIColor clearColor];
+
+        PFObject *todo = self.todoArray[indexPath.row];
+        [cell setUpCell:cell withToDo:todo];
+        
+        return cell;
+    }
+    else {
+        NSLog(@"else index path is greater and this has run");
+        
+        static NSString *cellIdentifier = @"addCell";
+        EditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        return cell;
+    }
+     */
     return cell;
 }
 
 #pragma mark - Delegates
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"tableView:didSelectRowAtIndexPath:");
     
@@ -122,7 +128,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSLog(@"textFieldShouldReturn:");
    
-    [self.currentCell endEditingForCellAt:_indexOfCurrentCell];
+    [self.currentCell endEditingForTodo:[self.todoArray objectAtIndex:_indexOfCurrentCell.row] At:_indexOfCurrentCell];
     [textField resignFirstResponder];
     
     [self.tableView reloadData];
@@ -134,6 +140,8 @@
     [self.currentCell.editField resignFirstResponder];
 }
 
+#pragma mark - important, and just commented out for now, to hopefully get it running
+/*
 #pragma mark - Deleting
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -176,6 +184,12 @@
         return proposedDestinationIndexPath;
     }
 }
+
+*/
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -227,5 +241,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Others
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

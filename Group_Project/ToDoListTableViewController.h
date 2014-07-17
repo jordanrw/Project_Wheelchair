@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "EditTableViewCell.h"
+
 
 @interface ToDoListTableViewController : UITableViewController <UITextFieldDelegate, UITableViewDelegate, EditTableViewCellDelegate>
 
-@property (nonatomic, strong) NSIndexPath *indexOfCurrentCell;
+@property (nonatomic, strong) PFObject *currentGroup;
+//@property (nonatomic, strong) NSMutableArray *todoList;
+@property (nonatomic, strong) NSArray *todoArray;
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
+@property (nonatomic, strong) NSIndexPath *indexOfCurrentCell;
 
 @end
