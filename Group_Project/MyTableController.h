@@ -7,6 +7,6 @@
 
 #import <Parse/Parse.h>
 
-@interface MyTableController : PFQueryTableViewController
+@interface MyTableController : PFQueryTableViewController <UITextFieldDelegate>
 
 @end

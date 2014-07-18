@@ -26,6 +26,9 @@
 		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD03840A197825DC00B2616F /* DisplayTableViewCell.m */; };
+		AD2D7E7B197874E3008EAB21 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7A197874E3008EAB21 /* CoreText.framework */; };
+		AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7C197874ED008EAB21 /* MapKit.framework */; };
+		AD2D7EB91978783D008EAB21 /* Scringo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7EB81978783D008EAB21 /* Scringo.framework */; };
 		AD39982E196C6465001D8163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD39982D196C6465001D8163 /* DetailViewController.m */; };
 		AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4CFA29196EC89D000B768D /* MessageUI.framework */; };
 		AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */; };
@@ -114,6 +117,9 @@
 		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AD038409197825DC00B2616F /* DisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewCell.h; sourceTree = "<group>"; };
 		AD03840A197825DC00B2616F /* DisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewCell.m; sourceTree = "<group>"; };
+		AD2D7E7A197874E3008EAB21 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		AD2D7E7C197874ED008EAB21 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AD2D7EB81978783D008EAB21 /* Scringo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scringo.framework; path = "../../*Frameworks/Scringo/Scringo.framework"; sourceTree = "<group>"; };
 		AD39982C196C6465001D8163 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		AD39982D196C6465001D8163 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		AD4CFA29196EC89D000B768D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -198,10 +204,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD2D7EB91978783D008EAB21 /* Scringo.framework in Frameworks */,
+				AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */,
+				AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */,
+				AD2D7E7B197874E3008EAB21 /* CoreText.framework in Frameworks */,
 				AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */,
 				AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */,
 				AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */,
-				AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */,
 				AD79706B195CD9BD00004237 /* libsqlite3.0.dylib in Frameworks */,
 				AD79705A195CD9A400004237 /* Accounts.framework in Frameworks */,
 				AD79705B195CD9A400004237 /* AdSupport.framework in Frameworks */,
@@ -440,7 +449,6 @@
 		AD69BB8F195CC43A009F1A90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AD4CFA29196EC89D000B768D /* MessageUI.framework */,
 				AD79704A195CD9A400004237 /* Accounts.framework */,
 				AD02A88A19644AED006A38BB /* AddressBook.framework */,
 				AD02A88B19644AED006A38BB /* AddressBookUI.framework */,
@@ -449,11 +457,14 @@
 				AD79704D195CD9A400004237 /* CFNetwork.framework */,
 				AD79704E195CD9A400004237 /* CoreGraphics.framework */,
 				AD79704F195CD9A400004237 /* CoreLocation.framework */,
+				AD2D7E7A197874E3008EAB21 /* CoreText.framework */,
 				AD79706C195CD9DB00004237 /* FacebookSDK.framework */,
 				AD797050195CD9A400004237 /* Foundation.framework */,
 				AD797048195CD91900004237 /* iAd.framework */,
 				AD797051195CD9A400004237 /* libz.1.1.3.dylib */,
 				AD79706A195CD9BD00004237 /* libsqlite3.0.dylib */,
+				AD2D7E7C197874ED008EAB21 /* MapKit.framework */,
+				AD4CFA29196EC89D000B768D /* MessageUI.framework */,
 				AD797052195CD9A400004237 /* MobileCoreServices.framework */,
 				AD69BB8D195CC435009F1A90 /* Parse.framework */,
 				AD797053195CD9A400004237 /* QuartzCore.framework */,
@@ -461,6 +472,7 @@
 				AD797055195CD9A400004237 /* Social.framework */,
 				AD797056195CD9A400004237 /* StoreKit.framework */,
 				AD797057195CD9A400004237 /* SystemConfiguration.framework */,
+				AD2D7EB81978783D008EAB21 /* Scringo.framework */,
 				AD797058195CD9A400004237 /* Twitter.framework */,
 				AD797059195CD9A400004237 /* UIKit.framework */,
 			);
@@ -776,6 +788,7 @@
 					"$(inherited)",
 					"/Users/jwhite3/Developer/*Frameworks",
 					"/Users/jwhite3/Developer/*Frameworks/FacebookSDK",
+					"/Users/jwhite3/Developer/*Frameworks/Scringo",
 				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -801,6 +814,7 @@
 					"$(inherited)",
 					"/Users/jwhite3/Developer/*Frameworks",
 					"/Users/jwhite3/Developer/*Frameworks/FacebookSDK",
+					"/Users/jwhite3/Developer/*Frameworks/Scringo",
 				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

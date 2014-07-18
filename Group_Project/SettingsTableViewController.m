@@ -196,6 +196,13 @@
     tissue.checkmarkImage.hidden = NO;
     tissue.selected = YES;
     _selected = indexPath;
+    
+    //saving it to the backend
+    //#save data sending by waiting until leaving the view, however loading then has problems
+    if (_selected != nil){
+        [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected.row] forKey:@"current"];
+        [[PFUser currentUser] save];
+    }
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -325,17 +332,17 @@
 
 #pragma mark - Leaving the view
 
+/*I changed it from updating here to updating on the tap so the rest of the app would work correctly
 - (void)viewWillDisappear:(BOOL)animated {
     NSLog(@"Goodbye");
     
     if (_selected != nil){
         [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected.row] forKey:@"current"];
-        [[PFUser currentUser] saveInBackground];
+        [[PFUser currentUser] save];
     }
-}
+}*/
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

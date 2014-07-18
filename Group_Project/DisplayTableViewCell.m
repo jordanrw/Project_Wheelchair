@@ -10,6 +10,7 @@
 
 @interface DisplayTableViewCell ()
 
+@property (nonatomic, strong) NSString *textHolder;
 
 @end
 
@@ -32,6 +33,24 @@
     //[super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)startEditingCell {
+    
+    //pull the current text
+    _textHolder = self.customLabel.text;
+    NSLog(@"textHolder: %@", _textHolder);
+    self.customLabel.text = nil;
+    self.customField.hidden = NO;
+    self.customField.text = _textHolder;
+    [self.customField becomeFirstResponder];
+}
+
+- (void)endEditingCell {
+    _textHolder = self.customField.text;
+    self.customField.hidden = YES;
+    
+    self.customLabel.text = _textHolder;
 }
 
 @end

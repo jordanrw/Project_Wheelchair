@@ -10,7 +10,12 @@
 
 @interface MyTableController ()
 
-@property (nonatomic, strong) PFObject *currentGroup;
+@property (nonatomic, weak) PFObject *currentGroup;
+@property (nonatomic, strong) NSString *textHolder;
+@property (nonatomic, strong) DisplayTableViewCell *currentCell;
+@property (nonatomic, strong) DisplayTableViewCell *lastCell;
+@property (nonatomic, weak) NSIndexPath *currentPath;
+@property (nonatomic, weak) NSIndexPath *lastPath;
 
 @end
 
@@ -18,8 +23,7 @@
 
 @implementation MyTableController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom the table
@@ -43,9 +47,6 @@
         self.objectsPerPage = 25;
         
         //
-        //_currentGroup = [PFObject objectWithClassName:@"Groups"];
-        self.currentGroup = [[PFUser currentUser]objectForKey:@"current"];
-
     }
     return self;
 }
@@ -69,12 +70,20 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
+    
+    //_currentGroup = [PFObject objectWithClassName:@"Groups"];
+    self.currentGroup = [[PFUser currentUser]objectForKey:@"current"];
+    
+    [self loadObjects];
+    NSLog(@"objecsts %@", self.objects);
+    //[self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -125,7 +134,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Todo"];
     [query whereKey:@"group" equalTo:currentGroup];
     
-    
     /*
     PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
     [query whereKey:@"groupName" equalTo:@"VT Hacks"];
@@ -160,7 +168,7 @@
     }
  
     //you can change which column it sorts with
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
  
     return query;
 }
@@ -181,6 +189,7 @@
     cell.customLabel.text = [object objectForKey:@"text"];
     if ([[object valueForKey:@"complete"]isEqualToNumber:[NSNumber numberWithBool:YES]]) {
         cell.checkImage.hidden = NO;
+        NSLog(@"image code runs");
     }
     
     //check mark selector
@@ -260,10 +269,53 @@
 }
 
 
-#pragma mark - Table view delegate
+#pragma mark - Editing Todos  (Table view delegate)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"selected a row at %i", indexPath.row);
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    _lastPath = _currentPath;
+    _lastCell = _currentCell;
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    DisplayTableViewCell *todoCell = (DisplayTableViewCell *)cell;
+    self.currentCell = todoCell;
+    self.currentPath = indexPath;
+  
+    //starts the editing
+    [todoCell startEditingCell];
+    [todoCell.customField setDelegate:self];
+}
+
+/*
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    
+    if (!_lastCell) {
+        return YES;
+    }
+    NSLog(@"should End the Editing");
+    [self updateTodoInParseWithCell:_lastCell andIndexPath:_lastPath];
+    return YES;
+}*/
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"should Return");
+    [textField resignFirstResponder];
+    
+    [self updateTodoInParseWithCell:self.currentCell andIndexPath:_currentPath];
+    return YES;
+}
+
+-(void)updateTodoInParseWithCell:(DisplayTableViewCell *)cell andIndexPath:(NSIndexPath *)path {
+    
+    [cell endEditingCell];
+    
+    PFObject *object =  [self.objects objectAtIndex:path.row];
+    [object setObject:cell.customLabel.text forKey:@"text"];
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"the todo is now saved");
+    }];
     
 }
 

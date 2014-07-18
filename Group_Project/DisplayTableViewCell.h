@@ -11,10 +11,13 @@
 @interface DisplayTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *customLabel;
+@property (strong, nonatomic) IBOutlet UITextField *customField;
+
 @property (strong, nonatomic) IBOutlet UIImageView *checkImage;
 @property (strong, nonatomic) IBOutlet UIButton *checkButton;
 
 
-//image for checkmark
+- (void)startEditingCell;
+- (void)endEditingCell;
 
 @end

@@ -101,12 +101,11 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M6q-LL-Y2I" id="KYI-ho-2Yk">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTV-wW-xYj">
-                                            <rect key="frame" x="48" y="0.0" width="240" height="50"/>
+                                        <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="unz-Vi-uPR">
+                                            <rect key="frame" x="48" y="1" width="240" height="50"/>
                                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        </textField>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="n31-v5-QUI">
                                             <rect key="frame" x="15" y="19" width="16" height="12"/>
                                         </imageView>
@@ -119,11 +118,18 @@
                                                 <action selector="check:" destination="0Qi-Ma-jZJ" eventType="touchUpInside" id="Hbp-fL-pKO"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTV-wW-xYj">
+                                            <rect key="frame" x="48" y="1" width="240" height="50"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="checkButton" destination="FCs-o5-zZw" id="2ak-Uu-j6v"/>
                                     <outlet property="checkImage" destination="n31-v5-QUI" id="zyx-eo-yYX"/>
+                                    <outlet property="customField" destination="unz-Vi-uPR" id="x8q-sd-20e"/>
                                     <outlet property="customLabel" destination="oTV-wW-xYj" id="Hrs-p2-8na"/>
                                 </connections>
                             </tableViewCell>
@@ -157,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIm-mO-eKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="-5862"/>
+            <point key="canvasLocation" x="613" y="-5864"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="V6b-Cz-flf">

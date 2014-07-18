@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h> 
+#import <Scringo/Scringo.h>
 
 @interface AppDelegate ()
             
@@ -19,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //Assign the keys and id's for Parse
+    //Parse
     [Parse setApplicationId:@"cTWMa4yjafZA6U54SDMPmsH0uyNWy2VtkBtUIKKI"
                   clientKey:@"G6BqkwayQJvyHIORng64Vd3Vqgb3uzB0Z3XZyBUq"];
     //[PFFacebookUtils initializeFacebook];
@@ -29,7 +30,6 @@
 //    PFACL *defaultACL = [PFACL ACL];
 //    [defaultACL setPublicReadAccess:YES];
 //    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
-    
 
     
     return YES;
