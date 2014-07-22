@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TapkuLibrary/TapkuLibrary.h>
 
 @interface MeetingViewController : UIViewController
 

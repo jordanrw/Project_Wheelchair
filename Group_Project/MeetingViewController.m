@@ -92,12 +92,17 @@
 }
 
 
-
-
-
 - (IBAction)currentGroup:(id)sender {
     NSLog(@"%@", [[PFUser currentUser]objectForKey:@"current"]);
 }
+
+- (IBAction)newUI:(id)sender {
+    NSLog(@"new UI");
+    
+    TKCalendarDayViewController *dayVC = [[TKCalendarDayViewController alloc]init];
+    [self presentViewController:dayVC animated:YES completion:nil];
+}
+
 
 
 @end

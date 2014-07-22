@@ -26,6 +26,9 @@
 		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD03840A197825DC00B2616F /* DisplayTableViewCell.m */; };
+		AD149B93197EEAD3007E8FBF /* JRWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD149B8E197EEAD3007E8FBF /* JRWViewController.m */; };
+		AD149B94197EEAD3007E8FBF /* JRWFeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD149B90197EEAD3007E8FBF /* JRWFeedFetcher.m */; };
+		AD149B95197EEAD3007E8FBF /* JRWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD149B92197EEAD3007E8FBF /* JRWCourse.m */; };
 		AD2D7E7B197874E3008EAB21 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7A197874E3008EAB21 /* CoreText.framework */; };
 		AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7C197874ED008EAB21 /* MapKit.framework */; };
 		AD2D7EB91978783D008EAB21 /* Scringo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7EB81978783D008EAB21 /* Scringo.framework */; };
@@ -52,6 +55,10 @@
 		AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD69BB87195C73EB009F1A90 /* google_drive.jpg */; };
 		AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB8A195C7664009F1A90 /* ChatViewController.m */; };
 		AD69BB8E195CC435009F1A90 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD69BB8D195CC435009F1A90 /* Parse.framework */; };
+		AD6DD1DB1979BF8C00C03088 /* line.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD6DD1DA1979BF8C00C03088 /* line.jpg */; };
+		AD6DD23F197D685500C03088 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD6DD23B197D685500C03088 /* TapkuLibrary.bundle */; };
+		AD6DD248197D687C00C03088 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6DD243197D685500C03088 /* libTapkuLibrary.a */; };
+		AD6DD24F197D6FB400C03088 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6DD24E197D6FB400C03088 /* DayViewController.m */; };
 		AD797049195CD91900004237 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD797048195CD91900004237 /* iAd.framework */; };
 		AD79705A195CD9A400004237 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79704A195CD9A400004237 /* Accounts.framework */; };
 		AD79705B195CD9A400004237 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79704B195CD9A400004237 /* AdSupport.framework */; };
@@ -74,6 +81,22 @@
 		AD797070195CDA4900004237 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79706F195CDA4900004237 /* LoginViewController.m */; };
 		AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */; };
 		AD975EB9196B537000EB4C09 /* check.PNG in Resources */ = {isa = PBXBuildFile; fileRef = AD975EB8196B537000EB4C09 /* check.PNG */; };
+		AD9E79A3197DA8790037C7EE /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7993197DA8790037C7EE /* Icon-60.png */; };
+		AD9E79A4197DA8790037C7EE /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7994197DA8790037C7EE /* Icon-60@2x.png */; };
+		AD9E79A5197DA8790037C7EE /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7995197DA8790037C7EE /* Icon-72.png */; };
+		AD9E79A6197DA8790037C7EE /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7996197DA8790037C7EE /* Icon-72@2x.png */; };
+		AD9E79A7197DA8790037C7EE /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7997197DA8790037C7EE /* Icon-76.png */; };
+		AD9E79A8197DA8790037C7EE /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7998197DA8790037C7EE /* Icon-76@2x.png */; };
+		AD9E79A9197DA8790037C7EE /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7999197DA8790037C7EE /* Icon-Small-50.png */; };
+		AD9E79AA197DA8790037C7EE /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E799A197DA8790037C7EE /* Icon-Small-50@2x.png */; };
+		AD9E79AB197DA8790037C7EE /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E799B197DA8790037C7EE /* Icon-Small.png */; };
+		AD9E79AC197DA8790037C7EE /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E799C197DA8790037C7EE /* Icon-Small@2x.png */; };
+		AD9E79AD197DA8790037C7EE /* Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E799D197DA8790037C7EE /* Icon-Spotlight-40.png */; };
+		AD9E79AE197DA8790037C7EE /* Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E799E197DA8790037C7EE /* Icon-Spotlight-40@2x.png */; };
+		AD9E79AF197DA8790037C7EE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E799F197DA8790037C7EE /* Icon.png */; };
+		AD9E79B0197DA8790037C7EE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9E79A0197DA8790037C7EE /* Icon@2x.png */; };
+		AD9E79B1197DA8790037C7EE /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = AD9E79A1197DA8790037C7EE /* iTunesArtwork */; };
+		AD9E79B2197DA8790037C7EE /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = AD9E79A2197DA8790037C7EE /* iTunesArtwork@2x */; };
 		ADB92EB9197490500018C50B /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB92EB8197490500018C50B /* add.png */; };
 		ADB92EC719757D980018C50B /* MyTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB92EC619757D980018C50B /* MyTableController.m */; };
 		ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC45F19649A1900054445 /* GroupTableViewController.m */; };
@@ -93,6 +116,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = AD69BB3A195B9F3F009F1A90;
 			remoteInfo = Group_Project;
+		};
+		AD6DD242197D685500C03088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = TapkuLibrary;
+		};
+		AD6DD244197D685500C03088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B45DDF1134C736600D24C1A;
+			remoteInfo = LogicTests;
+		};
+		AD6DD246197D686700C03088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = TapkuLibrary;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -117,6 +161,12 @@
 		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AD038409197825DC00B2616F /* DisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewCell.h; sourceTree = "<group>"; };
 		AD03840A197825DC00B2616F /* DisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewCell.m; sourceTree = "<group>"; };
+		AD149B8D197EEAD3007E8FBF /* JRWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWViewController.h; sourceTree = "<group>"; };
+		AD149B8E197EEAD3007E8FBF /* JRWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWViewController.m; sourceTree = "<group>"; };
+		AD149B8F197EEAD3007E8FBF /* JRWFeedFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWFeedFetcher.h; sourceTree = "<group>"; };
+		AD149B90197EEAD3007E8FBF /* JRWFeedFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWFeedFetcher.m; sourceTree = "<group>"; };
+		AD149B91197EEAD3007E8FBF /* JRWCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWCourse.h; sourceTree = "<group>"; };
+		AD149B92197EEAD3007E8FBF /* JRWCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWCourse.m; sourceTree = "<group>"; };
 		AD2D7E7A197874E3008EAB21 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		AD2D7E7C197874ED008EAB21 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AD2D7EB81978783D008EAB21 /* Scringo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scringo.framework; path = "../../*Frameworks/Scringo/Scringo.framework"; sourceTree = "<group>"; };
@@ -157,6 +207,11 @@
 		AD69BB89195C7664009F1A90 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		AD69BB8A195C7664009F1A90 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		AD69BB8D195CC435009F1A90 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../*Frameworks/Parse.framework"; sourceTree = "<group>"; };
+		AD6DD1DA1979BF8C00C03088 /* line.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line.jpg; sourceTree = "<group>"; };
+		AD6DD23B197D685500C03088 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = "../../*Frameworks/tapkulibrary-master/src/TapkuLibrary.bundle"; sourceTree = "<group>"; };
+		AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = "../../*Frameworks/tapkulibrary-master/src/TapkuLibrary.xcodeproj"; sourceTree = "<group>"; };
+		AD6DD24D197D6FB400C03088 /* DayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayViewController.h; sourceTree = "<group>"; };
+		AD6DD24E197D6FB400C03088 /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayViewController.m; sourceTree = "<group>"; };
 		AD797048195CD91900004237 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		AD79704A195CD9A400004237 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AD79704B195CD9A400004237 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -181,6 +236,22 @@
 		AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
 		AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
 		AD975EB8196B537000EB4C09 /* check.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.PNG; path = Group_Project/check.PNG; sourceTree = "<group>"; };
+		AD9E7993197DA8790037C7EE /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		AD9E7994197DA8790037C7EE /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		AD9E7995197DA8790037C7EE /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		AD9E7996197DA8790037C7EE /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		AD9E7997197DA8790037C7EE /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		AD9E7998197DA8790037C7EE /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		AD9E7999197DA8790037C7EE /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		AD9E799A197DA8790037C7EE /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		AD9E799B197DA8790037C7EE /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		AD9E799C197DA8790037C7EE /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		AD9E799D197DA8790037C7EE /* Icon-Spotlight-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40.png"; sourceTree = "<group>"; };
+		AD9E799E197DA8790037C7EE /* Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
+		AD9E799F197DA8790037C7EE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		AD9E79A0197DA8790037C7EE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		AD9E79A1197DA8790037C7EE /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		AD9E79A2197DA8790037C7EE /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		ADB92EB8197490500018C50B /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		ADB92EC519757D980018C50B /* MyTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableController.h; sourceTree = "<group>"; };
 		ADB92EC619757D980018C50B /* MyTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableController.m; sourceTree = "<group>"; };
@@ -204,9 +275,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD797063195CD9A400004237 /* QuartzCore.framework in Frameworks */,
+				AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */,
+				AD6DD248197D687C00C03088 /* libTapkuLibrary.a in Frameworks */,
 				AD2D7EB91978783D008EAB21 /* Scringo.framework in Frameworks */,
 				AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */,
-				AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */,
 				AD2D7E7B197874E3008EAB21 /* CoreText.framework in Frameworks */,
 				AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */,
 				AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */,
@@ -221,7 +294,6 @@
 				AD797060195CD9A400004237 /* Foundation.framework in Frameworks */,
 				AD797061195CD9A400004237 /* libz.1.1.3.dylib in Frameworks */,
 				AD797062195CD9A400004237 /* MobileCoreServices.framework in Frameworks */,
-				AD797063195CD9A400004237 /* QuartzCore.framework in Frameworks */,
 				AD797064195CD9A400004237 /* Security.framework in Frameworks */,
 				AD797065195CD9A400004237 /* Social.framework in Frameworks */,
 				AD797066195CD9A400004237 /* StoreKit.framework in Frameworks */,
@@ -243,7 +315,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AD02A86919635119006A38BB /* icons */ = {
+		AD02A86919635119006A38BB /* blue icons */ = {
 			isa = PBXGroup;
 			children = (
 				AD02A86A19635119006A38BB /* Icon-60.png */,
@@ -263,10 +335,11 @@
 				AD02A87819635119006A38BB /* iTunesArtwork */,
 				AD02A87919635119006A38BB /* iTunesArtwork@2x */,
 			);
+			name = "blue icons";
 			path = icons;
 			sourceTree = "<group>";
 		};
-		AD038408197824D200B2616F /* Cells */ = {
+		AD038408197824D200B2616F /* not using */ = {
 			isa = PBXGroup;
 			children = (
 				ADDA9CB519748E9600DC42C9 /* AddCell.h */,
@@ -274,7 +347,20 @@
 				AD4CFA2D19741BBC000B768D /* EditTableViewCell.h */,
 				AD4CFA2E19741BBC000B768D /* EditTableViewCell.m */,
 			);
-			name = Cells;
+			name = "not using";
+			sourceTree = "<group>";
+		};
+		AD149B8B197EEAC3007E8FBF /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				AD149B8D197EEAD3007E8FBF /* JRWViewController.h */,
+				AD149B8E197EEAD3007E8FBF /* JRWViewController.m */,
+				AD149B8F197EEAD3007E8FBF /* JRWFeedFetcher.h */,
+				AD149B90197EEAD3007E8FBF /* JRWFeedFetcher.m */,
+				AD149B91197EEAD3007E8FBF /* JRWCourse.h */,
+				AD149B92197EEAD3007E8FBF /* JRWCourse.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		AD39982F196C646B001D8163 /* Detail View Controller */ = {
@@ -300,6 +386,8 @@
 		AD69BB32195B9F3F009F1A90 = {
 			isa = PBXGroup;
 			children = (
+				AD6DD23B197D685500C03088 /* TapkuLibrary.bundle */,
+				AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */,
 				AD69BB3D195B9F3F009F1A90 /* Group_Project */,
 				AD69BB57195B9F3F009F1A90 /* Group_ProjectTests */,
 				AD69BB3C195B9F3F009F1A90 /* Products */,
@@ -364,12 +452,14 @@
 		AD69BB66195C6E59009F1A90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AD6DD1DA1979BF8C00C03088 /* line.jpg */,
 				ADB92EB8197490500018C50B /* add.png */,
 				ADBF9CE2196C6C3500C0683C /* profile_pic.png */,
 				ADBF9CE4196C973600C0683C /* profile_pic2.png */,
 				ADBF9CEA196C979F00C0683C /* profile_pic3.png */,
 				AD975EB8196B537000EB4C09 /* check.PNG */,
-				AD02A86919635119006A38BB /* icons */,
+				AD9E7992197DA8790037C7EE /* wheelchair icons */,
+				AD02A86919635119006A38BB /* blue icons */,
 				AD69BB87195C73EB009F1A90 /* google_drive.jpg */,
 				AD69BB69195C6FA5009F1A90 /* tabbar */,
 			);
@@ -395,7 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				ADB92EC119757D310018C50B /* PFQueryTable */,
-				AD038408197824D200B2616F /* Cells */,
+				AD038408197824D200B2616F /* not using */,
 				AD4CFA2B19741BBC000B768D /* ToDoListTableViewController.h */,
 				AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */,
 				AD4CFA3719741CA0000B768D /* (don't use)To Do List */,
@@ -406,8 +496,11 @@
 		AD69BB7F195C7197009F1A90 /* Meeting Time */ = {
 			isa = PBXGroup;
 			children = (
+				AD149B8B197EEAC3007E8FBF /* JSON */,
 				AD69BB48195B9F3F009F1A90 /* MeetingViewController.h */,
 				AD69BB49195B9F3F009F1A90 /* MeetingViewController.m */,
+				AD6DD24D197D6FB400C03088 /* DayViewController.h */,
+				AD6DD24E197D6FB400C03088 /* DayViewController.m */,
 			);
 			name = "Meeting Time";
 			sourceTree = "<group>";
@@ -479,6 +572,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AD6DD23D197D685500C03088 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD6DD243197D685500C03088 /* libTapkuLibrary.a */,
+				AD6DD245197D685500C03088 /* LogicTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD9E7992197DA8790037C7EE /* wheelchair icons */ = {
+			isa = PBXGroup;
+			children = (
+				AD9E7993197DA8790037C7EE /* Icon-60.png */,
+				AD9E7994197DA8790037C7EE /* Icon-60@2x.png */,
+				AD9E7995197DA8790037C7EE /* Icon-72.png */,
+				AD9E7996197DA8790037C7EE /* Icon-72@2x.png */,
+				AD9E7997197DA8790037C7EE /* Icon-76.png */,
+				AD9E7998197DA8790037C7EE /* Icon-76@2x.png */,
+				AD9E7999197DA8790037C7EE /* Icon-Small-50.png */,
+				AD9E799A197DA8790037C7EE /* Icon-Small-50@2x.png */,
+				AD9E799B197DA8790037C7EE /* Icon-Small.png */,
+				AD9E799C197DA8790037C7EE /* Icon-Small@2x.png */,
+				AD9E799D197DA8790037C7EE /* Icon-Spotlight-40.png */,
+				AD9E799E197DA8790037C7EE /* Icon-Spotlight-40@2x.png */,
+				AD9E799F197DA8790037C7EE /* Icon.png */,
+				AD9E79A0197DA8790037C7EE /* Icon@2x.png */,
+				AD9E79A1197DA8790037C7EE /* iTunesArtwork */,
+				AD9E79A2197DA8790037C7EE /* iTunesArtwork@2x */,
+			);
+			path = "wheelchair icons";
+			sourceTree = "<group>";
+		};
 		ADB92EC119757D310018C50B /* PFQueryTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +659,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AD6DD247197D686700C03088 /* PBXTargetDependency */,
 			);
 			name = Group_Project;
 			productName = Group_Project;
@@ -588,6 +714,12 @@
 			mainGroup = AD69BB32195B9F3F009F1A90;
 			productRefGroup = AD69BB3C195B9F3F009F1A90 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AD6DD23D197D685500C03088 /* Products */;
+					ProjectRef = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AD69BB3A195B9F3F009F1A90 /* Group_Project */,
@@ -596,35 +728,70 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		AD6DD243197D685500C03088 /* libTapkuLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTapkuLibrary.a;
+			remoteRef = AD6DD242197D685500C03088 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AD6DD245197D685500C03088 /* LogicTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LogicTests.xctest;
+			remoteRef = AD6DD244197D685500C03088 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		AD69BB39195B9F3F009F1A90 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD9E79A7197DA8790037C7EE /* Icon-76.png in Resources */,
 				AD975EB9196B537000EB4C09 /* check.PNG in Resources */,
+				AD9E79AA197DA8790037C7EE /* Icon-Small-50@2x.png in Resources */,
+				AD9E79A8197DA8790037C7EE /* Icon-76@2x.png in Resources */,
 				AD02A87A19635119006A38BB /* Icon-60.png in Resources */,
+				AD9E79B0197DA8790037C7EE /* Icon@2x.png in Resources */,
+				AD9E79A6197DA8790037C7EE /* Icon-72@2x.png in Resources */,
+				AD9E79AD197DA8790037C7EE /* Icon-Spotlight-40.png in Resources */,
 				AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */,
 				ADB92EB9197490500018C50B /* add.png in Resources */,
 				AD02A88319635119006A38BB /* Icon-Small@2x.png in Resources */,
 				AD02A88119635119006A38BB /* Icon-Small-50@2x.png in Resources */,
+				AD9E79B2197DA8790037C7EE /* iTunesArtwork@2x in Resources */,
 				AD69BB4D195B9F3F009F1A90 /* Main.storyboard in Resources */,
 				AD02A88719635119006A38BB /* Icon@2x.png in Resources */,
 				ADBF9CE3196C6C3500C0683C /* profile_pic.png in Resources */,
+				AD9E79A4197DA8790037C7EE /* Icon-60@2x.png in Resources */,
+				AD6DD1DB1979BF8C00C03088 /* line.jpg in Resources */,
 				AD02A88419635119006A38BB /* Icon-Spotlight-40.png in Resources */,
 				AD02A88819635119006A38BB /* iTunesArtwork in Resources */,
 				ADBF9CEB196C979F00C0683C /* profile_pic3.png in Resources */,
 				AD02A87E19635119006A38BB /* Icon-76.png in Resources */,
 				AD02A88519635119006A38BB /* Icon-Spotlight-40@2x.png in Resources */,
+				AD9E79AB197DA8790037C7EE /* Icon-Small.png in Resources */,
 				AD02A88619635119006A38BB /* Icon.png in Resources */,
 				ADBF9CE6196C973600C0683C /* profile_pic2.png in Resources */,
+				AD9E79A9197DA8790037C7EE /* Icon-Small-50.png in Resources */,
 				AD69BB70195C6FA5009F1A90 /* tab_meet1.png in Resources */,
+				AD9E79AE197DA8790037C7EE /* Icon-Spotlight-40@2x.png in Resources */,
+				AD9E79AF197DA8790037C7EE /* Icon.png in Resources */,
 				AD02A88019635119006A38BB /* Icon-Small-50.png in Resources */,
 				AD02A87B19635119006A38BB /* Icon-60@2x.png in Resources */,
+				AD9E79AC197DA8790037C7EE /* Icon-Small@2x.png in Resources */,
 				AD02A88219635119006A38BB /* Icon-Small.png in Resources */,
+				AD6DD23F197D685500C03088 /* TapkuLibrary.bundle in Resources */,
 				AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */,
+				AD9E79B1197DA8790037C7EE /* iTunesArtwork in Resources */,
 				AD02A87C19635119006A38BB /* Icon-72.png in Resources */,
 				AD69BB73195C6FA5009F1A90 /* tab_settings.png in Resources */,
+				AD9E79A5197DA8790037C7EE /* Icon-72.png in Resources */,
 				AD69BB75195C704B009F1A90 /* tab_todo.png in Resources */,
+				AD9E79A3197DA8790037C7EE /* Icon-60.png in Resources */,
 				AD69BB68195C6F02009F1A90 /* tab_doc.png in Resources */,
 				AD69BB6F195C6FA5009F1A90 /* tab_chat.png in Resources */,
 				AD69BB72195C6FA5009F1A90 /* tab_meet2.png in Resources */,
@@ -651,18 +818,22 @@
 				AD797070195CDA4900004237 /* LoginViewController.m in Sources */,
 				AD69BB4A195B9F3F009F1A90 /* MeetingViewController.m in Sources */,
 				ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */,
+				AD149B94197EEAD3007E8FBF /* JRWFeedFetcher.m in Sources */,
 				AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */,
 				AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */,
 				ADB92EC719757D980018C50B /* MyTableController.m in Sources */,
 				AD4CFA3019741BBC000B768D /* EditTableViewCell.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
+				AD149B93197EEAD3007E8FBF /* JRWViewController.m in Sources */,
 				AD4CFA3519741C9D000B768D /* ToDoList.m in Sources */,
+				AD6DD24F197D6FB400C03088 /* DayViewController.m in Sources */,
 				ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */,
 				AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */,
 				ADDA9CB719748E9600DC42C9 /* AddCell.m in Sources */,
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
 				AD39982E196C6465001D8163 /* DetailViewController.m in Sources */,
+				AD149B95197EEAD3007E8FBF /* JRWCourse.m in Sources */,
 				AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */,
 				AD4CFA3619741C9D000B768D /* ToDoItem.m in Sources */,
 				AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */,
@@ -686,6 +857,11 @@
 			isa = PBXTargetDependency;
 			target = AD69BB3A195B9F3F009F1A90 /* Group_Project */;
 			targetProxy = AD69BB55195B9F3F009F1A90 /* PBXContainerItemProxy */;
+		};
+		AD6DD247197D686700C03088 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapkuLibrary;
+			targetProxy = AD6DD246197D686700C03088 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -790,6 +966,11 @@
 					"/Users/jwhite3/Developer/*Frameworks/FacebookSDK",
 					"/Users/jwhite3/Developer/*Frameworks/Scringo",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/Users/jwhite3/Developer/\\*Frameworks/tapkulibrary-master/src",
+				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -798,6 +979,7 @@
 					"/Users/jwhite3/Developer/*Frameworks/Tapku",
 					"Library/src/build/Debug-iphoneos",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -816,6 +998,11 @@
 					"/Users/jwhite3/Developer/*Frameworks/FacebookSDK",
 					"/Users/jwhite3/Developer/*Frameworks/Scringo",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/Users/jwhite3/Developer/\\*Frameworks/tapkulibrary-master/src",
+				);
 				INFOPLIST_FILE = Group_Project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -824,6 +1011,7 @@
 					"/Users/jwhite3/Developer/*Frameworks/Tapku",
 					"Library/src/build/Debug-iphoneos",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
