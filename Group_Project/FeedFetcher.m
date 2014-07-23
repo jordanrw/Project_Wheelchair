@@ -1,39 +1,18 @@
 //
-//  JRWFeedFetcher.m
-//  Json Practice
+//  FeedFetcher.m
+//  Group_Project
 //
-//  Created by White, Jordan on 6/4/14.
+//  Created by White, Jordan on 7/23/14.
 //  Copyright (c) 2014 Gannett Digital. All rights reserved.
 //
 
-#import "JRWFeedFetcher.h"
-#import "JRWCourse.h"
+#import "FeedFetcher.h"
 
-@implementation JRWFeedFetcher
+@implementation FeedFetcher
 
-- (void)json {
+- (void)fetchFeedWith:(NSString *)inputURL andActivity:(UIActivityIndicatorView *)spin andLabel:(UILabel *)label {
     
-    NSString *jsonString = @"{\"quizz\":[{\"id\":\"1\",\"Q1\":\"When Mickey was born\",\"R1\":\"1920\",\"R2\":\"1965\",\"R3\":\"1923\",\"R4\":\"1234\",\"response\":\"1920\"}, {\"id\":\"1\",\"Q1\":\"When start the cold war\",\"R1\":\"1920\",\"R2\":\"1965\",\"R3\":\"1923\",\"R4\":\"1234\",\"reponse\":\"1920\"}]}";
-    NSError *error =  nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-    
-    NSArray *items = [json valueForKeyPath:@"quizz"];
-    
-    NSEnumerator *enumerator = [items objectEnumerator];
-    NSDictionary* item;
-    while (item = (NSDictionary*)[enumerator nextObject]) {
-        NSLog(@"clientId = %@",  [item objectForKey:@"id"]);
-        NSLog(@"clientName = %@",[item objectForKey:@"Q1"]);
-        NSLog(@"job = %@",       [item objectForKey:@"Q2"]);
-    }
-}
-
-
-////////////////
-
-- (void)fetchFeedWith:(NSString *)inputURL { //andActivity:(UIActivityIndicatorView *)spin {
-    
-    __weak JRWFeedFetcher *weakSelf = self;
+    __weak FeedFetcher *weakSelf = self;
     
     NSURL *URL = [NSURL URLWithString:inputURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -41,28 +20,29 @@
     [NSURLConnection sendAsynchronousRequest: request queue: [NSOperationQueue mainQueue] completionHandler:
      ^(NSURLResponse* response, NSData* data, NSError* connectionError){
          NSLog(@"data is kinda here");
-         NSLog(@"%@", data);
-        //the same as calling self, but its a safety to make sure self hasn't been set to nil
-        //since this is inside of a 'block'
+         //the same as calling self, but its a safety to make sure self hasn't been set to nil
+         //since this is inside of a 'block'
          [weakSelf extractData: data];
-         //[spin stopAnimating];
-         //spin.hidden = YES;
+         
+         [spin stopAnimating];
+         spin.hidden = YES;
+         label.hidden = YES;
      }];
-
+    
 }
 
 #pragma mark - extraction
 
 - (void) extractData: (NSData*) someData  {
-    self.jsonArray = [NSJSONSerialization JSONObjectWithData:someData
-                                                         options:0
-                                                        error:nil];
+    
+    NSArray *allCourses = [NSJSONSerialization JSONObjectWithData:someData options:0 error:nil];
     NSLog(@"The data is downloaded");
+    
+    //save the data to the phone locally
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:allCourses forKey:@"courses"];
 }
 
-- (void)printTheArray {
-    NSLog(@"%@", self.jsonArray);
-}
 
 - (void)iterateThrough:(NSArray *)someArray atCRN:(NSString *)someCRN {
     
@@ -72,7 +52,7 @@
         if ([[dict valueForKey:@"CRN"] isEqualToString:someCRN]) {
             
             //if you get inside then you have the right course
-            JRWCourse *newCourse = [[JRWCourse alloc]initWithCRN:someCRN];
+            Course *newCourse = [[Course alloc]initWithCRN:someCRN];
             
             //set all the properties
             newCourse.course = [dict valueForKey:@"Course"];
@@ -99,6 +79,8 @@
             
             //add it to the mutableArray
             [self.coursesEnrolled addObject:newCourse];
+            //set most recent
+            self.lastAdded = newCourse;
         }
     }
     //NSLog(@"%@", self.coursesEnrolled);

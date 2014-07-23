@@ -1,14 +1,14 @@
 //
-//  JRWCourse.m
-//  Json Practice
+//  Course.m
+//  Group_Project
 //
-//  Created by White, Jordan on 6/4/14.
+//  Created by White, Jordan on 7/23/14.
 //  Copyright (c) 2014 Gannett Digital. All rights reserved.
 //
 
-#import "JRWCourse.h"
+#import "Course.h"
 
-@implementation JRWCourse
+@implementation Course
 
 - (instancetype)initWithCRN:(NSString *)aCRN {
     self = [super init];
@@ -19,6 +19,5 @@
     
     return self;
 }
-
 
 @end

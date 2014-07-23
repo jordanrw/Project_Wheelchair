@@ -8,9 +8,10 @@
 
 #import <TapkuLibrary/TKCalendarDayViewController.h>
 #import <Foundation/Foundation.h> 
+#import "AddCourseViewController.h"
 //#import "TKCalendarDayViewController.h"
 
-@interface DayViewController : TKCalendarDayViewController
+@interface DayViewController : TKCalendarDayViewController <AddCourseVCDelegate>
 
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) NSMutableArray *myCourses;

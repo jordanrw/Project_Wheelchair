@@ -26,9 +26,9 @@
 		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD03840A197825DC00B2616F /* DisplayTableViewCell.m */; };
-		AD149B93197EEAD3007E8FBF /* JRWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD149B8E197EEAD3007E8FBF /* JRWViewController.m */; };
-		AD149B94197EEAD3007E8FBF /* JRWFeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD149B90197EEAD3007E8FBF /* JRWFeedFetcher.m */; };
-		AD149B95197EEAD3007E8FBF /* JRWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AD149B92197EEAD3007E8FBF /* JRWCourse.m */; };
+		AD2C9CAB19800A31005171C4 /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */; };
+		AD2C9CAE19800A4B005171C4 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAD19800A4B005171C4 /* Course.m */; };
+		AD2C9CB119800A5E005171C4 /* FeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CB019800A5E005171C4 /* FeedFetcher.m */; };
 		AD2D7E7B197874E3008EAB21 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7A197874E3008EAB21 /* CoreText.framework */; };
 		AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7C197874ED008EAB21 /* MapKit.framework */; };
 		AD2D7EB91978783D008EAB21 /* Scringo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7EB81978783D008EAB21 /* Scringo.framework */; };
@@ -161,12 +161,12 @@
 		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AD038409197825DC00B2616F /* DisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewCell.h; sourceTree = "<group>"; };
 		AD03840A197825DC00B2616F /* DisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewCell.m; sourceTree = "<group>"; };
-		AD149B8D197EEAD3007E8FBF /* JRWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWViewController.h; sourceTree = "<group>"; };
-		AD149B8E197EEAD3007E8FBF /* JRWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWViewController.m; sourceTree = "<group>"; };
-		AD149B8F197EEAD3007E8FBF /* JRWFeedFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWFeedFetcher.h; sourceTree = "<group>"; };
-		AD149B90197EEAD3007E8FBF /* JRWFeedFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWFeedFetcher.m; sourceTree = "<group>"; };
-		AD149B91197EEAD3007E8FBF /* JRWCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWCourse.h; sourceTree = "<group>"; };
-		AD149B92197EEAD3007E8FBF /* JRWCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWCourse.m; sourceTree = "<group>"; };
+		AD2C9CA919800A31005171C4 /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
+		AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
+		AD2C9CAC19800A4B005171C4 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		AD2C9CAD19800A4B005171C4 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		AD2C9CAF19800A5E005171C4 /* FeedFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedFetcher.h; sourceTree = "<group>"; };
+		AD2C9CB019800A5E005171C4 /* FeedFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedFetcher.m; sourceTree = "<group>"; };
 		AD2D7E7A197874E3008EAB21 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		AD2D7E7C197874ED008EAB21 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AD2D7EB81978783D008EAB21 /* Scringo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scringo.framework; path = "../../*Frameworks/Scringo/Scringo.framework"; sourceTree = "<group>"; };
@@ -353,12 +353,12 @@
 		AD149B8B197EEAC3007E8FBF /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				AD149B8D197EEAD3007E8FBF /* JRWViewController.h */,
-				AD149B8E197EEAD3007E8FBF /* JRWViewController.m */,
-				AD149B8F197EEAD3007E8FBF /* JRWFeedFetcher.h */,
-				AD149B90197EEAD3007E8FBF /* JRWFeedFetcher.m */,
-				AD149B91197EEAD3007E8FBF /* JRWCourse.h */,
-				AD149B92197EEAD3007E8FBF /* JRWCourse.m */,
+				AD2C9CA919800A31005171C4 /* AddCourseViewController.h */,
+				AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */,
+				AD2C9CAF19800A5E005171C4 /* FeedFetcher.h */,
+				AD2C9CB019800A5E005171C4 /* FeedFetcher.m */,
+				AD2C9CAC19800A4B005171C4 /* Course.h */,
+				AD2C9CAD19800A4B005171C4 /* Course.m */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -375,6 +375,7 @@
 		AD4CFA3719741CA0000B768D /* (don't use)To Do List */ = {
 			isa = PBXGroup;
 			children = (
+				AD038408197824D200B2616F /* not using */,
 				AD4CFA3119741C9D000B768D /* ToDoList.h */,
 				AD4CFA3219741C9D000B768D /* ToDoList.m */,
 				AD4CFA3319741C9D000B768D /* ToDoItem.h */,
@@ -485,7 +486,6 @@
 			isa = PBXGroup;
 			children = (
 				ADB92EC119757D310018C50B /* PFQueryTable */,
-				AD038408197824D200B2616F /* not using */,
 				AD4CFA2B19741BBC000B768D /* ToDoListTableViewController.h */,
 				AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */,
 				AD4CFA3719741CA0000B768D /* (don't use)To Do List */,
@@ -815,25 +815,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD2C9CAE19800A4B005171C4 /* Course.m in Sources */,
 				AD797070195CDA4900004237 /* LoginViewController.m in Sources */,
 				AD69BB4A195B9F3F009F1A90 /* MeetingViewController.m in Sources */,
 				ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */,
-				AD149B94197EEAD3007E8FBF /* JRWFeedFetcher.m in Sources */,
 				AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */,
 				AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */,
 				ADB92EC719757D980018C50B /* MyTableController.m in Sources */,
 				AD4CFA3019741BBC000B768D /* EditTableViewCell.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
-				AD149B93197EEAD3007E8FBF /* JRWViewController.m in Sources */,
 				AD4CFA3519741C9D000B768D /* ToDoList.m in Sources */,
 				AD6DD24F197D6FB400C03088 /* DayViewController.m in Sources */,
 				ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */,
+				AD2C9CAB19800A31005171C4 /* AddCourseViewController.m in Sources */,
+				AD2C9CB119800A5E005171C4 /* FeedFetcher.m in Sources */,
 				AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */,
 				ADDA9CB719748E9600DC42C9 /* AddCell.m in Sources */,
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
 				AD39982E196C6465001D8163 /* DetailViewController.m in Sources */,
-				AD149B95197EEAD3007E8FBF /* JRWCourse.m in Sources */,
 				AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */,
 				AD4CFA3619741C9D000B768D /* ToDoItem.m in Sources */,
 				AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */,

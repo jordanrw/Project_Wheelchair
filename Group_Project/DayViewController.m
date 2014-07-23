@@ -7,7 +7,7 @@
 //
 
 #import "DayViewController.h"
-#import "JRWViewController.h"
+#import <Parse/Parse.h>
 
 @interface DayViewController ()
 
@@ -39,18 +39,14 @@
                   //@[@"Turkey Time...... oh wait", @"Chick-fela", @14, @0, @19, @0],
                   @[@"Greet the king at the castle", @"Burger King", @19, @30, @30, @0]];
     
-}
-
-- (void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     
-    //self.navigationController.navigationBar.hairlineDividerView.hidden = YES;
+    //Button
     self.dayView.daysBackgroundView.backgroundColor = [UIColor colorWithRed:.99 green:.99 blue:.99 alpha:1];
     UIButton *button = [[UIButton alloc]init];
     /* basic contact add button
-    button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    button.frame = CGRectMake(([[UIScreen mainScreen]bounds].size.width/2)-10, 50, 20, 20);
-    */
+     button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+     button.frame = CGRectMake(([[UIScreen mainScreen]bounds].size.width/2)-10, 50, 20, 20);
+     */
     button.frame = CGRectMake(([[UIScreen mainScreen]bounds].size.width/2)-50, 50, 100, 30);
     [button setTitle:@"Add Course" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithRed:0 green:.49 blue:.96 alpha:1.0] forState:UIControlStateNormal];
@@ -60,18 +56,37 @@
     [self.dayView.daysBackgroundView addSubview:button];
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    //self.navigationController.navigationBar.hairlineDividerView.hidden = YES;
+}
+
 - (void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     //self.navigationController.navigationBar.hairlineDividerView.hidden = NO;
     
 }
 
-#pragma mark - New Course Added
+#pragma mark - New Course View Controller
 - (void)newCourseVC {
     NSLog(@"Add new course");
-    JRWViewController *addCourseVC = (JRWViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addCourse"];
-    [self presentViewController:addCourseVC animated:YES completion:nil];
+
+    UINavigationController *addCourseVC = (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addC"];
     
+    
+    //AddCourseViewController *addCourseVC = (AddCourseViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addCourse"];
+    
+    //just get to the subview to access it properly
+    AddCourseViewController *vc = [addCourseVC.childViewControllers objectAtIndex:0];
+    vc.delegate = self;
+    [self presentViewController:addCourseVC animated:YES completion:nil];
+}
+
+#pragma mark - After a new course is added
+- (void)sendBack:(Course *)aCourse {
+    [self.myCourses addObject:aCourse];
+    NSLog(@"%@", aCourse.timeBegin1);
 }
 
 
