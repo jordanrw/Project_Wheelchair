@@ -99,6 +99,7 @@
 		AD9E79B2197DA8790037C7EE /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = AD9E79A2197DA8790037C7EE /* iTunesArtwork@2x */; };
 		ADB92EB9197490500018C50B /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB92EB8197490500018C50B /* add.png */; };
 		ADB92EC719757D980018C50B /* MyTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB92EC619757D980018C50B /* MyTableController.m */; };
+		ADB9B3861981B3F7007EF6B0 /* DateCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB9B3851981B3F6007EF6B0 /* DateCalculator.m */; };
 		ADBAC46019649A1900054445 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC45F19649A1900054445 /* GroupTableViewController.m */; };
 		ADBF9CE3196C6C3500C0683C /* profile_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = ADBF9CE2196C6C3500C0683C /* profile_pic.png */; };
 		ADBF9CE6196C973600C0683C /* profile_pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADBF9CE4196C973600C0683C /* profile_pic2.png */; };
@@ -255,6 +256,8 @@
 		ADB92EB8197490500018C50B /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		ADB92EC519757D980018C50B /* MyTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableController.h; sourceTree = "<group>"; };
 		ADB92EC619757D980018C50B /* MyTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableController.m; sourceTree = "<group>"; };
+		ADB9B3841981B3F6007EF6B0 /* DateCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCalculator.h; sourceTree = "<group>"; };
+		ADB9B3851981B3F6007EF6B0 /* DateCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCalculator.m; sourceTree = "<group>"; };
 		ADBAC45E19649A1900054445 /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
 		ADBAC45F19649A1900054445 /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
 		ADBF9CE2196C6C3500C0683C /* profile_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_pic.png; sourceTree = "<group>"; };
@@ -496,6 +499,8 @@
 		AD69BB7F195C7197009F1A90 /* Meeting Time */ = {
 			isa = PBXGroup;
 			children = (
+				ADB9B3841981B3F6007EF6B0 /* DateCalculator.h */,
+				ADB9B3851981B3F6007EF6B0 /* DateCalculator.m */,
 				AD149B8B197EEAC3007E8FBF /* JSON */,
 				AD69BB48195B9F3F009F1A90 /* MeetingViewController.h */,
 				AD69BB49195B9F3F009F1A90 /* MeetingViewController.m */,
@@ -824,6 +829,7 @@
 				ADB92EC719757D980018C50B /* MyTableController.m in Sources */,
 				AD4CFA3019741BBC000B768D /* EditTableViewCell.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
+				ADB9B3861981B3F7007EF6B0 /* DateCalculator.m in Sources */,
 				AD4CFA3519741C9D000B768D /* ToDoList.m in Sources */,
 				AD6DD24F197D6FB400C03088 /* DayViewController.m in Sources */,
 				ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */,

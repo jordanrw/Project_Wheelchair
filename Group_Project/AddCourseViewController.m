@@ -35,6 +35,7 @@
     _pleasewait.hidden = YES;
     
     self.fetcher = [[FeedFetcher alloc] init];
+    //[self.CRN becomeFirstResponder];
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSArray *courses = [prefs arrayForKey:@"courses"];

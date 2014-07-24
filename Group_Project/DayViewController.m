@@ -7,6 +7,8 @@
 //
 
 #import "DayViewController.h"
+#import "DateCalculator.h"
+#import "Course.h"
 #import <Parse/Parse.h>
 
 @interface DayViewController ()
@@ -28,8 +30,10 @@
 - (void) viewDidLoad{
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Meeting Time", @"");
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES];
     
+    self.myCourses = [[NSMutableArray alloc]init];
+    self.title = NSLocalizedString(@"Meeting Time", @"");
     self.data = @[
                   @[@"Meeting with five random dudes", @"Five Guys", @5, @0, @5, @30],
                   @[@"Unlimited bread rolls got me sprung", @"Olive Garden", @7, @0, @12, @0],
@@ -74,9 +78,6 @@
 
     UINavigationController *addCourseVC = (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addC"];
     
-    
-    //AddCourseViewController *addCourseVC = (AddCourseViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addCourse"];
-    
     //just get to the subview to access it properly
     AddCourseViewController *vc = [addCourseVC.childViewControllers objectAtIndex:0];
     vc.delegate = self;
@@ -87,69 +88,78 @@
 - (void)sendBack:(Course *)aCourse {
     [self.myCourses addObject:aCourse];
     NSLog(@"%@", aCourse.timeBegin1);
+    NSLog(@"the number of my courses:%lu", (unsigned long)[self.myCourses count]);
 }
-
 
 #pragma mark TKCalendarDayViewDelegate
 - (NSArray *) calendarDayTimelineView:(TKCalendarDayView*)calendarDayTimeline eventsForDate:(NSDate *)eventDate{
     
     if([eventDate compare:[NSDate dateWithTimeIntervalSinceNow:-24*60*60]] == NSOrderedAscending) return @[];
     if([eventDate compare:[NSDate dateWithTimeIntervalSinceNow:24*60*60]] == NSOrderedDescending) return @[];
+   
+    NSMutableArray *finalEvents = [[NSMutableArray alloc]init];
     
-    //NSDateComponents *info = [[NSDate date] dateComponentsWithTimeZone:calendarDayTimeline.calendar.timeZone];
-    NSDateComponents *info = [[NSDateComponents alloc]init];
-    
-    info.second = 0;
-    NSMutableArray *finalEvents = [NSMutableArray array];
-    
-    for(NSArray *ar in self.data){
+    //for(NSArray *ar in self.data){
         
         TKCalendarDayEventView *event = [calendarDayTimeline dequeueReusableEventView];
         if(event == nil) event = [TKCalendarDayEventView eventView];
         
         event.identifier = nil;
-        event.titleLabel.text = ar[0];
-        event.locationLabel.text = ar[1];
-        
-        info.hour = [ar[2] intValue];
-        info.minute = [ar[3] intValue];
+        event.titleLabel.text = nil;
+        event.locationLabel.text = nil;
         
         ////////
-         NSCalendar *cal = [NSCalendar currentCalendar];
+        NSCalendar *cal = [NSCalendar currentCalendar];
         
         NSDateComponents *components = [[NSDateComponents alloc]init];
         [components setHour:12];
         [components setMinute:00];
-        [components setDay:23];
+        [components setDay:24];
         [components setMonth:7];
         [components setYear:2014];
-        NSDate *date1 = [cal dateFromComponents:components];
+        //NSDate *date1 = [cal dateFromComponents:components];
+        NSDate *date1 = [self todayAtMidnight];
         
         ////////
         //NSDateComponents *components2 = [[NSDateComponents alloc]init];
         [components setHour:15];
         [components setMinute:00];
-        [components setDay:23];
+        [components setDay:24];
         [components setMonth:7];
         [components setYear:2014];
         NSDate *date2 = [cal dateFromComponents:components];
         
         
         event.startDate = date1;
-        
-        info.hour = [ar[4] intValue];
-        info.minute = [ar[5] intValue];
         event.endDate = date2;
         
         [finalEvents addObject:event];
         
-    }
+    //}
     return finalEvents;
 }
+
 
 - (void) calendarDayTimelineView:(TKCalendarDayView*)calendarDayTimeline eventViewWasSelected:(TKCalendarDayEventView *)eventView{
     //TKLog(@"%@",eventView.titleLabel.text);
     NSLog(@"event was tapped");
+}
+
+- (NSDate *)todayAtMidnight {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    [cal setLocale:[NSLocale currentLocale]];
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekday | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDate *date = [NSDate date];
+    
+    NSDateComponents *comps = [cal components:unitFlags fromDate:date];
+    [comps setHour:00];
+    [comps setMinute:00];
+    [comps setSecond:00];
+    
+    NSDate *beginning = [cal dateFromComponents:comps];
+    
+    return beginning;
 }
 
 @end
