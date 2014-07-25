@@ -23,7 +23,7 @@
 - (NSMutableArray *)addHourMinute:(NSString *)string ToDates:(NSMutableArray*)originals {
     //get dictionary
     NSDictionary *hourMinute = [self splitMinuteHour:string];
-    NSLog(@"dictionary %@", hourMinute);
+    //NSLog(@"dictionary %@", hourMinute);
     //get calendar
     NSCalendar *cal = [NSCalendar currentCalendar];
     [cal setLocale:[NSLocale currentLocale]];
@@ -38,7 +38,7 @@
         NSDate *final = [[NSDate alloc]init];
         
         int min = [[hourMinute objectForKey:@"minute"]intValue];
-        NSLog(@"minute:%i", min);
+        //NSLog(@"minute:%i", min);
         int hr = [[hourMinute objectForKey:@"hour"]intValue];
         
         [components setHour:hr];
@@ -106,14 +106,25 @@
         NSDate *time = [[NSDate alloc]init];
         
         NSString *key = [NSString stringWithFormat:@"class%i",i+1];
-        
-        int x = (int)[self todaysDayOfWeek];
-        int y = [[course objectForKey:key] intValue];
-        int z = (7-x)+y;
-        [components setDay:z];
-        time = [cal dateByAddingComponents:components toDate:midtonight options:0];
-        
-        [arrayOfTimes addObject:time];
+        if ((int)[self todaysDayOfWeek] > [[course objectForKey:key]intValue]){
+            int x = (int)[self todaysDayOfWeek];
+            int y = [[course objectForKey:key] intValue];
+            int z = (7-x)+y;
+            [components setDay:z];
+            time = [cal dateByAddingComponents:components toDate:midtonight options:0];
+            
+            [arrayOfTimes addObject:time];
+        }
+        else {
+            //NSLog(@"item is in this weeks view");
+            int x = [[course objectForKey:key]intValue];
+            int y = (int)[self todaysDayOfWeek];
+            int z = x - y;
+            [components setDay:z];
+            time = [cal dateByAddingComponents:components toDate:midtonight options:0];
+            
+            [arrayOfTimes addObject:time];
+        }
     }
     return arrayOfTimes;
 }
@@ -224,20 +235,6 @@
     if ([day3 isEqual:@"F"]) d3 = 6;
     if ([day4 isEqual:@"F"]) d4 = 6;
     if ([day5 isEqual:@"F"]) d5 = 6;
-    
-    //NSLogs
-    /*{
-     NSLog(@"%@", day1);
-     NSLog(@"d1:%i", d1);
-     NSLog(@"%@", day2);
-     NSLog(@"d2:%i", d2);
-     NSLog(@"%@", day3);
-     NSLog(@"d3:%i", d3);
-     NSLog(@"%@", day4);
-     NSLog(@"d4:%i", d4);
-     NSLog(@"%@", day5);
-     NSLog(@"d5:%i", d5);
-     }*/
     
     NSDictionary *dict = [[NSDictionary alloc]init];
     

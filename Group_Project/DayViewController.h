@@ -16,4 +16,7 @@
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) NSMutableArray *myCourses;
 
+//trying it out
+@property (nonatomic, strong) NSMutableArray *theFinalEvents;
+
 @end

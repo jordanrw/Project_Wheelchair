@@ -31,7 +31,7 @@
 //    [defaultACL setPublicReadAccess:YES];
 //    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
 
-    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     return YES;
 }
 

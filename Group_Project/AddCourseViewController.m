@@ -59,7 +59,6 @@
 - (IBAction)send:(id)sender {
     //called when we press 'Add'
     
-    
     //pulls the user defaults
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSArray *courses = [prefs arrayForKey:@"courses"];
@@ -69,7 +68,6 @@
     if ([self.fetcher.coursesEnrolled count] > 0) {
         Course *course = [self.fetcher.coursesEnrolled objectAtIndex:0];
         NSLog(@"%@ from %@ - %@", course.day1, course.timeBegin1, course.timeEnd1);
-        
         
         //self.fetcher.lastAdded
         [self.delegate sendBack:self.fetcher.lastAdded];
@@ -91,7 +89,7 @@
     
     if ([self.fetcher.coursesEnrolled count] > 0) {
         Course *course = [self.fetcher.coursesEnrolled objectAtIndex:0];
-        _courseLabel.text = [NSString stringWithFormat:@"%@ %@ \n %@ %@ - %@ \n %@", course.course, course.num, course.day1, course.timeBegin1, course.timeEnd1, course.location1];
+        _courseLabel.text = [NSString stringWithFormat:@"%@ \n %@ %@ \n %@ %@ - %@ \n %@", course.title, course.course, course.num, course.day1, course.timeBegin1, course.timeEnd1, course.location1];
     }
     else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not a Class" message:@"Please enter another CRN" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];

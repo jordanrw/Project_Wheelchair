@@ -29,8 +29,7 @@
 
 - (void) viewDidLoad{
     [super viewDidLoad];
-    
-    //[[UIApplication sharedApplication] setStatusBarHidden:YES];
+    NSLog(@"viewDidLoad");
     
     self.myCourses = [[NSMutableArray alloc]init];
     self.title = NSLocalizedString(@"Meeting Time", @"");
@@ -60,9 +59,15 @@
     [self.dayView.daysBackgroundView addSubview:button];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear");
     
+    [self.dayView reloadData];
     //self.navigationController.navigationBar.hairlineDividerView.hidden = YES;
 }
 
@@ -93,13 +98,35 @@
 
 #pragma mark TKCalendarDayViewDelegate
 - (NSArray *) calendarDayTimelineView:(TKCalendarDayView*)calendarDayTimeline eventsForDate:(NSDate *)eventDate{
+    NSLog(@"calendarDayTimelineView called");
     
-    if([eventDate compare:[NSDate dateWithTimeIntervalSinceNow:-24*60*60]] == NSOrderedAscending) return @[];
-    if([eventDate compare:[NSDate dateWithTimeIntervalSinceNow:24*60*60]] == NSOrderedDescending) return @[];
+   //if([eventDate compare:[NSDate dateWithTimeIntervalSinceNow:-24*60*60]] == NSOrderedAscending) return @[];
+   //if([eventDate compare:[NSDate dateWithTimeIntervalSinceNow:24*60*60]] == NSOrderedDescending) return @[];
    
     NSMutableArray *finalEvents = [[NSMutableArray alloc]init];
+    //NSLog(@"the number of myCourses:%lu", (unsigned long)[self.myCourses count]);
     
-    //for(NSArray *ar in self.data){
+    for (int i = 0; i < [self.myCourses count]; i++) {
+        Course *course = [self.myCourses objectAtIndex:i];
+        
+//        TKCalendarDayEventView *event = [calendarDayTimeline dequeueReusableEventView];
+//        if(event == nil) event = [TKCalendarDayEventView eventView];
+        
+        DateCalculator *calculateDate = [[DateCalculator alloc]init];
+        
+        NSArray *begins = [calculateDate addHourMinute:course.timeBegin1 ToDates:[calculateDate datesFromString:course.day1]];
+        NSArray *ends = [calculateDate addHourMinute:course.timeEnd1 ToDates:[calculateDate datesFromString:course.day1]];
+
+        for (int i = 0; i < [begins count]; i++) {
+            TKCalendarDayEventView *event = [TKCalendarDayEventView eventViewWithIdentifier:0 startDate:[begins objectAtIndex:i] endDate:[ends objectAtIndex:i] title:nil location:nil];
+            
+            [finalEvents addObject:event];
+            //NSLog(@"final Event array has these items %@ on take %i",finalEvents, i);
+        }
+    }
+    
+    /* for (Course *course in self.myCourses) {
+        NSLog(@"hit the inside");
         
         TKCalendarDayEventView *event = [calendarDayTimeline dequeueReusableEventView];
         if(event == nil) event = [TKCalendarDayEventView eventView];
@@ -108,33 +135,48 @@
         event.titleLabel.text = nil;
         event.locationLabel.text = nil;
         
-        ////////
-        NSCalendar *cal = [NSCalendar currentCalendar];
+        DateCalculator *calculateDate = [[DateCalculator alloc]init];
         
-        NSDateComponents *components = [[NSDateComponents alloc]init];
-        [components setHour:12];
-        [components setMinute:00];
-        [components setDay:24];
-        [components setMonth:7];
-        [components setYear:2014];
-        //NSDate *date1 = [cal dateFromComponents:components];
-        NSDate *date1 = [self todayAtMidnight];
-        
-        ////////
-        //NSDateComponents *components2 = [[NSDateComponents alloc]init];
-        [components setHour:15];
-        [components setMinute:00];
-        [components setDay:24];
-        [components setMonth:7];
-        [components setYear:2014];
-        NSDate *date2 = [cal dateFromComponents:components];
-        
-        
-        event.startDate = date1;
-        event.endDate = date2;
-        
-        [finalEvents addObject:event];
-        
+        NSArray *begins = [calculateDate addHourMinute:course.timeBegin1 ToDates:[calculateDate datesFromString:course.day1]];
+        NSArray *ends = [calculateDate addHourMinute:course.timeEnd1 ToDates:[calculateDate datesFromString:course.day1]];
+        for (int i = 0; i < [begins count]; i++) {
+            event.startDate = [begins objectAtIndex:i];
+            NSLog(@"startDate %@", event.startDate);
+            event.endDate = [ends objectAtIndex:i];
+            NSLog(@"endDate %@", event.endDate);
+            [finalEvents addObject:event];
+        }
+    } */
+    
+    
+    
+    
+    //for(NSArray *ar in self.data){
+    
+//    TKCalendarDayEventView *event = [calendarDayTimeline dequeueReusableEventView];
+//    if(event == nil) event = [TKCalendarDayEventView eventView];
+//    
+//    event.identifier = nil;
+//    event.titleLabel.text = nil;
+//    event.locationLabel.text = nil;
+//    
+//    ////////
+//    NSDate *date1 = [self todayAtMidnight];
+//    
+//    NSCalendar *cal = [NSCalendar currentCalendar];
+//    NSDateComponents *components = [[NSDateComponents alloc]init];
+//    [components setHour:4];
+//    [components setMinute:25];
+//    [components setDay:25];
+//    [components setMonth:7];
+//    [components setYear:2014];
+//    NSDate *date2 = [cal dateFromComponents:components];
+//    
+//    event.startDate = date1;
+//    event.endDate = date2;
+//    
+//    [finalEvents addObject:event];
+    
     //}
     return finalEvents;
 }
