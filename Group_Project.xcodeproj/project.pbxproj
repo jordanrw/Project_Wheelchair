@@ -106,6 +106,7 @@
 		ADBF9CEB196C979F00C0683C /* profile_pic3.png in Resources */ = {isa = PBXBuildFile; fileRef = ADBF9CEA196C979F00C0683C /* profile_pic3.png */; };
 		ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBF9CED196D9D8400C0683C /* InviteTableViewCell.m */; };
 		ADDA9CB719748E9600DC42C9 /* AddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDA9CB619748E9600DC42C9 /* AddCell.m */; };
+		ADF412B919896B73007860C8 /* MyCoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF412B819896B73007860C8 /* MyCoursesTableViewController.m */; };
 		ADF6E0861961E80100D13D95 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0851961E80100D13D95 /* CreateViewController.m */; };
 		ADF6E0891961E81500D13D95 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6E0881961E81500D13D95 /* JoinViewController.m */; };
 /* End PBXBuildFile section */
@@ -267,6 +268,8 @@
 		ADBF9CED196D9D8400C0683C /* InviteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteTableViewCell.m; sourceTree = "<group>"; };
 		ADDA9CB519748E9600DC42C9 /* AddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCell.h; sourceTree = "<group>"; };
 		ADDA9CB619748E9600DC42C9 /* AddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCell.m; sourceTree = "<group>"; };
+		ADF412B719896B73007860C8 /* MyCoursesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoursesTableViewController.h; sourceTree = "<group>"; };
+		ADF412B819896B73007860C8 /* MyCoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoursesTableViewController.m; sourceTree = "<group>"; };
 		ADF6E0841961E80100D13D95 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		ADF6E0851961E80100D13D95 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		ADF6E0871961E81500D13D95 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
@@ -353,9 +356,11 @@
 			name = "not using";
 			sourceTree = "<group>";
 		};
-		AD149B8B197EEAC3007E8FBF /* JSON */ = {
+		AD149B8B197EEAC3007E8FBF /* JSON & Adding Courses */ = {
 			isa = PBXGroup;
 			children = (
+				ADF412B719896B73007860C8 /* MyCoursesTableViewController.h */,
+				ADF412B819896B73007860C8 /* MyCoursesTableViewController.m */,
 				AD2C9CA919800A31005171C4 /* AddCourseViewController.h */,
 				AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */,
 				AD2C9CAF19800A5E005171C4 /* FeedFetcher.h */,
@@ -363,7 +368,7 @@
 				AD2C9CAC19800A4B005171C4 /* Course.h */,
 				AD2C9CAD19800A4B005171C4 /* Course.m */,
 			);
-			name = JSON;
+			name = "JSON & Adding Courses";
 			sourceTree = "<group>";
 		};
 		AD39982F196C646B001D8163 /* Detail View Controller */ = {
@@ -499,13 +504,11 @@
 		AD69BB7F195C7197009F1A90 /* Meeting Time */ = {
 			isa = PBXGroup;
 			children = (
-				ADB9B3841981B3F6007EF6B0 /* DateCalculator.h */,
-				ADB9B3851981B3F6007EF6B0 /* DateCalculator.m */,
-				AD149B8B197EEAC3007E8FBF /* JSON */,
-				AD69BB48195B9F3F009F1A90 /* MeetingViewController.h */,
-				AD69BB49195B9F3F009F1A90 /* MeetingViewController.m */,
 				AD6DD24D197D6FB400C03088 /* DayViewController.h */,
 				AD6DD24E197D6FB400C03088 /* DayViewController.m */,
+				ADB9B3841981B3F6007EF6B0 /* DateCalculator.h */,
+				ADB9B3851981B3F6007EF6B0 /* DateCalculator.m */,
+				AD149B8B197EEAC3007E8FBF /* JSON & Adding Courses */,
 			);
 			name = "Meeting Time";
 			sourceTree = "<group>";
@@ -623,6 +626,8 @@
 		ADBAC46119649DB200054445 /* not using */ = {
 			isa = PBXGroup;
 			children = (
+				AD69BB48195B9F3F009F1A90 /* MeetingViewController.h */,
+				AD69BB49195B9F3F009F1A90 /* MeetingViewController.m */,
 				ADBAC45E19649A1900054445 /* GroupTableViewController.h */,
 				ADBAC45F19649A1900054445 /* GroupTableViewController.m */,
 			);
@@ -840,6 +845,7 @@
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
 				AD39982E196C6465001D8163 /* DetailViewController.m in Sources */,
+				ADF412B919896B73007860C8 /* MyCoursesTableViewController.m in Sources */,
 				AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */,
 				AD4CFA3619741C9D000B768D /* ToDoItem.m in Sources */,
 				AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */,

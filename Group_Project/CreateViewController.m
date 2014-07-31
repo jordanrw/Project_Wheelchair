@@ -82,7 +82,7 @@
     
     [invitee setDidTapButtonBlock:^(id sender) {
         _myIndex = indexPath;
-        NSLog(@"%i", _myIndex.row);
+        NSLog(@"%li", (long)_myIndex.row);
     }];
     
     return invitee;
@@ -123,7 +123,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     _myIndex = indexPath;
-    NSLog(@"%i", _myIndex.row);
+    NSLog(@"%li", (long)_myIndex.row);
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     InviteTableViewCell *invitee = (InviteTableViewCell *)cell;

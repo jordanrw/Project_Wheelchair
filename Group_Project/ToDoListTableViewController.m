@@ -41,6 +41,7 @@
     NSLog(@"viewWillAppear");
     
     PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
+    //TODO - why is this line saying VT Hacks, and hard coded in there?
     [query whereKey:@"groupName" equalTo:@"VT Hacks"];
     [query includeKey:@"todos"];  //this is the golden line
     NSLog(@"This prints out the query%@", query);

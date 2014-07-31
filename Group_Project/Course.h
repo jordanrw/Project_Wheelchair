@@ -33,10 +33,8 @@
 @property (nonatomic) NSString *location2;
 @property (nonatomic) NSString *location3;
 
+
 #pragma - improvement
-//may need to have a custom setter that takes in a string
-//then spits out an integer and assigns that integer
-//I'll also need to
 @property (nonatomic) NSString *credits;
 
 - (instancetype)initWithCRN:(NSString *)aCRN;

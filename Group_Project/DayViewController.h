@@ -7,16 +7,24 @@
 //
 
 #import <TapkuLibrary/TKCalendarDayViewController.h>
+#import <TapkuLibrary/TKProgressAlertView.h>
 #import <Foundation/Foundation.h> 
 #import "AddCourseViewController.h"
 //#import "TKCalendarDayViewController.h"
 
 @interface DayViewController : TKCalendarDayViewController <AddCourseVCDelegate>
 
-@property (nonatomic, strong) NSArray *data;
+//local, never has anything to do with anything in Parse
+@property (nonatomic, strong) NSMutableArray *localCourses;
+
+
+//arary that just my Courses are downloaded into
 @property (nonatomic, strong) NSMutableArray *myCourses;
 
-//trying it out
+
+//array that everything class is loaded into
+@property (nonatomic, strong) NSMutableArray * allCourses;
+//array with the dates add to the calendar
 @property (nonatomic, strong) NSMutableArray *theFinalEvents;
 
 @end

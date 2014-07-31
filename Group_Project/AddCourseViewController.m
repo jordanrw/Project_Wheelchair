@@ -56,14 +56,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//called when we press 'Add'
 - (IBAction)send:(id)sender {
-    //called when we press 'Add'
     
     //pulls the user defaults
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSArray *courses = [prefs arrayForKey:@"courses"];
     
-    [self.fetcher iterateThrough:courses atCRN:self.CRN.text];
+    [self.fetcher iterateThroughToSave:courses atCRN:self.CRN.text];
     
     if ([self.fetcher.coursesEnrolled count] > 0) {
         Course *course = [self.fetcher.coursesEnrolled objectAtIndex:0];
@@ -74,7 +74,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not a Class" message:@"Please enter another CRN" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not a Class" message:@"Please enter another CRN" delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
         [alert show];
         [self.CRN resignFirstResponder];
     }
@@ -87,8 +87,8 @@
     
     [self.fetcher iterateThrough:courses atCRN:self.CRN.text];
     
-    if ([self.fetcher.coursesEnrolled count] > 0) {
-        Course *course = [self.fetcher.coursesEnrolled objectAtIndex:0];
+    if (self.fetcher.verify) {
+        Course *course = self.fetcher.verify;
         _courseLabel.text = [NSString stringWithFormat:@"%@ \n %@ %@ \n %@ %@ - %@ \n %@", course.title, course.course, course.num, course.day1, course.timeBegin1, course.timeEnd1, course.location1];
     }
     else {
@@ -105,6 +105,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

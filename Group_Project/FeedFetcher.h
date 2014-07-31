@@ -16,9 +16,10 @@
 //courses they're in right now
 @property (nonatomic) NSMutableArray *coursesEnrolled;
 @property (nonatomic, weak) Course *lastAdded;
+@property (nonatomic, strong) Course *verify;
 
 - (void)fetchFeedWith:(NSString *)URL andActivity:(UIActivityIndicatorView *)spin andLabel:(UILabel *)label;
 - (void)iterateThrough:(NSArray *)someArray atCRN:(NSString *)someCRN;
-
+- (void)iterateThroughToSave:(NSArray *)someArray atCRN:(NSString *)someCRN;
 
 @end

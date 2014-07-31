@@ -8,6 +8,7 @@
 #import "MyTableController.h"
 #import "DisplayTableViewCell.h"
 
+
 @interface MyTableController ()
 
 @property (nonatomic, weak) PFObject *currentGroup;
@@ -107,7 +108,6 @@
 }
 
 #pragma mark - Parse
-
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     
@@ -266,6 +266,24 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
+}
+
+#pragma mark - Adding a todo
+- (IBAction)add:(id)sender {
+    
+    NSLog(@"add");
+    PFObject *currentGroup = [[PFUser currentUser]objectForKey:@"current"];
+    
+    //new todo
+    PFObject *new = [PFObject objectWithClassName:@"Todo"];
+    [new setObject:@"new todo" forKey:@"text"];
+    [new setObject:@NO forKey:@"complete"];
+    [new setObject:currentGroup forKey:@"group"];
+    [new save];
+    
+    [self loadObjects];
+    
+    //[currentGroup addObject:new forKey:@"todos"];
 }
 
 

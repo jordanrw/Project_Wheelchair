@@ -73,7 +73,6 @@
             }
         //////Password is Right/////
             if ([[theGroup valueForKey:@"password"] isEqualToString:self.groupPasswordField.text]) {
-                NSLog(@"EUREEECKAAA! it works");
                 
                 //adds the relationship
                 PFUser *currentUser = [PFUser currentUser];
