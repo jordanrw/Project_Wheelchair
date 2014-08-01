@@ -438,7 +438,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Courses" id="ERH-mW-STo">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="M2U-sC-v6c">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="M2U-sC-v6c">
                             <connections>
                                 <action selector="dismiss:" destination="AHg-Uy-s5H" id="FKQ-Py-1OZ"/>
                             </connections>

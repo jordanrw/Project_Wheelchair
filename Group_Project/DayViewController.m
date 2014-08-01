@@ -280,7 +280,6 @@
                     if (courses) {
                         for (int i = 0; i < [courses count]; i++) {
                             [self.allCourses addObject:[courses objectAtIndex:i]];
-                            NSLog(@"all Courses:%@", self.allCourses);
                         }
                     }
                 }];

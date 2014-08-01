@@ -91,7 +91,8 @@
 
 - (NSMutableArray *)datesFromString:(NSString *)string {
     //get the dictionary
-    NSDictionary *course = [self splitString:string];
+    NSDictionary *time1 = [self splitString:string];
+    //NSDictionary *time2 = [self splitString:<#(NSString *)#>];
     //get today at midnight
     NSDate *midtonight = [self todayAtMidnight];
     //get calendar
@@ -102,13 +103,13 @@
     //create array
     NSMutableArray *arrayOfTimes = [[NSMutableArray alloc]init];
     
-    for (int i = 0; i < (int)[course count]; i++) {
+    for (int i = 0; i < (int)[time1 count]; i++) {
         NSDate *time = [[NSDate alloc]init];
         
         NSString *key = [NSString stringWithFormat:@"class%i",i+1];
-        if ((int)[self todaysDayOfWeek] > [[course objectForKey:key]intValue]){
+        if ((int)[self todaysDayOfWeek] > [[time1 objectForKey:key]intValue]){
             int x = (int)[self todaysDayOfWeek];
-            int y = [[course objectForKey:key] intValue];
+            int y = [[time1 objectForKey:key] intValue];
             int z = (7-x)+y;
             [components setDay:z];
             time = [cal dateByAddingComponents:components toDate:midtonight options:0];
@@ -117,7 +118,7 @@
         }
         else {
             //NSLog(@"item is in this weeks view");
-            int x = [[course objectForKey:key]intValue];
+            int x = [[time1 objectForKey:key]intValue];
             int y = (int)[self todaysDayOfWeek];
             int z = x - y;
             [components setDay:z];
@@ -276,8 +277,6 @@
                 [NSNumber numberWithInt:d1], @"class1",
                 nil];
     }
-    
-    
     return dict;
 }
 
