@@ -35,7 +35,7 @@
     [super viewDidLoad];
     NSLog(@"viewDidLoad");
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"downloading everyone's courses..." message:@"this may take a few seconds" delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"downloading everyone's courses..." message:@"swipe to a new day to see" delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
     [alert show];
     
     self.title = NSLocalizedString(@"Meeting Time", @"");
@@ -43,7 +43,7 @@
 }
 
 - (BOOL)prefersStatusBarHidden {
-    return YES;
+    return NO;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -100,6 +100,8 @@
     
     self.myCourses = [[NSMutableArray alloc]init];
     //TODO - loading alert
+    //TODO - or load the tableview, the add the data when it gets here
+        //but signal that its downloading
     PFUser *current = [PFUser currentUser];
     NSLog(@"current user: %@", current);
 

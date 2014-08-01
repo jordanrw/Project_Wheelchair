@@ -72,31 +72,6 @@
     }
 }
 
-/*called when we press 'Add'
-- (IBAction)send:(id)sender {
-    
-    //pulls the user defaults
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSArray *courses = [prefs arrayForKey:@"courses"];
-    
-    [self.fetcher iterateThroughToSave:courses atCRN:self.CRN.text];
-    
-    if ([self.fetcher.coursesEnrolled count] > 0) {
-        Course *course = [self.fetcher.coursesEnrolled objectAtIndex:0];
-        NSLog(@"%@ from %@ - %@", course.day1, course.timeBegin1, course.timeEnd1);
-        
-        //self.fetcher.lastAdded
-        [self.delegate sendBackCourse:self.fetcher.lastAdded];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not a Class" message:@"Please enter another CRN" delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
-        [alert show];
-        [self.CRN resignFirstResponder];
-    }
-}
- */
-
 - (IBAction)verify:(id)sender {
     //pulls the user defaults
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -122,5 +97,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//NOT being used anymore
+/*called when we press 'Add'
+ - (IBAction)send:(id)sender {
+ 
+ //pulls the user defaults
+ NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+ NSArray *courses = [prefs arrayForKey:@"courses"];
+ 
+ [self.fetcher iterateThroughToSave:courses atCRN:self.CRN.text];
+ 
+ if ([self.fetcher.coursesEnrolled count] > 0) {
+ Course *course = [self.fetcher.coursesEnrolled objectAtIndex:0];
+ NSLog(@"%@ from %@ - %@", course.day1, course.timeBegin1, course.timeEnd1);
+ 
+ //self.fetcher.lastAdded
+ [self.delegate sendBackCourse:self.fetcher.lastAdded];
+ [self dismissViewControllerAnimated:YES completion:nil];
+ }
+ else {
+ UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not a Class" message:@"Please enter another CRN" delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
+ [alert show];
+ [self.CRN resignFirstResponder];
+ }
+ }
+ */
 
 @end
