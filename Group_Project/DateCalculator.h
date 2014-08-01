@@ -13,7 +13,7 @@
 //- (instancetype)initWithDays:(NSString*)days andHourMinutes:(NSString *)hrMn;
 
 //minute & hour
-- (NSMutableArray *)addHourMinute:(NSString *)string ToDates:(NSMutableArray*)originals;
+- (NSMutableArray *)addHourMinute:(NSString *)hrMin1 andHourMinute2:(NSString *)hrMin2 andHourMinute3:(NSString *)hrMin3 ToDates:(NSMutableArray*)bigArray;
 
 - (NSDictionary *)splitMinuteHour:(NSString *)time;
 

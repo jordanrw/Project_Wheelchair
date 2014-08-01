@@ -20,10 +20,13 @@
 
 #pragma mark - FINISHED & MOVED
 #pragma mark - Hour & Minute
-- (NSMutableArray *)addHourMinute:(NSString *)string ToDates:(NSMutableArray*)originals {
+- (NSMutableArray *)addHourMinute:(NSString *)hrMin1 andHourMinute2:(NSString *)hrMin2 andHourMinute3:(NSString *)hrMin3 ToDates:(NSMutableArray *)bigArray {
+    
     //get dictionary
-    NSDictionary *hourMinute = [self splitMinuteHour:string];
-    //NSLog(@"dictionary %@", hourMinute);
+    NSDictionary *hourMinute1 = [self splitMinuteHour:hrMin1];
+    NSDictionary *hourMinute2 = [self splitMinuteHour:hrMin2];
+    NSDictionary *hourMinute3 = [self splitMinuteHour:hrMin3];
+
     //get calendar
     NSCalendar *cal = [NSCalendar currentCalendar];
     [cal setLocale:[NSLocale currentLocale]];
@@ -32,21 +35,32 @@
     //create array
     NSMutableArray *arrayFinished = [[NSMutableArray alloc]init];
     
-    for (int i = 0; i < (int)[originals count]; i++) {
+    for (int i = 0; i < 3; i++) {
+    NSArray *originals = [bigArray objectAtIndex:i];
+    NSDictionary *hourMinute = [[NSDictionary alloc]init];
         
-        NSDate *original = [originals objectAtIndex:i];
-        NSDate *final = [[NSDate alloc]init];
+        if (i == 0) hourMinute = hourMinute1;
+        if (i == 1) hourMinute = hourMinute2;
+        if (i == 2) hourMinute = hourMinute3;
         
-        int min = [[hourMinute objectForKey:@"minute"]intValue];
-        //NSLog(@"minute:%i", min);
-        int hr = [[hourMinute objectForKey:@"hour"]intValue];
-        
-        [components setHour:hr];
-        [components setMinute:min];
-        
-        final = [cal dateByAddingComponents:components toDate:original options:0];
-        [arrayFinished addObject:final];
+        for (int j = 0; j < (int)[originals count]; j++) {
+            
+            NSDate *original = [originals objectAtIndex:j];
+            NSDate *final = [[NSDate alloc]init];
+            
+            int min = [[hourMinute objectForKey:@"minute"]intValue];
+            //NSLog(@"minute:%i", min);
+            int hr = [[hourMinute objectForKey:@"hour"]intValue];
+            
+            [components setHour:hr];
+            [components setMinute:min];
+            
+            final = [cal dateByAddingComponents:components toDate:original options:0];
+            [arrayFinished addObject:final];
+        }
+
     }
+    //array with all the correct NSDates (for times 1,2,3)
     return arrayFinished;
 }
 
@@ -107,30 +121,45 @@
     NSMutableArray *time2Array = [[NSMutableArray alloc]init];
     NSMutableArray *time3Array = [[NSMutableArray alloc]init];
     
-    for (int i = 0; i < (int)[time1 count]; i++) {
-        NSDate *time = [[NSDate alloc]init];
+    
+    
+    NSDictionary *timeDict = [[NSDictionary alloc]init];
+    for (int i = 1; i < 4; i++) {
         
-        NSString *key = [NSString stringWithFormat:@"class%i",i+1];
-        if ((int)[self todaysDayOfWeek] > [[time1 objectForKey:key]intValue]){
-            int x = (int)[self todaysDayOfWeek];
-            int y = [[time1 objectForKey:key] intValue];
-            int z = (7-x)+y;
-            [components setDay:z];
-            time = [cal dateByAddingComponents:components toDate:midtonight options:0];
+        if (i == 1) timeDict = time1;
+        if (i == 2) timeDict = time2;
+        if (i == 3) timeDict = time3;
+        
+        for (int j = 0; j < (int)[timeDict count]; j++) {
+            NSDate *time = [[NSDate alloc]init];
             
-            [arrayOfTimes addObject:time];
+            NSString *key = [NSString stringWithFormat:@"class%i",j+1];
+            if ((int)[self todaysDayOfWeek] > [[timeDict objectForKey:key]intValue]){
+                int x = (int)[self todaysDayOfWeek];
+                int y = [[timeDict objectForKey:key] intValue];
+                int z = (7-x)+y;
+                [components setDay:z];
+                time = [cal dateByAddingComponents:components toDate:midtonight options:0];
+                
+                [time1Array addObject:time];
+            }
+            else {
+                //NSLog(@"item is in this weeks view");
+                int x = [[timeDict objectForKey:key]intValue];
+                int y = (int)[self todaysDayOfWeek];
+                int z = x - y;
+                [components setDay:z];
+                time = [cal dateByAddingComponents:components toDate:midtonight options:0];
+                
+                [time1Array addObject:time];
+            }
         }
-        else {
-            //NSLog(@"item is in this weeks view");
-            int x = [[time1 objectForKey:key]intValue];
-            int y = (int)[self todaysDayOfWeek];
-            int z = x - y;
-            [components setDay:z];
-            time = [cal dateByAddingComponents:components toDate:midtonight options:0];
-            
-            [arrayOfTimes addObject:time];
-        }
+        if (i == 1) [arrayOfTimes addObject:time1Array];
+        if (i == 2) [arrayOfTimes addObject:time2Array];
+        if (i == 3) [arrayOfTimes addObject:time3Array];
     }
+    
+    //this holds 3 arrays of times (NSDates which have a day value)
     return arrayOfTimes;
 }
 

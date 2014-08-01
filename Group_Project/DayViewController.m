@@ -148,8 +148,8 @@
         DateCalculator *calculateDate = [[DateCalculator alloc]init];
         
         //NEW modified
-        NSArray *begins = [calculateDate addHourMinute:[course objectForKey:@"timeBegin1"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
-        NSArray *ends = [calculateDate addHourMinute:[course objectForKey:@"timeEnd1"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
+        NSArray *begins = [calculateDate addHourMinute:[course objectForKey:@"timeBegin1"] andHourMinute2:[course objectForKey:@"timeBegin2"] andHourMinute3:[course objectForKey:@"timeBegin3"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
+        NSArray *ends = [calculateDate addHourMinute:[course objectForKey:@"timeEnd1"] andHourMinute2:[course objectForKey:@"timeEnd2"] andHourMinute3:[course objectForKey:@"timeEnd3"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
         
         for (int i = 0; i < [begins count]; i++) {
             TKCalendarDayEventView *event = [TKCalendarDayEventView eventViewWithIdentifier:0 startDate:[begins objectAtIndex:i] endDate:[ends objectAtIndex:i] title:nil location:nil];
@@ -273,6 +273,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         //these objects are the users
         if (users) {
+            NSLog(@"users array:%@", users);
             for (int i = 0; i < [users count]; i++) {
                 NSLog(@"user%i", i);
                 PFRelation *relateCour = [[users objectAtIndex:0]relationForKey:@"myCourses"];
