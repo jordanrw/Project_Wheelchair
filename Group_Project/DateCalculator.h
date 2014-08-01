@@ -24,6 +24,6 @@
 
 - (NSDictionary *)splitString:(NSString *)days;
 
-- (NSMutableArray *)datesFromString:(NSString *)string;
+- (NSMutableArray *)datesFromString:(NSString *)string1 fromString2:(NSString *)string2 andString3:(NSString *)string3;
 
 @end

@@ -88,11 +88,12 @@
 
 
 #pragma mark - Days
-
-- (NSMutableArray *)datesFromString:(NSString *)string {
-    //get the dictionary
-    NSDictionary *time1 = [self splitString:string];
-    //NSDictionary *time2 = [self splitString:<#(NSString *)#>];
+//NEW work
+- (NSMutableArray *)datesFromString:(NSString *)string1 fromString2:(NSString *)string2 andString3:(NSString *)string3 {
+    //get the dictionaries
+    NSDictionary *time1 = [self splitString:string1];
+    NSDictionary *time2 = [self splitString:string2];
+    NSDictionary *time3 = [self splitString:string3];
     //get today at midnight
     NSDate *midtonight = [self todayAtMidnight];
     //get calendar
@@ -100,8 +101,11 @@
     [cal setLocale:[NSLocale currentLocale]];
     //create components
     NSDateComponents *components = [[NSDateComponents alloc]init];
-    //create array
+    //create arrays
     NSMutableArray *arrayOfTimes = [[NSMutableArray alloc]init];
+    NSMutableArray *time1Array = [[NSMutableArray alloc]init];
+    NSMutableArray *time2Array = [[NSMutableArray alloc]init];
+    NSMutableArray *time3Array = [[NSMutableArray alloc]init];
     
     for (int i = 0; i < (int)[time1 count]; i++) {
         NSDate *time = [[NSDate alloc]init];
@@ -179,6 +183,9 @@
     NSString *day5 = @"";
     
     switch ([days length]) {
+        case 0:
+            NSLog(@"length is 0");
+            break;
         case 1:
             day1 = [days substringWithRange:first];
             break;

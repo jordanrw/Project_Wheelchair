@@ -147,8 +147,9 @@
         
         DateCalculator *calculateDate = [[DateCalculator alloc]init];
         
-        NSArray *begins = [calculateDate addHourMinute:[course objectForKey:@"timeBegin1"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"]]];
-        NSArray *ends = [calculateDate addHourMinute:[course objectForKey:@"timeEnd1"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"]]];
+        //NEW modified
+        NSArray *begins = [calculateDate addHourMinute:[course objectForKey:@"timeBegin1"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
+        NSArray *ends = [calculateDate addHourMinute:[course objectForKey:@"timeEnd1"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
         
         for (int i = 0; i < [begins count]; i++) {
             TKCalendarDayEventView *event = [TKCalendarDayEventView eventViewWithIdentifier:0 startDate:[begins objectAtIndex:i] endDate:[ends objectAtIndex:i] title:nil location:nil];
