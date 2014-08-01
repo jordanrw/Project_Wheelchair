@@ -8,7 +8,6 @@
 
 #import "MyCoursesTableViewController.h"
 #import "Course.h"
-#import <Parse/Parse.h>
 
 @interface MyCoursesTableViewController ()
 
@@ -44,9 +43,45 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - download data
+#pragma mark - getting newly added courses
+- (void)sendBackCourse:(Course *)aCourse {
+    
+}
+
+- (void)sendBackPFCourse:(PFObject *)aCourse {
+    [self upload:aCourse];
+    
+    
+}
+
+
+#pragma mark - download  & uploading data
 - (void)download {
 
+}
+
+- (void)upload:(PFObject*)newCourse {
+    
+    [newCourse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            
+            PFUser *user = [PFUser currentUser];
+            PFRelation *relationship = [user relationForKey:@"myCourses"];
+            [relationship addObject:newCourse];
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"successfully uploaded to server");
+                    [self.myCourses addObject:newCourse];
+                    [self.tableView reloadData];
+                }
+                if (error) {
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"unable to reach server to save course \n please check your internet connection." delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+            }];
+        }
+    }];
+    
 }
 
 
@@ -56,6 +91,18 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)addCourse:(id)sender {
+    
+    UINavigationController *addCourseVC = (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addC"];
+    
+    //just get to the subview to access it properly
+    AddCourseViewController *vc = [addCourseVC.childViewControllers objectAtIndex:0];
+    vc.delegate = self;
+    [self presentViewController:addCourseVC animated:YES completion:nil];
+    
+}
+
 
 
 
@@ -67,7 +114,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSLog(@"number: %i", [self.myCourses count]);
+    NSLog(@"number: %lu", (unsigned long)[self.myCourses count]);
     return [self.myCourses count];
 }
 

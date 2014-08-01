@@ -18,9 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *courseLabel;
 
 
-
-//@property NSString *savedCRN1;
-
 @property (nonatomic) NSDictionary *courses;
 @property (nonatomic) FeedFetcher *fetcher;
 
@@ -56,7 +53,26 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-//called when we press 'Add'
+- (IBAction)addPFObject:(id)sender {
+    //pulls the user defaults
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSArray *courses = [prefs arrayForKey:@"courses"];
+    
+    
+    PFObject *course = [self.fetcher savePFObjectFromArray:courses atCRN:self.CRN.text];
+
+    if (course) {
+        [self.delegate sendBackPFCourse:course];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not a Class" message:@"Please enter another CRN" delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
+        [alert show];
+        [self.CRN resignFirstResponder];
+    }
+}
+
+/*called when we press 'Add'
 - (IBAction)send:(id)sender {
     
     //pulls the user defaults
@@ -70,7 +86,7 @@
         NSLog(@"%@ from %@ - %@", course.day1, course.timeBegin1, course.timeEnd1);
         
         //self.fetcher.lastAdded
-        [self.delegate sendBack:self.fetcher.lastAdded];
+        [self.delegate sendBackCourse:self.fetcher.lastAdded];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     else {
@@ -79,6 +95,7 @@
         [self.CRN resignFirstResponder];
     }
 }
+ */
 
 - (IBAction)verify:(id)sender {
     //pulls the user defaults

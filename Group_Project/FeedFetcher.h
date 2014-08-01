@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h> 
 #import "Course.h"
 
 
@@ -21,5 +22,8 @@
 - (void)fetchFeedWith:(NSString *)URL andActivity:(UIActivityIndicatorView *)spin andLabel:(UILabel *)label;
 - (void)iterateThrough:(NSArray *)someArray atCRN:(NSString *)someCRN;
 - (void)iterateThroughToSave:(NSArray *)someArray atCRN:(NSString *)someCRN;
+
+//saves to a PFObject
+- (PFObject *)savePFObjectFromArray:(NSArray *)someArray atCRN:(NSString *)someCRN;
 
 @end

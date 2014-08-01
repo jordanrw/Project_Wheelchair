@@ -7,7 +7,6 @@
 //
 
 #import "FeedFetcher.h"
-#import <Parse/Parse.h>
 
 @implementation FeedFetcher
 
@@ -122,6 +121,43 @@
             self.lastAdded = newCourse;
         }
     }
+}
+
+
+- (PFObject *)savePFObjectFromArray:(NSArray *)someArray atCRN:(NSString *)someCRN {
+    //if you get inside then you have the right course
+    PFObject *newCourse = [PFObject objectWithClassName:@"Course"];
+    
+    for (NSDictionary *dict in someArray) {
+        if ([[dict valueForKey:@"CRN"] isEqualToString:someCRN]) {
+            
+            //set all the properties
+            [newCourse setObject:someCRN forKey:@"CRN"];
+            
+            [newCourse setObject:[dict valueForKey:@"Course"] forKey:@"course"];
+            [newCourse setObject:[dict valueForKey:@"Num"] forKey:@"num"];
+            [newCourse setObject:[dict valueForKey:@"Teacher"] forKey:@"teacher"];
+            [newCourse setObject:[dict valueForKey:@"Title"] forKey:@"title"];
+            [newCourse setObject:[dict valueForKey:@"Type"] forKey:@"type"];
+            [newCourse setObject:[dict valueForKey:@"credits"] forKey:@"credits"];
+            [newCourse setObject:[dict valueForKey:@"Location1"] forKey:@"location1"];
+            [newCourse setObject:[dict valueForKey:@"Location2"] forKey:@"location2"];
+            [newCourse setObject:[dict valueForKey:@"Location3"] forKey:@"location3"];
+            
+            //the TIME STUFF THAT MATTERS
+            [newCourse setObject:[dict valueForKey:@"Days1"] forKey:@"day1"];
+            [newCourse setObject:[dict valueForKey:@"Days2"] forKey:@"day2"];
+            [newCourse setObject:[dict valueForKey:@"Days3"] forKey:@"day3"];
+            
+            [newCourse setObject:[dict valueForKey:@"timeBegin1"] forKey:@"timeBegin1"];
+            [newCourse setObject:[dict valueForKey:@"timeEnd1"] forKey:@"timeEnd1"];
+            [newCourse setObject:[dict valueForKey:@"timeBegin2"] forKey:@"timeBegin2"];
+            [newCourse setObject:[dict valueForKey:@"timeEnd2"] forKey:@"timeEnd2"];
+            [newCourse setObject:[dict valueForKey:@"timeBegin3"] forKey:@"timeBegin3"];
+            [newCourse setObject:[dict valueForKey:@"timeEnd3"] forKey:@"timeEnd3"];
+        }
+    }
+    return newCourse;
 }
 
 

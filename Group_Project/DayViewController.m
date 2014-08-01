@@ -35,8 +35,11 @@
     [super viewDidLoad];
     NSLog(@"viewDidLoad");
     
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"downloading everyone's courses..." message:@"this may take a few seconds" delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+    [alert show];
+    
     self.title = NSLocalizedString(@"Meeting Time", @"");
-    [self buttons];
+    [self addButtons];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -58,41 +61,38 @@
 }
 
 #pragma mark - Buttons
-- (void)buttons {
+- (void)addButtons {
     //add course button
     self.dayView.daysBackgroundView.backgroundColor = [UIColor colorWithRed:.99 green:.99 blue:.99 alpha:1];
     UIButton *button = [[UIButton alloc]init];
-    /* basic contact add button
-     button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-     button.frame = CGRectMake(([[UIScreen mainScreen]bounds].size.width/2)-10, 50, 20, 20);
-     */
-    button.frame = CGRectMake(([[UIScreen mainScreen]bounds].size.width/2)-50, 50, 50, 30);
-    [button setTitle:@"Add" forState:UIControlStateNormal];
+    button.frame = CGRectMake(([[UIScreen mainScreen]bounds].size.width/2)-50, 50, 100, 30);
+    [button setTitle:@"My Courses" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithRed:0 green:.49 blue:.96 alpha:1.0] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithRed:.8 green:.89 blue:.99 alpha:1.0] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(newCourseVC) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(myCoursesVC) forControlEvents:UIControlEventTouchUpInside];
     [self.dayView.daysBackgroundView addSubview:button];
+     
     
-    //my courses
-    UIButton *myCoursesButton = [[UIButton alloc]init];
-    myCoursesButton.frame = CGRectMake(150, 50, 110, 30);
-    [myCoursesButton setTitle:@"my courses" forState:UIControlStateNormal];
-    [myCoursesButton setTitleColor:[UIColor colorWithRed:1 green:.49 blue:.96 alpha:1.0] forState:UIControlStateNormal];
-    [myCoursesButton setTitleColor:[UIColor colorWithRed:.8 green:.89 blue:.99 alpha:1.0] forState:UIControlStateHighlighted];
-    [myCoursesButton addTarget:self action:@selector(myCoursesVC) forControlEvents:UIControlEventTouchUpInside];
-    [self.dayView.daysBackgroundView addSubview:myCoursesButton];
+//    //my courses
+//    UIButton *myCoursesButton = [[UIButton alloc]init];
+//    myCoursesButton.frame = CGRectMake(150, 50, 110, 30);
+//    [myCoursesButton setTitle:@"my courses" forState:UIControlStateNormal];
+//    [myCoursesButton setTitleColor:[UIColor colorWithRed:1 green:.49 blue:.96 alpha:1.0] forState:UIControlStateNormal];
+//    [myCoursesButton setTitleColor:[UIColor colorWithRed:.8 green:.89 blue:.99 alpha:1.0] forState:UIControlStateHighlighted];
+//    [myCoursesButton addTarget:self action:@selector(myCoursesVC) forControlEvents:UIControlEventTouchUpInside];
+//    [self.dayView.daysBackgroundView addSubview:myCoursesButton];
     
-    //button to send data to cloud
-    UIButton *sendDataButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    [sendDataButton addTarget:self action:@selector(sendData) forControlEvents:UIControlEventTouchUpInside];
-    sendDataButton.frame = CGRectMake(20, 58, 20, 20);
-    [self.dayView.daysBackgroundView addSubview:sendDataButton];
+//    //button to send data to cloud
+//    UIButton *sendDataButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//    [sendDataButton addTarget:self action:@selector(sendData) forControlEvents:UIControlEventTouchUpInside];
+//    sendDataButton.frame = CGRectMake(20, 58, 20, 20);
+//    [self.dayView.daysBackgroundView addSubview:sendDataButton];
     
     //button to download data
-    UIButton *downloadButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [downloadButton addTarget:self action:@selector(downloadGroupsClasses) forControlEvents:UIControlEventTouchUpInside];
-    downloadButton.frame = CGRectMake(270, 58, 20, 20);
-    [self.dayView.daysBackgroundView addSubview:downloadButton];
+//    UIButton *downloadButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//    [downloadButton addTarget:self action:@selector(downloadGroupsClasses) forControlEvents:UIControlEventTouchUpInside];
+//    downloadButton.frame = CGRectMake(270, 58, 20, 20);
+//    [self.dayView.daysBackgroundView addSubview:downloadButton];
 }
 
 #pragma mark - My Courses View Controller
@@ -125,24 +125,6 @@
             [alert show];
         }
     }];
-}
-
-#pragma mark - New Course View Controller
-- (void)newCourseVC {
-    NSLog(@"Add new course view controller");
-
-    UINavigationController *addCourseVC = (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addC"];
-    
-    //just get to the subview to access it properly
-    AddCourseViewController *vc = [addCourseVC.childViewControllers objectAtIndex:0];
-    vc.delegate = self;
-    [self presentViewController:addCourseVC animated:YES completion:nil];
-}
-
-#pragma mark - After a new course is added
-- (void)sendBack:(Course *)aCourse {
-    [self.localCourses addObject:aCourse];
-    NSLog(@"the number of my courses:%lu", (unsigned long)[self.localCourses count]);
 }
 
 #pragma mark TKCalendarDayViewDelegate
@@ -303,11 +285,37 @@
             }
         }
     }];
-    
-    
 }
 
+#pragma mark - New Course View Controller
+//NOT being used any more
+//- (void)newCourseVC {
+//    NSLog(@"Add new course view controller");
+//
+//    UINavigationController *addCourseVC = (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"addC"];
+//
+//    //just get to the subview to access it properly
+//    AddCourseViewController *vc = [addCourseVC.childViewControllers objectAtIndex:0];
+//    vc.delegate = self;
+//    [self presentViewController:addCourseVC animated:YES completion:nil];
+//}
+
+#pragma mark - After a new course is added
+//NOT being used anymore
+//- (void)sendBackCourse:(Course *)aCourse {
+//    [self.localCourses addObject:aCourse];
+//    NSLog(@"the number of my courses:%lu", (unsigned long)[self.localCourses count]);
+//}
+
+//NOT being used anymore
+//- (void)sendBackPFCourse:(PFObject *)aCourse {
+//    NSLog(@"%@", aCourse);
+//}
+
 #pragma mark - uploading data to Parse
+
+//NOT being used anymore
+/*
 - (void)sendData {
     NSLog(@"sendData");
     NSLog(@"myCourses Array: %@", self.localCourses);
@@ -357,18 +365,7 @@
         
     }
 }
-
-//- (void)addRelation {
-////    PFUser *user = [PFUser currentUser];
-////    PFRelation *relationship = [user relationForKey:@"myCourses"];
-////    [relationship addObject:pfCourse];
-////    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-////        if (succeeded) {
-////            NSLog(@"success");
-////        }
-////    }];
-//
-//}
+ */
 
 
 @end

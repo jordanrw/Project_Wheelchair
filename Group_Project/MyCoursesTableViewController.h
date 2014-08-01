@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "AddCourseViewController.h"
 
-@interface MyCoursesTableViewController : UITableViewController
+@interface MyCoursesTableViewController : UITableViewController <AddCourseVCDelegate>
 
-@property (nonatomic, weak) NSMutableArray *myCourses;
+@property (nonatomic, strong) NSMutableArray *myCourses;
+@property (nonatomic, strong) PFObject *toUpload;
 
 @end

@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "Course.h"
 
 @protocol AddCourseVCDelegate <NSObject>
 
-- (void)sendBack:(Course *)aCourse;
+- (void)sendBackCourse:(Course *)aCourse;
+- (void)sendBackPFCourse:(PFObject *)aCourse;
 
 @end
+
 
 @interface AddCourseViewController : UIViewController
 
