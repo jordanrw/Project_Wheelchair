@@ -27,4 +27,7 @@
 //array with the dates add to the calendar
 @property (nonatomic, strong) NSMutableArray *theFinalEvents;
 
+//
+@property (nonatomic, strong) NSDateFormatter *formatter;
+
 @end

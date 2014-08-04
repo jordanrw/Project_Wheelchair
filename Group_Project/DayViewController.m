@@ -10,11 +10,16 @@
 #import "DateCalculator.h"
 #import "Course.h"
 #import "MyCoursesTableViewController.h"
+#import "LoadingViewController.h"
+
+#import "MBProgressHUD.h"
 #import <Parse/Parse.h>
 
 @interface DayViewController ()
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinny;
+@property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) DateCalculator *calculateDate;
 
 
 @end
@@ -35,10 +40,10 @@
     [super viewDidLoad];
     NSLog(@"viewDidLoad");
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"downloading everyone's courses..." message:@"swipe to a new day to see" delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"downloading everyone's courses..." message:@"swipe to a new day to see" delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+//    [alert show];
     
-    self.title = NSLocalizedString(@"Meeting Time", @"");
+    //self.title = NSLocalizedString(@"Meeting Time", @"");
     [self addButtons];
 }
 
@@ -50,8 +55,11 @@
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
     
+    _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _hud.mode = MBProgressHUDModeIndeterminate;
+    [_hud setLabelText:@"Loading everyone's courses"];
+    
     [self downloadGroupsClasses];
-    [self.dayView reloadData];
     //self.navigationController.navigationBar.hairlineDividerView.hidden = YES;
 }
 
@@ -73,14 +81,14 @@
     [self.dayView.daysBackgroundView addSubview:button];
      
     
-//    //my courses
-//    UIButton *myCoursesButton = [[UIButton alloc]init];
-//    myCoursesButton.frame = CGRectMake(150, 50, 110, 30);
-//    [myCoursesButton setTitle:@"my courses" forState:UIControlStateNormal];
-//    [myCoursesButton setTitleColor:[UIColor colorWithRed:1 green:.49 blue:.96 alpha:1.0] forState:UIControlStateNormal];
-//    [myCoursesButton setTitleColor:[UIColor colorWithRed:.8 green:.89 blue:.99 alpha:1.0] forState:UIControlStateHighlighted];
-//    [myCoursesButton addTarget:self action:@selector(myCoursesVC) forControlEvents:UIControlEventTouchUpInside];
-//    [self.dayView.daysBackgroundView addSubview:myCoursesButton];
+    //load screen
+//    UIButton *loadButton = [[UIButton alloc]init];
+//    loadButton.frame = CGRectMake(10, 50, 115, 30);
+//    [loadButton setTitle:@"load screen" forState:UIControlStateNormal];
+//    [loadButton setTitleColor:[UIColor colorWithRed:1 green:.49 blue:.96 alpha:1.0] forState:UIControlStateNormal];
+//    [loadButton setTitleColor:[UIColor colorWithRed:.8 green:.89 blue:.99 alpha:1.0] forState:UIControlStateHighlighted];
+//    [loadButton addTarget:self action:@selector(loadingScreen) forControlEvents:UIControlEventTouchUpInside];
+//    [self.dayView.daysBackgroundView addSubview:loadButton];
     
 //    //button to send data to cloud
 //    UIButton *sendDataButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -94,6 +102,7 @@
 //    downloadButton.frame = CGRectMake(270, 58, 20, 20);
 //    [self.dayView.daysBackgroundView addSubview:downloadButton];
 }
+
 
 #pragma mark - My Courses View Controller
 - (void)myCoursesVC {
@@ -145,11 +154,13 @@
         //        TKCalendarDayEventView *event = [calendarDayTimeline dequeueReusableEventView];
         //        if(event == nil) event = [TKCalendarDayEventView eventView];
         
-        DateCalculator *calculateDate = [[DateCalculator alloc]init];
+        if (!_calculateDate) {
+            _calculateDate = [[DateCalculator alloc]init];
+        }
         
         //NEW modified
-        NSArray *begins = [calculateDate addHourMinute:[course objectForKey:@"timeBegin1"] andHourMinute2:[course objectForKey:@"timeBegin2"] andHourMinute3:[course objectForKey:@"timeBegin3"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
-        NSArray *ends = [calculateDate addHourMinute:[course objectForKey:@"timeEnd1"] andHourMinute2:[course objectForKey:@"timeEnd2"] andHourMinute3:[course objectForKey:@"timeEnd3"] ToDates:[calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
+        NSArray *begins = [_calculateDate addHourMinute:[course objectForKey:@"timeBegin1"] andHourMinute2:[course objectForKey:@"timeBegin2"] andHourMinute3:[course objectForKey:@"timeBegin3"] ToDates:[_calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
+        NSArray *ends = [_calculateDate addHourMinute:[course objectForKey:@"timeEnd1"] andHourMinute2:[course objectForKey:@"timeEnd2"] andHourMinute3:[course objectForKey:@"timeEnd3"] ToDates:[_calculateDate datesFromString:[course objectForKey:@"day1"] fromString2:[course objectForKey:@"day2"] andString3:[course objectForKey:@"day3"]]];
         
         for (int i = 0; i < [begins count]; i++) {
             TKCalendarDayEventView *event = [TKCalendarDayEventView eventViewWithIdentifier:0 startDate:[begins objectAtIndex:i] endDate:[ends objectAtIndex:i] title:nil location:nil];
@@ -233,10 +244,24 @@
     return finalEvents;
 }
 
-
+#pragma mark - Tapped on the event
 - (void) calendarDayTimelineView:(TKCalendarDayView*)calendarDayTimeline eventViewWasSelected:(TKCalendarDayEventView *)eventView{
     //TKLog(@"%@",eventView.titleLabel.text);
-    NSLog(@"event was tapped");
+    if (!_formatter) {
+        _formatter = [[NSDateFormatter alloc] init];
+    }
+    [_formatter setDateFormat:@"h:mm a"];
+    
+    //Optionally for time zone converstions
+    //[_formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    
+    NSString *start = [_formatter stringFromDate:eventView.startDate];
+    NSString *end = [_formatter stringFromDate:eventView.endDate];
+    
+    NSString *final = [NSString stringWithFormat:@"%@ - %@", start, end];
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:final message:nil delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 #pragma mark - convert PFCourse to Course 
@@ -280,8 +305,14 @@
                 PFQuery *query = [relateCour query];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *courses, NSError *error) {
                     if (courses) {
-                        for (int i = 0; i < [courses count]; i++) {
-                            [self.allCourses addObject:[courses objectAtIndex:i]];
+                        for (int j = 0; j < [courses count]; j++) {
+                            [self.allCourses addObject:[courses objectAtIndex:j]];
+                            
+                            if (i == ([users count]-1) && j == ([courses count]-1)) {
+                                [self.dayView reloadData];
+                                [_hud hide:YES];
+                            }
+                            
                         }
                     }
                 }];
@@ -289,6 +320,13 @@
         }
     }];
 }
+
+//NOT using anymore
+//- (void)loadingScreen {
+//    LoadingViewController *loadVC = (LoadingViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"loadVC"];
+//    loadVC.modalPresentationStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self presentViewController:loadVC animated:YES completion:nil];
+//}
 
 #pragma mark - New Course View Controller
 //NOT being used any more

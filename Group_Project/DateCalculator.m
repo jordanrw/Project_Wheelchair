@@ -213,7 +213,7 @@
     
     switch ([days length]) {
         case 0:
-            NSLog(@"length is 0");
+            
             break;
         case 1:
             day1 = [days substringWithRange:first];

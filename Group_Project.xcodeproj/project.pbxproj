@@ -79,6 +79,10 @@
 		AD79706B195CD9BD00004237 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706A195CD9BD00004237 /* libsqlite3.0.dylib */; };
 		AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706C195CD9DB00004237 /* FacebookSDK.framework */; };
 		AD797070195CDA4900004237 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79706F195CDA4900004237 /* LoginViewController.m */; };
+		AD92D96A198C2C3600B1DF70 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92D969198C2C3600B1DF70 /* LoadingViewController.m */; };
+		AD92D976198FD0D200B1DF70 /* TransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92D973198FD0D200B1DF70 /* TransitionDelegate.m */; };
+		AD92D977198FD0D200B1DF70 /* AnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92D975198FD0D200B1DF70 /* AnimatedTransitioning.m */; };
+		AD92D97B198FD54A00B1DF70 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92D97A198FD54A00B1DF70 /* MBProgressHUD.m */; };
 		AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */; };
 		AD975EB9196B537000EB4C09 /* check.PNG in Resources */ = {isa = PBXBuildFile; fileRef = AD975EB8196B537000EB4C09 /* check.PNG */; };
 		ADB92EB9197490500018C50B /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB92EB8197490500018C50B /* add.png */; };
@@ -219,6 +223,14 @@
 		AD79706C195CD9DB00004237 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../*Frameworks/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		AD79706E195CDA4900004237 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AD79706F195CDA4900004237 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AD92D968198C2C3600B1DF70 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingViewController.h; path = ../LoadingViewController.h; sourceTree = "<group>"; };
+		AD92D969198C2C3600B1DF70 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingViewController.m; path = ../LoadingViewController.m; sourceTree = "<group>"; };
+		AD92D972198FD0D200B1DF70 /* TransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionDelegate.h; sourceTree = "<group>"; };
+		AD92D973198FD0D200B1DF70 /* TransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionDelegate.m; sourceTree = "<group>"; };
+		AD92D974198FD0D200B1DF70 /* AnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedTransitioning.h; sourceTree = "<group>"; };
+		AD92D975198FD0D200B1DF70 /* AnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedTransitioning.m; sourceTree = "<group>"; };
+		AD92D979198FD54A00B1DF70 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		AD92D97A198FD54A00B1DF70 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		AD975EB1196B16CA00EB4C09 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
 		AD975EB2196B16CA00EB4C09 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
 		AD975EB8196B537000EB4C09 /* check.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.PNG; path = Group_Project/check.PNG; sourceTree = "<group>"; };
@@ -384,8 +396,11 @@
 		AD69BB3D195B9F3F009F1A90 /* Group_Project */ = {
 			isa = PBXGroup;
 			children = (
+				AD92D97C198FD54E00B1DF70 /* Progress Bar */,
 				AD69BB42195B9F3F009F1A90 /* AppDelegate.h */,
 				AD69BB43195B9F3F009F1A90 /* AppDelegate.m */,
+				AD92D968198C2C3600B1DF70 /* LoadingViewController.h */,
+				AD92D969198C2C3600B1DF70 /* LoadingViewController.m */,
 				AD69BB7E195C718E009F1A90 /* Todos */,
 				AD69BB7F195C7197009F1A90 /* Meeting Time */,
 				AD69BB8C195C766A009F1A90 /* Chat */,
@@ -556,6 +571,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AD92D978198FD0D600B1DF70 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				AD92D972198FD0D200B1DF70 /* TransitionDelegate.h */,
+				AD92D973198FD0D200B1DF70 /* TransitionDelegate.m */,
+				AD92D974198FD0D200B1DF70 /* AnimatedTransitioning.h */,
+				AD92D975198FD0D200B1DF70 /* AnimatedTransitioning.m */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
+		AD92D97C198FD54E00B1DF70 /* Progress Bar */ = {
+			isa = PBXGroup;
+			children = (
+				AD92D979198FD54A00B1DF70 /* MBProgressHUD.h */,
+				AD92D97A198FD54A00B1DF70 /* MBProgressHUD.m */,
+			);
+			name = "Progress Bar";
+			sourceTree = "<group>";
+		};
 		ADB92EC119757D310018C50B /* PFQueryTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +605,7 @@
 		ADBAC46119649DB200054445 /* not using */ = {
 			isa = PBXGroup;
 			children = (
+				AD92D978198FD0D600B1DF70 /* Transitions */,
 				AD69BB48195B9F3F009F1A90 /* MeetingViewController.h */,
 				AD69BB49195B9F3F009F1A90 /* MeetingViewController.m */,
 				ADBAC45E19649A1900054445 /* GroupTableViewController.h */,
@@ -760,19 +796,23 @@
 				AD975EB4196B16CA00EB4C09 /* GroupTableViewCell.m in Sources */,
 				AD69BB44195B9F3F009F1A90 /* AppDelegate.m in Sources */,
 				ADB92EC719757D980018C50B /* MyTableController.m in Sources */,
+				AD92D97B198FD54A00B1DF70 /* MBProgressHUD.m in Sources */,
 				AD4CFA3019741BBC000B768D /* EditTableViewCell.m in Sources */,
 				AD69BB7D195C716E009F1A90 /* SettingsTableViewController.m in Sources */,
 				ADB9B3861981B3F7007EF6B0 /* DateCalculator.m in Sources */,
+				AD92D96A198C2C3600B1DF70 /* LoadingViewController.m in Sources */,
 				AD4CFA3519741C9D000B768D /* ToDoList.m in Sources */,
 				AD6DD24F197D6FB400C03088 /* DayViewController.m in Sources */,
 				ADBF9CEE196D9D8400C0683C /* InviteTableViewCell.m in Sources */,
 				AD2C9CAB19800A31005171C4 /* AddCourseViewController.m in Sources */,
 				AD2C9CB119800A5E005171C4 /* FeedFetcher.m in Sources */,
 				AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */,
+				AD92D976198FD0D200B1DF70 /* TransitionDelegate.m in Sources */,
 				ADDA9CB719748E9600DC42C9 /* AddCell.m in Sources */,
 				AD69BB41195B9F3F009F1A90 /* main.m in Sources */,
 				AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */,
 				AD39982E196C6465001D8163 /* DetailViewController.m in Sources */,
+				AD92D977198FD0D200B1DF70 /* AnimatedTransitioning.m in Sources */,
 				ADF412B919896B73007860C8 /* MyCoursesTableViewController.m in Sources */,
 				AD69BB83195C726F009F1A90 /* DocsViewController.m in Sources */,
 				AD4CFA3619741C9D000B768D /* ToDoItem.m in Sources */,
