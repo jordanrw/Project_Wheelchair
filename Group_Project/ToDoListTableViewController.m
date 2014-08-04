@@ -40,19 +40,21 @@
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
-    //TODO - why is this line saying VT Hacks, and hard coded in there?
-    [query whereKey:@"groupName" equalTo:@"VT Hacks"];
-    [query includeKey:@"todos"];  //this is the golden line
-    NSLog(@"This prints out the query%@", query);
-    self.todoArray = [query findObjects];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        self.todoArray = [[objects objectAtIndex:0]objectForKey:@"todos"];
-        NSLog(@"The array of todos:%@", self.todoArray);
-        NSLog(@"The real number :%lu", (unsigned long)[self.todoArray count]);
-        
-        [self.tableView reloadData];
-    }];
+    if ([PFUser currentUser]) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
+        //TODO - why is this line saying VT Hacks, and hard coded in there?
+        [query whereKey:@"groupName" equalTo:@"VT Hacks"];
+        [query includeKey:@"todos"];  //this is the golden line
+        NSLog(@"This prints out the query%@", query);
+        self.todoArray = [query findObjects];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            self.todoArray = [[objects objectAtIndex:0]objectForKey:@"todos"];
+            NSLog(@"The array of todos:%@", self.todoArray);
+            NSLog(@"The real number :%lu", (unsigned long)[self.todoArray count]);
+            
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 
@@ -65,13 +67,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    if (![PFUser currentUser]) {
+        return 3;
+    }
+    
     NSLog(@"The number of rows is this :%lu", (unsigned long)[self.todoArray count]);
     return [self.todoArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSLog(@"tableView:cellForRowAtIndexPath:");
     EditTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditTableViewCell" forIndexPath:indexPath];
+    
+    if (![PFUser currentUser]) {
+        cell.customLabel.text = @"join group";
+        return cell;
+    }
+    
     PFObject *todo = self.todoArray[indexPath.row];
     NSLog(@"todo item %@", todo);
     
