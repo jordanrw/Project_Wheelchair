@@ -55,11 +55,17 @@
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
     
-    _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    _hud.mode = MBProgressHUDModeIndeterminate;
-    [_hud setLabelText:@"Loading everyone's courses"];
+    if (![PFUser currentUser]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"once you join a group" message:@"you can view when everyone is in class" delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     
-    [self downloadGroupsClasses];
+    if ([PFUser currentUser]) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        _hud.mode = MBProgressHUDModeIndeterminate;
+        [_hud setLabelText:@"Loading everyone's courses"];
+        [self downloadGroupsClasses];
+    }
     //self.navigationController.navigationBar.hairlineDividerView.hidden = YES;
 }
 
@@ -106,6 +112,11 @@
 
 #pragma mark - My Courses View Controller
 - (void)myCoursesVC {
+    
+    if (![PFUser currentUser]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"login and join a group to add and manage your courses" delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     
     self.myCourses = [[NSMutableArray alloc]init];
     //TODO - loading alert
