@@ -365,6 +365,8 @@
 		AD4CFA3719741CA0000B768D /* (don't use)To Do List */ = {
 			isa = PBXGroup;
 			children = (
+				AD4CFA2B19741BBC000B768D /* ToDoListTableViewController.h */,
+				AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */,
 				AD038408197824D200B2616F /* not using */,
 				AD4CFA3119741C9D000B768D /* ToDoList.h */,
 				AD4CFA3219741C9D000B768D /* ToDoList.m */,
@@ -478,9 +480,10 @@
 		AD69BB7E195C718E009F1A90 /* Todos */ = {
 			isa = PBXGroup;
 			children = (
-				ADB92EC119757D310018C50B /* PFQueryTable */,
-				AD4CFA2B19741BBC000B768D /* ToDoListTableViewController.h */,
-				AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */,
+				ADB92EC519757D980018C50B /* MyTableController.h */,
+				ADB92EC619757D980018C50B /* MyTableController.m */,
+				AD038409197825DC00B2616F /* DisplayTableViewCell.h */,
+				AD03840A197825DC00B2616F /* DisplayTableViewCell.m */,
 				AD4CFA3719741CA0000B768D /* (don't use)To Do List */,
 			);
 			name = Todos;
@@ -592,17 +595,6 @@
 				AD92D97A198FD54A00B1DF70 /* MBProgressHUD.m */,
 			);
 			name = "Progress Bar";
-			sourceTree = "<group>";
-		};
-		ADB92EC119757D310018C50B /* PFQueryTable */ = {
-			isa = PBXGroup;
-			children = (
-				ADB92EC519757D980018C50B /* MyTableController.h */,
-				ADB92EC619757D980018C50B /* MyTableController.m */,
-				AD038409197825DC00B2616F /* DisplayTableViewCell.h */,
-				AD03840A197825DC00B2616F /* DisplayTableViewCell.m */,
-			);
-			name = PFQueryTable;
 			sourceTree = "<group>";
 		};
 		ADBAC46119649DB200054445 /* not using */ = {

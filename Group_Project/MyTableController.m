@@ -55,8 +55,9 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
+    if ([[PFUser currentUser]objectForKey:@"myCourses"]) {
+        [super viewDidLoad];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -65,21 +66,23 @@
 }
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
+        [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"viewWillAppear");
-    [super viewWillAppear:animated];
-    
-    //_currentGroup = [PFObject objectWithClassName:@"Groups"];
-    self.currentGroup = [[PFUser currentUser]objectForKey:@"current"];
-    
-    [self loadObjects];
-    NSLog(@"objecsts %@", self.objects);
-    //[self.tableView reloadData];
+     if ([[PFUser currentUser]objectForKey:@"myCourses"]) {
+        NSLog(@"viewWillAppear");
+        [super viewWillAppear:animated];
+        
+        //_currentGroup = [PFObject objectWithClassName:@"Groups"];
+        self.currentGroup = [[PFUser currentUser]objectForKey:@"current"];
+        
+        [self loadObjects];
+        NSLog(@"objecsts %@", self.objects);
+        //[self.tableView reloadData];
+     }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -115,7 +118,8 @@
 }
 
 - (void)objectsWillLoad {
-    [super objectsWillLoad];
+    
+         [super objectsWillLoad];
     
     // This method is called before a PFQuery is fired to get more objects
 }
@@ -125,52 +129,55 @@
  // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     
-    //Basic and works pulls in every single todo
-    //PFQuery *query = [PFQuery queryWithClassName:@"Todo"];
-    
-    //IT ACTUALLY WORKS :D
-    PFObject *currentGroup = [[PFUser currentUser] objectForKey:@"current"];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Todo"];
-    [query whereKey:@"group" equalTo:currentGroup];
-    
-    /*
-    PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
-    [query whereKey:@"groupName" equalTo:@"VT Hacks"];
-    [query includeKey:@"todos"];
-    [query findObjectsInBackgroundWithBlock:<#^(NSArray *objects, NSError *error)block#>]
-    */
-    
-    /*#2 option of getting the data
-    PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
-    [query whereKey:@"groupName" equalTo:@"VT Hacks"];
-    [query includeKey:@"todos"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        self.todoArray = objects;
-        NSLog(@"%@", self.todoArray);
-    }];
-     */
-
-    /*Not sure, trying it out
-    PFQuery *query = [PFQuery queryWithClassName:@"Todo"];
-    [query includeKey:@"group"];
-    NSLog(@"%@", query);
-    NSLog(@"This is the query%@", query);
-    [query whereKey:@"group" equalTo:self.currentGroup];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"%@", objects);
-    }];*/
-    
-    // If no objects are loaded in memory, we look to the cache first to fill the table
-    // and then subsequently do a query against the network.
-    if ([self.objects count] == 0) {
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    if (![[PFUser currentUser]objectForKey:@"myCourses"]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"once you join a group" message:@"you can add and manage tasks as a group"  delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+        [alert show];
     }
- 
-    //you can change which column it sorts with
-    [query orderByDescending:@"createdAt"];
- 
-    return query;
+    
+    if ([[PFUser currentUser]objectForKey:@"myCourses"]) {
+        PFObject *currentGroup = [[PFUser currentUser] objectForKey:@"current"];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Todo"];
+        [query whereKey:@"group" equalTo:currentGroup];
+        
+        /*
+        PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
+        [query whereKey:@"groupName" equalTo:@"VT Hacks"];
+        [query includeKey:@"todos"];
+        [query findObjectsInBackgroundWithBlock:<#^(NSArray *objects, NSError *error)block#>]
+        */
+        
+        /*#2 option of getting the data
+        PFQuery *query = [PFQuery queryWithClassName:@"Groups"];
+        [query whereKey:@"groupName" equalTo:@"VT Hacks"];
+        [query includeKey:@"todos"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            self.todoArray = objects;
+            NSLog(@"%@", self.todoArray);
+        }];
+         */
+
+        /*Not sure, trying it out
+        PFQuery *query = [PFQuery queryWithClassName:@"Todo"];
+        [query includeKey:@"group"];
+        NSLog(@"%@", query);
+        NSLog(@"This is the query%@", query);
+        [query whereKey:@"group" equalTo:self.currentGroup];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSLog(@"%@", objects);
+        }];*/
+        
+        // If no objects are loaded in memory, we look to the cache first to fill the table
+        // and then subsequently do a query against the network.
+        if ([self.objects count] == 0) {
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        }
+     
+        //you can change which column it sorts with
+        [query orderByDescending:@"createdAt"];
+        return query;
+    }
+    return nil;
 }
 
 
@@ -270,20 +277,23 @@
 
 #pragma mark - Adding a todo
 - (IBAction)add:(id)sender {
-    
-    NSLog(@"add");
-    PFObject *currentGroup = [[PFUser currentUser]objectForKey:@"current"];
-    
-    //new todo
-    PFObject *new = [PFObject objectWithClassName:@"Todo"];
-    [new setObject:@"new todo" forKey:@"text"];
-    [new setObject:@NO forKey:@"complete"];
-    [new setObject:currentGroup forKey:@"group"];
-    [new save];
-    
-    [self loadObjects];
-    
-    //[currentGroup addObject:new forKey:@"todos"];
+
+    if (![[PFUser currentUser]objectForKey:@"myCourses"]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"once you join a group" message:@"you can add and manage tasks as a group"  delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    if ([[PFUser currentUser]objectForKey:@"myCourses"]) {
+        PFObject *currentGroup = [[PFUser currentUser]objectForKey:@"current"];
+        
+        //new todo
+        PFObject *new = [PFObject objectWithClassName:@"Todo"];
+        [new setObject:@"new todo" forKey:@"text"];
+        [new setObject:@NO forKey:@"complete"];
+        [new setObject:currentGroup forKey:@"group"];
+        [new save];
+        
+        [self loadObjects];
+    }
 }
 
 
