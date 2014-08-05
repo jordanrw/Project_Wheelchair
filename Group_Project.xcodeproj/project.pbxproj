@@ -26,6 +26,7 @@
 		AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88A19644AED006A38BB /* AddressBook.framework */; };
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD03840A197825DC00B2616F /* DisplayTableViewCell.m */; };
+		AD1C95D1199178CD00FB420B /* lineh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95D0199178CD00FB420B /* lineh.jpg */; };
 		AD2C9CAB19800A31005171C4 /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */; };
 		AD2C9CAE19800A4B005171C4 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAD19800A4B005171C4 /* Course.m */; };
 		AD2C9CB119800A5E005171C4 /* FeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CB019800A5E005171C4 /* FeedFetcher.m */; };
@@ -151,6 +152,7 @@
 		AD02A88B19644AED006A38BB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		AD038409197825DC00B2616F /* DisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewCell.h; sourceTree = "<group>"; };
 		AD03840A197825DC00B2616F /* DisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewCell.m; sourceTree = "<group>"; };
+		AD1C95D0199178CD00FB420B /* lineh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lineh.jpg; sourceTree = "<group>"; };
 		AD2C9CA919800A31005171C4 /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
 		AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
 		AD2C9CAC19800A4B005171C4 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 		AD69BB66195C6E59009F1A90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AD1C95D0199178CD00FB420B /* lineh.jpg */,
 				AD6DD1DA1979BF8C00C03088 /* line.jpg */,
 				ADB92EB8197490500018C50B /* add.png */,
 				ADBF9CE2196C6C3500C0683C /* profile_pic.png */,
@@ -760,6 +763,7 @@
 				AD69BB70195C6FA5009F1A90 /* tab_meet1.png in Resources */,
 				AD02A88019635119006A38BB /* Icon-Small-50.png in Resources */,
 				AD02A87B19635119006A38BB /* Icon-60@2x.png in Resources */,
+				AD1C95D1199178CD00FB420B /* lineh.jpg in Resources */,
 				AD02A88219635119006A38BB /* Icon-Small.png in Resources */,
 				AD6DD23F197D685500C03088 /* TapkuLibrary.bundle in Resources */,
 				AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */,

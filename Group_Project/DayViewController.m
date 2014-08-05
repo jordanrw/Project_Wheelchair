@@ -55,12 +55,12 @@
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
     
-    if (![PFUser currentUser]) {
+    if (![[PFUser currentUser]objectForKey:@"current"]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"once you join a group" message:@"you can view when everyone is in class" delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
         [alert show];
     }
     
-    if ([PFUser currentUser]) {
+    if ([[PFUser currentUser]objectForKey:@"current"]) {
         _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         _hud.mode = MBProgressHUDModeIndeterminate;
         [_hud setLabelText:@"Loading everyone's courses"];
@@ -113,8 +113,8 @@
 #pragma mark - My Courses View Controller
 - (void)myCoursesVC {
     
-    if (![PFUser currentUser]) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"login and join a group to add and manage your courses" delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+    if (![[PFUser currentUser]objectForKey:@"myCourses"]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"once you join a group" message:@"you can add and manage your courses" delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
         [alert show];
     }
     
