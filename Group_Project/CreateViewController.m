@@ -294,7 +294,7 @@
     //creates the activity monitor
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
+    CGFloat screenHeight = screenRect. size.height;
     
     CGAffineTransform transform = CGAffineTransformMakeScale(1.2f, 1.2f);
     activity.transform = transform;
