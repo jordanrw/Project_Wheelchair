@@ -1,0 +1,10 @@
+PODS:
+  - TapkuLibrary (0.3.3)
+
+DEPENDENCIES:
+  - TapkuLibrary
+
+SPEC CHECKSUMS:
+  TapkuLibrary: dc047de085cf71b49edb5a02eccc61595f460433
+
+COCOAPODS: 0.33.1
