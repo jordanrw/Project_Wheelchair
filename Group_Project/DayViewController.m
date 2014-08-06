@@ -47,10 +47,6 @@
     [self addButtons];
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return NO;
-}
-
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
@@ -114,6 +110,7 @@
 - (void)myCoursesVC {
     
     if (![[PFUser currentUser]objectForKey:@"myCourses"]) {
+        NSLog(@"no courses");
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"once you join a group" message:@"you can add and manage your courses" delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -129,6 +126,12 @@
     PFQuery *query = [relateCour query];
     [query findObjectsInBackgroundWithBlock:^(NSArray *courses, NSError *error) {
         if (courses) {
+            if ([courses count] == 0) {
+                UINavigationController *myCourseVC = (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:@"myC"];
+                MyCoursesTableViewController *vc = [myCourseVC.childViewControllers objectAtIndex:0];
+                vc.myCourses = self.myCourses;
+                [self presentViewController:myCourseVC animated:YES completion:nil];
+            }
             for (int i = 0; i < [courses count]; i++) {
                 [self.myCourses addObject:[courses objectAtIndex:i]];
                 NSLog(@"all Courses:%@", self.myCourses);

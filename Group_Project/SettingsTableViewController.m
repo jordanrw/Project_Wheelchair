@@ -11,6 +11,7 @@
 #import "JoinViewController.h"
 #import "CreateViewController.h"
 #import "GroupTableViewCell.h"
+#import "MBProgressHUD.h"
 #import <Parse/Parse.h> 
 
 @interface SettingsTableViewController () <CreateGroupDelegate, RefreshArrayDelegate, JoinGroupDelegate>
@@ -21,6 +22,8 @@
 @property (nonatomic, strong) NSMutableArray *groupsOfUser;      //PFObjects
 @property (nonatomic, strong) NSMutableArray *titles;           //Strings
 @property (nonatomic) NSIndexPath *selected;
+
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -40,8 +43,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"My Groups";
     
-    [self refreshArray];
-    
     //sets bar buttons
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
@@ -52,9 +53,12 @@
     NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
     
-    [self loginOrLogout];
+    _hud = [MBProgressHUD showHUDAddedTo:self.view.superview animated:YES];
+    _hud.mode = MBProgressHUDModeIndeterminate;
+    [_hud setLabelText:@"Loading your groups"];
     
-    [self.tableView reloadData];
+    [self loginOrLogout];
+    [self refreshArray];
 }
 
 - (void)loginOrLogout {
@@ -147,7 +151,13 @@
     
     PFRelation *relation = [[PFUser currentUser]relationForKey:@"myGroups"];
     PFQuery *queryOfRelation = [relation query];
-    self.groupsOfUser = [queryOfRelation findObjects];
+    [queryOfRelation findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (objects) {
+            self.groupsOfUser = [[NSMutableArray alloc]initWithArray:objects];
+            [_hud hide:YES];
+            [self.tableView reloadData];
+        }
+    }];
     /*
     [queryOfRelation findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (objects) {
@@ -155,15 +165,6 @@
             self.groupsOfUser = objects;
         }
     }];*/
-    
-    
-    NSMutableArray *titles = [[NSMutableArray alloc]init];
-    for (PFObject *object in self.groupsOfUser) {
-        NSString *name = [object objectForKey:@"groupName"];
-        [titles addObject:name];
-    }
-    self.titles = titles;
-    NSLog(@"title array set%@", self.titles);
 }
 
 #pragma mark - Table view data source
@@ -174,6 +175,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([self.groupsOfUser count] == 0) {
+        NSLog(@"0");
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 50)];
+        view.backgroundColor = [UIColor redColor];
+        [self.view addSubview:view];
+        
+        return 0;
+    }
+    
     
     return [self.groupsOfUser count];
 }
@@ -183,7 +193,11 @@
     
     GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.groupNameLabel.text = [self.titles objectAtIndex:indexPath.row];
+    //TODO - change this to just pulling the title from the Parse object
+    PFObject *object = [self.groupsOfUser objectAtIndex:indexPath.row];
+    NSString *name = [object objectForKey:@"groupName"];
+    cell.groupNameLabel.text = name;
+    
     return cell;
 }
 
@@ -201,6 +215,7 @@
     //#save data sending by waiting until leaving the view, however loading then has problems
     if (_selected != nil){
         [[PFUser currentUser] setObject:[self.groupsOfUser objectAtIndex:_selected.row] forKey:@"current"];
+        //TOConsider - adding a loading screen to switching groups to make it feel more permanent
         [[PFUser currentUser] save];
     }
 }
