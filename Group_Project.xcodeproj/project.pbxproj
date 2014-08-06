@@ -27,6 +27,7 @@
 		AD02A88D19644AED006A38BB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD02A88B19644AED006A38BB /* AddressBookUI.framework */; };
 		AD03840B197825DC00B2616F /* DisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD03840A197825DC00B2616F /* DisplayTableViewCell.m */; };
 		AD1C95D1199178CD00FB420B /* lineh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95D0199178CD00FB420B /* lineh.jpg */; };
+		AD1C95D51992990000FB420B /* splash_view.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95D41992990000FB420B /* splash_view.png */; };
 		AD2C9CAB19800A31005171C4 /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */; };
 		AD2C9CAE19800A4B005171C4 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAD19800A4B005171C4 /* Course.m */; };
 		AD2C9CB119800A5E005171C4 /* FeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CB019800A5E005171C4 /* FeedFetcher.m */; };
@@ -153,6 +154,7 @@
 		AD038409197825DC00B2616F /* DisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewCell.h; sourceTree = "<group>"; };
 		AD03840A197825DC00B2616F /* DisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewCell.m; sourceTree = "<group>"; };
 		AD1C95D0199178CD00FB420B /* lineh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lineh.jpg; sourceTree = "<group>"; };
+		AD1C95D41992990000FB420B /* splash_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_view.png; path = Group_Project/splash_view.png; sourceTree = "<group>"; };
 		AD2C9CA919800A31005171C4 /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
 		AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
 		AD2C9CAC19800A4B005171C4 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 		AD69BB66195C6E59009F1A90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AD1C95D41992990000FB420B /* splash_view.png */,
 				AD1C95D0199178CD00FB420B /* lineh.jpg */,
 				AD6DD1DA1979BF8C00C03088 /* line.jpg */,
 				ADB92EB8197490500018C50B /* add.png */,
@@ -740,6 +743,7 @@
 				AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */,
 				ADB92EB9197490500018C50B /* add.png in Resources */,
 				AD02A88319635119006A38BB /* Icon-Small@2x.png in Resources */,
+				AD1C95D51992990000FB420B /* splash_view.png in Resources */,
 				AD02A88119635119006A38BB /* Icon-Small-50@2x.png in Resources */,
 				AD69BB4D195B9F3F009F1A90 /* Main.storyboard in Resources */,
 				AD02A88719635119006A38BB /* Icon@2x.png in Resources */,

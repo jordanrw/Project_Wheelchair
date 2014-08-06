@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *titles;           //Strings
 @property (nonatomic) NSIndexPath *selected;
 
+@property (nonatomic, strong) UIView *splashView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
@@ -156,15 +157,22 @@
             self.groupsOfUser = [[NSMutableArray alloc]initWithArray:objects];
             [_hud hide:YES];
             [self.tableView reloadData];
+            [_splashView removeFromSuperview];
+        }
+        if ([objects count] == 0) {
+            NSLog(@"0");
+            _splashView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.tableView.bounds.size.height)];
+            _splashView.backgroundColor = [UIColor whiteColor];
+            UILabel *label = [[UILabel alloc]init];
+            label.frame = CGRectMake(0, ([UIScreen mainScreen].bounds.size.height)/2, [UIScreen mainScreen].bounds.size.width, 20);
+            label.textAlignment = NSTextAlignmentCenter;
+            label.font = [UIFont fontWithName:@"Helvetica-LightOblique" size:17.0];
+            label.text = @"hit that + to join a group";
+            
+            [_splashView addSubview:label];
+            [self.view.superview addSubview:_splashView];
         }
     }];
-    /*
-    [queryOfRelation findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (objects) {
-            NSLog(@"good, data was downloaded.");
-            self.groupsOfUser = objects;
-        }
-    }];*/
 }
 
 #pragma mark - Table view data source
@@ -175,15 +183,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self.groupsOfUser count] == 0) {
-        NSLog(@"0");
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 50)];
-        view.backgroundColor = [UIColor redColor];
-        [self.view addSubview:view];
-        
-        return 0;
-    }
-    
     
     return [self.groupsOfUser count];
 }

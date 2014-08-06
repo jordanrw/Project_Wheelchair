@@ -88,11 +88,6 @@
                 [theGroup saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     NSLog(@"user is under group");
                 }];
-
-                
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Add to Group" message:@"you've been added to the group" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:nil, nil];
-                [alert show];
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [self.joinDelegate joinedGroup];
