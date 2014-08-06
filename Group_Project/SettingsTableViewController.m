@@ -54,9 +54,11 @@
     NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
     
-    _hud = [MBProgressHUD showHUDAddedTo:self.view.superview animated:YES];
-    _hud.mode = MBProgressHUDModeIndeterminate;
-    [_hud setLabelText:@"Loading your groups"];
+    if ([PFUser currentUser]) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view.superview animated:YES];
+        _hud.mode = MBProgressHUDModeIndeterminate;
+        [_hud setLabelText:@"Loading your groups"];
+    }
     
     [self loginOrLogout];
     [self refreshArray];
@@ -104,6 +106,7 @@
     if (buttonIndex == [_confirm firstOtherButtonIndex]) {
         [PFUser logOut];
         [self refreshArray];
+        self.groupsOfUser = nil;
         [self.tableView reloadData];
         
         //changes it back after [logging out]
@@ -167,7 +170,7 @@
             label.frame = CGRectMake(0, ([UIScreen mainScreen].bounds.size.height)/2, [UIScreen mainScreen].bounds.size.width, 20);
             label.textAlignment = NSTextAlignmentCenter;
             label.font = [UIFont fontWithName:@"Helvetica-LightOblique" size:17.0];
-            label.text = @"hit that + to join a group";
+            label.text = @"hit that + to join or create a group";
             
             [_splashView addSubview:label];
             [self.view.superview addSubview:_splashView];
