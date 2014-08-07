@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
     </dependencies>
@@ -156,7 +157,7 @@
                             <outlet property="delegate" destination="0Qi-Ma-jZJ" id="I9Z-ty-2tU"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Todo" image="tab_todo.png" id="HYd-ij-OJh"/>
+                    <tabBarItem key="tabBarItem" title="Todo" image="New.png" id="HYd-ij-OJh"/>
                     <navigationItem key="navigationItem" title="To-dos" id="13o-Eo-maO">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="ZUV-XZ-Uiu">
                             <connections>
@@ -386,7 +387,7 @@
                             <outletCollection property="gestureRecognizers" destination="1Dl-ki-DJx" appends="YES" id="JAp-za-Lrr"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="tab_chat.png" id="ze1-M1-Fc8"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="speech_bubble-32.png" id="ze1-M1-Fc8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UeK-xf-gsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="BSA-fl-0YW">
@@ -430,6 +431,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="COD-8t-df1">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="0Om-bR-tcp"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -649,7 +651,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Docs" image="tab_doc.png" id="l6P-Zv-G6i"/>
+                    <tabBarItem key="tabBarItem" title="Docs" image="Document.png" id="l6P-Zv-G6i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8D-LC-Vy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1153,7 +1155,7 @@
         <scene sceneID="Xjf-tf-dla">
             <objects>
                 <navigationController id="LzZ-VR-RF8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Groups" image="tab_meet2.png" id="Uxg-Ut-R0N"/>
+                    <tabBarItem key="tabBarItem" title="My Groups" image="Albums.png" id="Uxg-Ut-R0N"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1JZ-bh-u5D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1171,6 +1173,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Albums.png" width="27" height="24"/>
+        <image name="Document.png" width="19" height="25"/>
+        <image name="New.png" width="23" height="23"/>
         <image name="add.png" width="34" height="34"/>
         <image name="check.PNG" width="29" height="22"/>
         <image name="google_drive.jpg" width="800" height="533"/>
@@ -1178,10 +1183,8 @@
         <image name="profile_pic.png" width="210" height="204"/>
         <image name="profile_pic2.png" width="192" height="191"/>
         <image name="profile_pic3.png" width="194" height="194"/>
-        <image name="tab_chat.png" width="28" height="26"/>
-        <image name="tab_doc.png" width="32" height="32"/>
+        <image name="speech_bubble-32.png" width="30" height="30"/>
         <image name="tab_meet1.png" width="28" height="28"/>
-        <image name="tab_meet2.png" width="26" height="26"/>
         <image name="tab_todo.png" width="120" height="88"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -298,10 +298,8 @@
 - (void)downloadGroupsClasses {
     NSLog(@"downloading");
     self.allCourses = [[NSMutableArray alloc]init];
-    //TODO - put a load screen up while downloading the data
     
     PFUser *current = [PFUser currentUser];
-    NSLog(@"current user: %@", current);
     
     PFObject *myGroup = [PFObject objectWithClassName:@"Groups"];
     myGroup = [current objectForKey:@"current"];
@@ -315,7 +313,7 @@
             NSLog(@"users array:%@", users);
             for (int i = 0; i < [users count]; i++) {
                 NSLog(@"user%i", i);
-                PFRelation *relateCour = [[users objectAtIndex:0]relationForKey:@"myCourses"];
+                PFRelation *relateCour = [[users objectAtIndex:i]relationForKey:@"myCourses"];
                 PFQuery *query = [relateCour query];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *courses, NSError *error) {
                     if (courses) {

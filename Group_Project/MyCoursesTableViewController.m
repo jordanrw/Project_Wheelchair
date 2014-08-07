@@ -128,7 +128,6 @@
     cell.textLabel.text = title;
     cell.detailTextLabel.text = subtitle;
     
-    
     return cell;
 }
 
@@ -143,13 +142,25 @@
 */
 
 
-// Override to support editing the table view.
+#pragma mark - Editing my classes
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //TODO - implement a way to remove yourself from that class, and it removes it on parse
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
         NSLog(@"delete");
+        
+        PFObject *class = [self.myCourses objectAtIndex:indexPath.row];
+        
+        [class deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"delete");
+                
+//                _groupsOfUser removeObject:group];
+//                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }];
+        
+        
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
