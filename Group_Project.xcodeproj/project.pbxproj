@@ -32,8 +32,8 @@
 		AD1C95DD1993C3DA00FB420B /* Document@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95DA1993C3DA00FB420B /* Document@2x.png */; };
 		AD1C95DE1993C3DA00FB420B /* New@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95DB1993C3DA00FB420B /* New@2x.png */; };
 		AD1C95E31993C7C100FB420B /* checkmark-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95E21993C7C100FB420B /* checkmark-50.png */; };
-		AD1C95E51993C83100FB420B /* speech_bubble-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95E41993C83100FB420B /* speech_bubble-50.png */; };
-		AD1C95E71993CE3600FB420B /* speech_bubble-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95E61993CE3600FB420B /* speech_bubble-32.png */; };
+		AD1C95E91993CEED00FB420B /* Recents2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95E81993CEED00FB420B /* Recents2@2x.png */; };
+		AD1C95ED1993D14200FB420B /* speech_bubble-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1C95EC1993D14200FB420B /* speech_bubble-32.png */; };
 		AD2C9CAB19800A31005171C4 /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */; };
 		AD2C9CAE19800A4B005171C4 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CAD19800A4B005171C4 /* Course.m */; };
 		AD2C9CB119800A5E005171C4 /* FeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CB019800A5E005171C4 /* FeedFetcher.m */; };
@@ -164,8 +164,8 @@
 		AD1C95DA1993C3DA00FB420B /* Document@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Document@2x.png"; sourceTree = "<group>"; };
 		AD1C95DB1993C3DA00FB420B /* New@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New@2x.png"; sourceTree = "<group>"; };
 		AD1C95E21993C7C100FB420B /* checkmark-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark-50.png"; sourceTree = "<group>"; };
-		AD1C95E41993C83100FB420B /* speech_bubble-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech_bubble-50.png"; sourceTree = "<group>"; };
-		AD1C95E61993CE3600FB420B /* speech_bubble-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech_bubble-32.png"; sourceTree = "<group>"; };
+		AD1C95E81993CEED00FB420B /* Recents2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Recents2@2x.png"; sourceTree = "<group>"; };
+		AD1C95EC1993D14200FB420B /* speech_bubble-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech_bubble-32.png"; sourceTree = "<group>"; };
 		AD2C9CA919800A31005171C4 /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
 		AD2C9CAA19800A31005171C4 /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
 		AD2C9CAC19800A4B005171C4 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
@@ -368,12 +368,12 @@
 		AD1C95D71993C3BF00FB420B /* iOS 7 icons */ = {
 			isa = PBXGroup;
 			children = (
-				AD1C95E41993C83100FB420B /* speech_bubble-50.png */,
-				AD1C95E61993CE3600FB420B /* speech_bubble-32.png */,
+				AD1C95EC1993D14200FB420B /* speech_bubble-32.png */,
 				AD1C95DA1993C3DA00FB420B /* Document@2x.png */,
 				AD1C95E21993C7C100FB420B /* checkmark-50.png */,
 				AD1C95DB1993C3DA00FB420B /* New@2x.png */,
 				AD1C95D81993C3CC00FB420B /* Albums@2x.png */,
+				AD1C95E81993CEED00FB420B /* Recents2@2x.png */,
 			);
 			name = "iOS 7 icons";
 			sourceTree = "<group>";
@@ -761,7 +761,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD1C95E71993CE3600FB420B /* speech_bubble-32.png in Resources */,
+				AD1C95ED1993D14200FB420B /* speech_bubble-32.png in Resources */,
 				AD02A87A19635119006A38BB /* Icon-60.png in Resources */,
 				AD69BB88195C73EB009F1A90 /* google_drive.jpg in Resources */,
 				AD1C95DE1993C3DA00FB420B /* New@2x.png in Resources */,
@@ -773,7 +773,6 @@
 				AD02A88719635119006A38BB /* Icon@2x.png in Resources */,
 				ADBF9CE3196C6C3500C0683C /* profile_pic.png in Resources */,
 				AD6DD1DB1979BF8C00C03088 /* line.jpg in Resources */,
-				AD1C95E51993C83100FB420B /* speech_bubble-50.png in Resources */,
 				AD02A88419635119006A38BB /* Icon-Spotlight-40.png in Resources */,
 				AD02A88819635119006A38BB /* iTunesArtwork in Resources */,
 				ADBF9CEB196C979F00C0683C /* profile_pic3.png in Resources */,
@@ -787,6 +786,7 @@
 				AD1C95D1199178CD00FB420B /* lineh.jpg in Resources */,
 				AD02A88219635119006A38BB /* Icon-Small.png in Resources */,
 				AD6DD23F197D685500C03088 /* TapkuLibrary.bundle in Resources */,
+				AD1C95E91993CEED00FB420B /* Recents2@2x.png in Resources */,
 				AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */,
 				AD02A87C19635119006A38BB /* Icon-72.png in Resources */,
 				AD69BB73195C6FA5009F1A90 /* tab_settings.png in Resources */,
