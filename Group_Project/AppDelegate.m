@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h> 
-#import <Scringo/Scringo.h>
 
 @interface AppDelegate ()
             

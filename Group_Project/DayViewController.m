@@ -77,14 +77,17 @@
 #pragma mark - Buttons
 - (void)addButtons {
     //add course button
-    self.dayView.daysBackgroundView.backgroundColor = [UIColor colorWithRed:.99 green:.99 blue:.99 alpha:1];
+    //#TODO
+    //self.dayView.daysBackgroundView.backgroundColor = [UIColor colorWithRed:.99 green:.99 blue:.99 alpha:1];
     UIButton *button = [[UIButton alloc]init];
     button.frame = CGRectMake(([[UIScreen mainScreen]bounds].size.width/2)-50, 50, 100, 30);
     [button setTitle:@"My Courses" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithRed:0 green:.49 blue:.96 alpha:1.0] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithRed:.8 green:.89 blue:.99 alpha:1.0] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(myCoursesVC) forControlEvents:UIControlEventTouchUpInside];
-    [self.dayView.daysBackgroundView addSubview:button];
+    //#TODO
+    [self.dayView addSubview:button];
+    //was [self.dayView.daysBackgroundView addSubview:button];
      
     
     //load screen
@@ -312,7 +315,8 @@
             NSLog(@"users array:%@", users);
             for (int i = 0; i < [users count]; i++) {
                 NSLog(@"user%i", i);
-                PFRelation *relateCour = [[users objectAtIndex:0]relationForKey:@"myCourses"];
+                //#Watch
+                PFRelation *relateCour = [[users objectAtIndex:i]relationForKey:@"myCourses"];
                 PFQuery *query = [relateCour query];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *courses, NSError *error) {
                     if (courses) {

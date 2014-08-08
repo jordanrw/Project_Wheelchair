@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191C76F5E709482FA37BA497 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FADDB8B72D4FDE97A05643 /* libPods.a */; };
 		AD02A87A19635119006A38BB /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86A19635119006A38BB /* Icon-60.png */; };
 		AD02A87B19635119006A38BB /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86B19635119006A38BB /* Icon-60@2x.png */; };
 		AD02A87C19635119006A38BB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AD02A86C19635119006A38BB /* Icon-72.png */; };
@@ -32,7 +33,6 @@
 		AD2C9CB119800A5E005171C4 /* FeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2C9CB019800A5E005171C4 /* FeedFetcher.m */; };
 		AD2D7E7B197874E3008EAB21 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7A197874E3008EAB21 /* CoreText.framework */; };
 		AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7E7C197874ED008EAB21 /* MapKit.framework */; };
-		AD2D7EB91978783D008EAB21 /* Scringo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2D7EB81978783D008EAB21 /* Scringo.framework */; };
 		AD39982E196C6465001D8163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD39982D196C6465001D8163 /* DetailViewController.m */; };
 		AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4CFA29196EC89D000B768D /* MessageUI.framework */; };
 		AD4CFA2F19741BBC000B768D /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4CFA2C19741BBC000B768D /* ToDoListTableViewController.m */; };
@@ -57,8 +57,6 @@
 		AD69BB8B195C7664009F1A90 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB8A195C7664009F1A90 /* ChatViewController.m */; };
 		AD69BB8E195CC435009F1A90 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD69BB8D195CC435009F1A90 /* Parse.framework */; };
 		AD6DD1DB1979BF8C00C03088 /* line.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD6DD1DA1979BF8C00C03088 /* line.jpg */; };
-		AD6DD23F197D685500C03088 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD6DD23B197D685500C03088 /* TapkuLibrary.bundle */; };
-		AD6DD248197D687C00C03088 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6DD243197D685500C03088 /* libTapkuLibrary.a */; };
 		AD6DD24F197D6FB400C03088 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6DD24E197D6FB400C03088 /* DayViewController.m */; };
 		AD797049195CD91900004237 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD797048195CD91900004237 /* iAd.framework */; };
 		AD79705A195CD9A400004237 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79704A195CD9A400004237 /* Accounts.framework */; };
@@ -78,7 +76,6 @@
 		AD797068195CD9A400004237 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD797058195CD9A400004237 /* Twitter.framework */; };
 		AD797069195CD9A400004237 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD797059195CD9A400004237 /* UIKit.framework */; };
 		AD79706B195CD9BD00004237 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706A195CD9BD00004237 /* libsqlite3.0.dylib */; };
-		AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD79706C195CD9DB00004237 /* FacebookSDK.framework */; };
 		AD797070195CDA4900004237 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD79706F195CDA4900004237 /* LoginViewController.m */; };
 		AD92D96A198C2C3600B1DF70 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92D969198C2C3600B1DF70 /* LoadingViewController.m */; };
 		AD92D976198FD0D200B1DF70 /* TransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92D973198FD0D200B1DF70 /* TransitionDelegate.m */; };
@@ -108,30 +105,11 @@
 			remoteGlobalIDString = AD69BB3A195B9F3F009F1A90;
 			remoteInfo = Group_Project;
 		};
-		AD6DD242197D685500C03088 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = TapkuLibrary;
-		};
-		AD6DD244197D685500C03088 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B45DDF1134C736600D24C1A;
-			remoteInfo = LogicTests;
-		};
-		AD6DD246197D686700C03088 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = TapkuLibrary;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18FADDB8B72D4FDE97A05643 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AD6DE5E59114DCBA7A986F1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AD02A86A19635119006A38BB /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
 		AD02A86B19635119006A38BB /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		AD02A86C19635119006A38BB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -161,7 +139,6 @@
 		AD2C9CB019800A5E005171C4 /* FeedFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedFetcher.m; sourceTree = "<group>"; };
 		AD2D7E7A197874E3008EAB21 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		AD2D7E7C197874ED008EAB21 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		AD2D7EB81978783D008EAB21 /* Scringo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scringo.framework; path = "../../*Frameworks/Scringo/Scringo.framework"; sourceTree = "<group>"; };
 		AD39982C196C6465001D8163 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		AD39982D196C6465001D8163 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		AD4CFA29196EC89D000B768D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -200,8 +177,6 @@
 		AD69BB8A195C7664009F1A90 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		AD69BB8D195CC435009F1A90 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../*Frameworks/Parse.framework"; sourceTree = "<group>"; };
 		AD6DD1DA1979BF8C00C03088 /* line.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line.jpg; sourceTree = "<group>"; };
-		AD6DD23B197D685500C03088 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = "../../*Frameworks/tapkulibrary-master/src/TapkuLibrary.bundle"; sourceTree = "<group>"; };
-		AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = "../../*Frameworks/tapkulibrary-master/src/TapkuLibrary.xcodeproj"; sourceTree = "<group>"; };
 		AD6DD24D197D6FB400C03088 /* DayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayViewController.h; sourceTree = "<group>"; };
 		AD6DD24E197D6FB400C03088 /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayViewController.m; sourceTree = "<group>"; };
 		AD797048195CD91900004237 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -222,7 +197,6 @@
 		AD797058195CD9A400004237 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		AD797059195CD9A400004237 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD79706A195CD9BD00004237 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		AD79706C195CD9DB00004237 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "../../*Frameworks/FacebookSDK/FacebookSDK.framework"; sourceTree = "<group>"; };
 		AD79706E195CDA4900004237 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AD79706F195CDA4900004237 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		AD92D968198C2C3600B1DF70 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingViewController.h; path = ../LoadingViewController.h; sourceTree = "<group>"; };
@@ -265,9 +239,6 @@
 			files = (
 				AD797063195CD9A400004237 /* QuartzCore.framework in Frameworks */,
 				AD2D7E7D197874ED008EAB21 /* MapKit.framework in Frameworks */,
-				AD6DD248197D687C00C03088 /* libTapkuLibrary.a in Frameworks */,
-				AD2D7EB91978783D008EAB21 /* Scringo.framework in Frameworks */,
-				AD79706D195CD9DB00004237 /* FacebookSDK.framework in Frameworks */,
 				AD2D7E7B197874E3008EAB21 /* CoreText.framework in Frameworks */,
 				AD4CFA2A196EC89D000B768D /* MessageUI.framework in Frameworks */,
 				AD02A88C19644AED006A38BB /* AddressBook.framework in Frameworks */,
@@ -290,6 +261,7 @@
 				AD797069195CD9A400004237 /* UIKit.framework in Frameworks */,
 				AD797049195CD91900004237 /* iAd.framework in Frameworks */,
 				AD69BB8E195CC435009F1A90 /* Parse.framework in Frameworks */,
+				191C76F5E709482FA37BA497 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,12 +351,11 @@
 		AD69BB32195B9F3F009F1A90 = {
 			isa = PBXGroup;
 			children = (
-				AD6DD23B197D685500C03088 /* TapkuLibrary.bundle */,
-				AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */,
 				AD69BB3D195B9F3F009F1A90 /* Group_Project */,
 				AD69BB57195B9F3F009F1A90 /* Group_ProjectTests */,
 				AD69BB3C195B9F3F009F1A90 /* Products */,
 				AD69BB8F195CC43A009F1A90 /* Frameworks */,
+				6AD6DE5E59114DCBA7A986F1 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -547,7 +518,6 @@
 				AD79704E195CD9A400004237 /* CoreGraphics.framework */,
 				AD79704F195CD9A400004237 /* CoreLocation.framework */,
 				AD2D7E7A197874E3008EAB21 /* CoreText.framework */,
-				AD79706C195CD9DB00004237 /* FacebookSDK.framework */,
 				AD797050195CD9A400004237 /* Foundation.framework */,
 				AD797048195CD91900004237 /* iAd.framework */,
 				AD797051195CD9A400004237 /* libz.1.1.3.dylib */,
@@ -561,20 +531,11 @@
 				AD797055195CD9A400004237 /* Social.framework */,
 				AD797056195CD9A400004237 /* StoreKit.framework */,
 				AD797057195CD9A400004237 /* SystemConfiguration.framework */,
-				AD2D7EB81978783D008EAB21 /* Scringo.framework */,
 				AD797058195CD9A400004237 /* Twitter.framework */,
 				AD797059195CD9A400004237 /* UIKit.framework */,
+				18FADDB8B72D4FDE97A05643 /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AD6DD23D197D685500C03088 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AD6DD243197D685500C03088 /* libTapkuLibrary.a */,
-				AD6DD245197D685500C03088 /* LogicTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		AD92D978198FD0D600B1DF70 /* Transitions */ = {
@@ -637,14 +598,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD69BB5E195B9F3F009F1A90 /* Build configuration list for PBXNativeTarget "Group_Project" */;
 			buildPhases = (
+				8FCB18499B26495A9CAAF76F /* Check Pods Manifest.lock */,
 				AD69BB37195B9F3F009F1A90 /* Sources */,
 				AD69BB38195B9F3F009F1A90 /* Frameworks */,
 				AD69BB39195B9F3F009F1A90 /* Resources */,
+				9052E1CC017040E399F62788 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AD6DD247197D686700C03088 /* PBXTargetDependency */,
 			);
 			name = Group_Project;
 			productName = Group_Project;
@@ -699,12 +661,6 @@
 			mainGroup = AD69BB32195B9F3F009F1A90;
 			productRefGroup = AD69BB3C195B9F3F009F1A90 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AD6DD23D197D685500C03088 /* Products */;
-					ProjectRef = AD6DD23C197D685500C03088 /* TapkuLibrary.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				AD69BB3A195B9F3F009F1A90 /* Group_Project */,
@@ -712,23 +668,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AD6DD243197D685500C03088 /* libTapkuLibrary.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libTapkuLibrary.a;
-			remoteRef = AD6DD242197D685500C03088 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AD6DD245197D685500C03088 /* LogicTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = LogicTests.xctest;
-			remoteRef = AD6DD244197D685500C03088 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AD69BB39195B9F3F009F1A90 /* Resources */ = {
@@ -757,7 +696,6 @@
 				AD02A87B19635119006A38BB /* Icon-60@2x.png in Resources */,
 				AD1C95D1199178CD00FB420B /* lineh.jpg in Resources */,
 				AD02A88219635119006A38BB /* Icon-Small.png in Resources */,
-				AD6DD23F197D685500C03088 /* TapkuLibrary.bundle in Resources */,
 				AD02A88919635119006A38BB /* iTunesArtwork@2x in Resources */,
 				AD02A87C19635119006A38BB /* Icon-72.png in Resources */,
 				AD69BB73195C6FA5009F1A90 /* tab_settings.png in Resources */,
@@ -779,6 +717,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8FCB18499B26495A9CAAF76F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9052E1CC017040E399F62788 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AD69BB37195B9F3F009F1A90 /* Sources */ = {
@@ -833,11 +804,6 @@
 			isa = PBXTargetDependency;
 			target = AD69BB3A195B9F3F009F1A90 /* Group_Project */;
 			targetProxy = AD69BB55195B9F3F009F1A90 /* PBXContainerItemProxy */;
-		};
-		AD6DD247197D686700C03088 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TapkuLibrary;
-			targetProxy = AD6DD246197D686700C03088 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -931,6 +897,7 @@
 		};
 		AD69BB5F195B9F3F009F1A90 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AD6DE5E59114DCBA7A986F1 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -955,7 +922,6 @@
 					"/Users/jwhite3/Developer/*Frameworks/Tapku",
 					"Library/src/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -963,6 +929,7 @@
 		};
 		AD69BB60195B9F3F009F1A90 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AD6DE5E59114DCBA7A986F1 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -987,7 +954,6 @@
 					"/Users/jwhite3/Developer/*Frameworks/Tapku",
 					"Library/src/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
